@@ -6,6 +6,18 @@
     font-family: 'Poppins-Medium';
     src: local('Poppins-Medium'), url(../fonts/Poppins-Medium.ttf) format('truetype');
   }
+  @font-face {
+    font-family: 'Roboto-Bold';
+    src: local('Poppins-Medium'), url(../fonts/RobotoCondensed-Bold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto-Regular';
+    src: local('Poppins-Medium'), url(../fonts/RobotoCondensed-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto-Light';
+    src: local('Poppins-Medium'), url(../fonts/RobotoCondensed-Light.ttf) format('truetype');
+  }
 
   .p-v-20{
     padding-left: 20px;
@@ -38,6 +50,17 @@
     line-height: 25px;
   }
   .zoom:hover{
-    transform: scale(1.3); 
+    transform: scale(1.1); 
     font-family: 'Poppins-Medium';
   }
+  .img-fullwidth{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .footer-bg-color{
+   
+    background-color: #F2F2F2;
+    box-shadow: 0 2px 8px 2px rgba(168, 165, 165, 0.774);
+  
+}

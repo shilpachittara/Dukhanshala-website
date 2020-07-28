@@ -1,16 +1,26 @@
 .box-shadow {
     box-shadow: 0 1px 10px 0 rgba(168, 165, 165, 0.774);
+    position: relative;
+     z-index: 1000;
   }
 
-  .nav-item:hover{
-    transform: scale(1.3); 
-    font-family: 'Poppins-Medium';
+  .nav-link:hover{
+    transform: scale(1.2)  ; 
+    font-family: 'Poppins-Medium'!important;
+    color:black !important;
 
 
   }
-  .nav-item{
-    font-family: 'Poppins-Light';
-    color:black;
+  .btn-zoom:hover{
+    transform: scale(1.2)  ; 
+    font-family: 'Poppins-Medium'!important;
+    color:white !important;
+
+
+  }
+  .nav-link{
+    font-family: 'Poppins-Light'  !important;
+    color:black !important;
   }
 
   .navbar-brand{
