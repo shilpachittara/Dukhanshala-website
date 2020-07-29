@@ -112,3 +112,11 @@ a:hover {color: #ffffff; text-decoration: underline;}
 @media screen and (max-width: 480px) {
   
 }
+*{
+	color:black;
+	
+}
+
+h5{
+	font-weight: lighter;
+}

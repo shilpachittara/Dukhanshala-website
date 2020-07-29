@@ -26,16 +26,17 @@ class Navbar extends Component {
 
           <ul className="navbar-nav ml-auto">
             <li className="nav-item p-v-10">
-              <a className="nav-link cu-ptr">Home</a>
+              <a href="#" className="nav-link cu-ptr">Case Study</a>
             </li>
             <li className="nav-item p-v-10">
-              <a className="nav-link cu-ptr">Contact Us</a>
+              <a  href="#" className="nav-link cu-ptr">Our Vision</a>
             </li>
-            <li className="nav-item p-v-10">
-              <a className="nav-link cu-ptr">Blog</a>
+          
+            <li className="nav-item p-v-20 ">
+              <a href="/"><button type="button" style={{color:'red'}} className="btn btn-outline-danger btn-zoom">Get The App</button></a>
             </li>
-            <li className="nav-item p-v-20">
-              <a href="/"><button type="button" className="btn btn-outline-danger">Get The App</button></a>
+            <li className="nav-item p-v-10" style={{marginRight:'25px'}}>
+              <a  href="#" className="nav-link cu-ptr">Contact Us</a>
             </li>
           </ul>
         </nav>
