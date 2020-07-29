@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Navbar from '../../components/comman/Navbar'
+// import Navbar from '../../components/comman/Navbar'
 import '../../assets/css/bootstrap.min.css'
+import Logo from '../../assets/image/dukaanshala.png'
+import '../../assets/css/navbar.css'
 import Photo1 from '../../assets/image/photos/man-113723_1920.jpg'
 import Photo2 from '../../assets/image/photos/india-4071840_1920.jpg'
 import Photo5 from '../../assets/image/photos/person-holding-.jpg'
@@ -33,13 +35,35 @@ class HomePage extends Component {
     return (
       <div className="home-bg-gradient">
 
-        <Navbar></Navbar>
+<div className="box-shadow">
+        <nav className="navbar navbar-expand-lg bg-white" >
+          <a className="navbar-brand" href="/"><img alt="logo" src={Logo} style={{ height: 100 }}></img></a>
+
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item p-v-10">
+            <a  href="#ourVision" className="nav-link cu-ptr">Our Vision</a>
+            </li>
+            <li className="nav-item p-v-10">
+           
+              <a href="#caseStudy" className="nav-link cu-ptr">Case Study</a>
+            </li>
+          
+            <li className="nav-item p-v-20 ">
+              <a href="/"><button type="button" style={{color:'red'}} className="btn btn-outline-danger btn-zoom">Get The App</button></a>
+            </li>
+            <li className="nav-item p-v-10" style={{marginRight:'25px'}}>
+              <a  href="#footer" className="nav-link cu-ptr">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
 
         <div className="container-fluid" style={{ marginTop: "-15px", zIndex: 0 }}>
           {/* 1st */}
           <div className="row">
             <div className="col-sm-12 img-fullwidth"  >
-              <img src={Banner} style={{ width: '100%', height: '500px' }}></img>
+              <img src={Banner} style={{ width: '100%', height: '500px' }} alt="banner"></img>
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -87,7 +111,7 @@ class HomePage extends Component {
             </div>
           </div>
           <hr />
-          <div style={{ textAlign: 'center', marginTop: "50px" }}>
+          <div style={{ textAlign: 'center', marginTop: "50px" }} id="ourVision"> 
             <h2 className="title" style={{ fontSize: "45px" }}>Our Vision</h2>
           </div>
           <div className="sub-title" style={{ textAlign: 'center',marginLeft:"15%",marginRight:'15%',lineHeight:'27px',fontSize:'16px',marginTop:'15px' }}>
@@ -106,7 +130,7 @@ class HomePage extends Component {
 
           <hr style={{marginTop:'60px'}} />
           <div style={{ textAlign: 'center', marginTop: "50px" }}>
-            <h2 className="title" style={{ fontSize: "45px" }}>Case Study </h2>
+            <h2 className="title" style={{ fontSize: "45px" }} id="caseStudy">Case Study </h2>
           </div>
           <div >
             <div className="row" style={{ marginTop: '60px', marginLeft: '50px', paddingBottom: '60px' }}>
@@ -134,7 +158,8 @@ class HomePage extends Component {
 
 
         </div>
-        <Footer></Footer>
+        <div id="footer"></div>
+        <Footer ></Footer>
       </div>
     );
   }
