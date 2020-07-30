@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/css/bootstrap.min.css'
-import Navbar from '../../components/comman/Navbar'
-import Footer from "../../components/comman/Footer"
+
 
 
 class Terms extends Component {
@@ -23,7 +22,7 @@ class Terms extends Component {
             <div>
                 <div className="home-bg-gradient">
 
-                    <Navbar></Navbar>
+                  
 
                     <div className="container-fluid" style={{ marginTop: "-15px", zIndex: 0 }}>
 
@@ -32,7 +31,7 @@ class Terms extends Component {
                                 <div style={{ textAlign: 'center', marginTop: "50px" }}>
                                     <h2 className="title" style={{ fontSize: "45px" }}>Terms & Conditions</h2>
                                 </div>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     Edumarine Private Limited (the “Company”) operates a web/mobile application, “Dukaanshala App” (the “App”) available on Google Play Store, and other similar platforms and also operates a website<a href="https://dukaanshala.com/" style={{ color: 'black', fontWeight: 'bold' }}> https://dukaanshala.com/</a>  (the “Website”) . The App and the Website shall be together referred to as the “Platform”. These terms and conditions (“Terms”) govern the use of or access to the Platform and the Services (as defined below).<br /><br />
 These Terms constitute a binding and enforceable legal contract between the Company and a User (as defined below) or any end user of the Services (collectively, “you”). You represent and warrant that you (a) have full legal capacity and authority to agree and bind yourself to these Terms, (b) are 18 (eighteen) years of age or older, and (c) are an Indian resident. If you represent an entity, organisation, or any other legal person, you confirm and represent that you have the necessary power and authority to bind such entity, organisation, or legal person to these Terms.<br /><br />
 These Terms also include our privacy policy, available at (“Privacy Policy”) and any internal guidelines, supplementary terms, policies, or disclaimers made available or issued by us from time to time. By continuing to access or use the Platform, or any Service on the Platform, you signify your acceptance of the Terms. Further, you understand that the Platform is intended for the use of Indian residents only and by your continuing access and/use of the Platform shall be construed as a deemed declaration that you are an Indian resident.  <br /><br />
@@ -42,15 +41,15 @@ By using the Services, you agree that you have read, understood, and are bound b
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>SERVICES</h3>
                                     The Platform (i) provides stock management tools wherein the users (“Users”), can record their Stock ‘In’ and ‘OUT’ transactions with their respective suppliers and (ii) also allows Users to manage suppliers and their purchase records (collectively, “Services”). Please note that ‘Services’ would include any other future services we may provide or propose to provide.
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>ON-BOARDING</h3>
                                     To avail the Services, a User would be required to create a profile/sign-up on the Platform (“Profile”) using his/her email ID ( Optional ) and phone number among other details. In addition to setting up a username and password to create the Profile, the User will be required to furnish certain details, including but not limited to Store name, GST (Optional), location and details of its customers and businesses. The User warrants
                                      that all information furnished in connection with its Profile is and shall remain accurate and true in all respects. The User further agrees and undertakes to promptly update its details on the Platform in the event of any change or modification of such details.<br /><br />
@@ -65,8 +64,8 @@ The User agrees to receive communications from the Company regarding: (i) inform
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>KNOW YOUR SUPPLIER & CUSTOMER POLICY</h3>
                                     The Company may require Users to upload certain information and documents that may be necessary to ascertain their eligibility to use certain features of the Services including but not limited to their identification documents (“KYC Documents”).<br /><br />
 
@@ -83,8 +82,8 @@ The list of the KYC Documents and Top-Up Documents may be provided to the User a
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>TRANSACTION INFORMATION</h3>
                                     The Users may upload information relating to transactions with their suppliers or customers or relating to their businesses, including the sale of goods or services, costs, amounts paid and payable, and details of goods and services, on the Platform (such information is referred to as “Transaction Information”). Transaction Information may be exchanged between the Users and their supplier & customer through telephonic calls, text message, WhatsApp, email, or other electronic mediums that would depend on the contact details of Users and their suppliers & customers provided on the Platform.<br /><br />
 
@@ -96,16 +95,16 @@ If such suppliers & customers fail to provide consent, or withdraw consent, the 
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>THIRD PARTY SERVICES</h3>
 
                                     The Services may include services, content, documents, and information owned by, licensed to, or otherwise made available by a third party (“Third Party Services”) or contain links to Third Party Services. Users understand that Third Party Services are the responsibility of the third party that created or provided it and acknowledge that use of such Third Party Services is solely at their own risk.<br /><br />
 The Company makes no representations and hereby expressly excludes all warranties and liabilities arising out of or pertaining to such Third Party Services, including their accuracy or completeness. Further, all intellectual property rights in and to Third Party Services are the property of the respective third parties.
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>USER RESPONSIBILITIES</h3>
 
                                     The User hereby represents and warrants that all information that is provided by the User through or in relation to the Services is valid, complete, true, and correct on the date of agreeing to these Terms and shall continue to be valid, complete, true, and correct throughout the duration of the User’s use of the Platform. The Company does not accept any responsibility or
@@ -120,8 +119,8 @@ material that contains viruses, Trojan horses or any other harmful programmes or
  database or directory; or violate applicable laws in any manner.<br />
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>INTELLECTUAL PROPERTY</h3>
 
                                     All rights, title, and interest in and to the Platform and Services, including all intellectual property rights arising out of the Platform and Services, are owned by or otherwise lawfully licensed by the Company. Subject to compliance with these Terms, the Company grants the User a non-exclusive, non-transferable, non-sub licensable, royalty-free, revocable, and limited licence to use the Platform and Services in accordance with
@@ -135,8 +134,8 @@ rights. Except as stated in these Terms, nothing in these Terms should be constr
 The contents of this Platform, including but not limited to the text and images herein and their arrangements, unless otherwise noted, are copyright-protected in the whole and every part of this Platform and the same belongs to the Company and may not be used, sold, licensed, copied or reproduced in whole or in part in any manner or form or in or on any media to any person without the prior written consent of the Company.<br /><br />
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>TERM AND TERMINATION</h3>
                                     These Terms shall remain in effect unless terminated in accordance with the terms hereunder. The Company may terminate a User’s access to or use of the Services, or any portion thereof, immediately and at any point, at its sole discretion, if the User violates or breaches any of its obligations, responsibilities, or covenants under these Terms.<br /><br />
 
@@ -144,8 +143,8 @@ Upon termination these Terms shall terminate, except for those clauses that expr
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>DISCLAIMERS AND WARRANTIES</h3>
                                     The use of the Services is at your sole risk. You acknowledge and agree that the Company is not engaged in the provision, grant, or disbursement of any financial product. Further the Company does not act as an intermediary and does not collect or facilitate the collection of monies. The Company is not and will not be responsible for any claim or for any damages suffered, whether by the Users, the suppliers & customers of the Users or any other person or party, that are related, directly or indirectly, to or arise out of the same including any payments made by the User or by the customers/suppliers of the User using the payment link generated using the Platform. The User further agrees and undertakes to retain proof of sale documentation (in electronic or physical form) in connection with each payment link it generates or sends to customers and suppliers.<br /><br />
 
@@ -166,14 +165,14 @@ Notwithstanding anything to the contrary contained herein, neither the Company n
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>INDEMNITY</h3>
                                     You shall indemnify, defend at the Company’s option, and hold the Company, its parent companies, subsidiaries, affiliates, and their officers, associates successors, assigns, licensors, employees, directors, agents, and representatives, harmless from and against any claim, demand, lawsuits, judicial proceeding, losses, liabilities, damages and costs (including, without limitation, from all damages, liabilities, settlements, costs and attorneys’ fees) due to or arising out of your access to the Services, use of the Services, violation of these Terms or any infringement by any third party who may use your account with the Company, of these Terms.
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>CONSENT TO USE DATA</h3>
 
 
@@ -181,28 +180,28 @@ You agree that the Company and any third party service providers it engages, may
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>MAINTENANCE OF RECORDS</h3>
                                     You shall maintain the records of all purchase transactions on the Platform independently of the Platform (by way physical copies et cetera) and the Company reserves the right to seek copies of such records for their own use including record keeping.
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>FEES/CHARGES</h3>
                                     The Company reserves the right to charge a convenience fee for the Services and non-payment may result in denial of Services.
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>MODIFICATION</h3>
                                     The Company reserves the right at any time to add, modify or discontinue, temporarily or permanently, the Services (or any part thereof) with or without cause. The Company shall not be liable for any such addition, modification, suspension or discontinuation of the Services.
 
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>JURISDICTION, GOVERNING LAWS, AND DISPUTE RESOLUTION</h3>
                                     These Terms shall be governed by and construed and enforced in accordance with the laws of India. Subject to other provisions in this Clause, courts in [Bangalore] shall have exclusive jurisdiction over all issues arising out of these Terms or the use of the Services.<br /><br />
 
@@ -211,8 +210,8 @@ Any controversies, conflicts, disputes, or differences arising out of these Term
 The parties to the arbitration shall keep the arbitration confidential and not disclose to any person, other than on a need to basis or to legal advisors, unless required to do so by law. The decision of the arbitrator shall be final and binding on all the Parties hereto. Each party to the arbitration shall bear its own costs with respect to any dispute.<br /><br />
 
 
-                                </p>
-                                <p className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',marginBottom: '80px'   }} >
+                                </div>
+                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%',marginBottom: '80px'   }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>MISCELLANEOUS PROVISIONS</h3>
 
                                     Modification – The Company reserves the right at any time to modify these Terms and to add new or additional terms or conditions on use of the Services. Such modifications and additional terms and conditions will be communicated to you and, unless expressly rejected (in which these Terms shall terminate), will be effective immediately and will be incorporated into these Terms. In the event you refuse to accept such changes, these Terms will terminate.
@@ -223,7 +222,7 @@ Third Party Rights - No third party shall have any rights to enforce any terms c
 Translations –The Company may provide you with translated versions of these Terms solely to assist you with understanding these Terms in greater detail. The English version of these Terms shall be controlling in all respects. In the event of any inconsistency between the English version of these Terms and any translated version, the terms of the English version shall prevail.
 
 
-                                </p>
+                                </div>
 
 
                             </div>
@@ -232,7 +231,7 @@ Translations –The Company may provide you with translated versions of these Te
                         </div>
                     </div>
                 </div>
-                <Footer></Footer>
+               
             </div>
         );
     }

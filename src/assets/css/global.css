@@ -64,3 +64,6 @@
     box-shadow: 0 2px 8px 2px rgba(168, 165, 165, 0.774);
   
 }
+html {
+  scroll-behavior: smooth;
+}

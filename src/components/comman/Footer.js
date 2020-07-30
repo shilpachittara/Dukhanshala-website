@@ -44,7 +44,7 @@ class Navbar extends Component {
                                         <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Privacy Policy</strong></h5></Link>
                                         <Link to="/TermsCondition">
                                         <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Terms and Condition</strong></h5></Link>
-                                        <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Blogs</strong></h5>
+                                        {/* <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Blogs</strong></h5> */}
                                     </div>
                                     <div className="col-md-6">
                                     <h5  style={{fontFamily:"Roboto-Light", fontSize:"18px",fontWeight:'bolder'}}><strong>Connect with us</strong></h5>
