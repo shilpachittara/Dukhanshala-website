@@ -38,13 +38,14 @@
     
   }
   .title{
-    font-family: 'Poppins-Medium';;
+    font-family: 'Roboto-Light';;
     font-size: 40px;
     line-height: 60px;
+    font-weight: 'bold';
   }
 
   .sub-title{
-    font-family: 'Poppins-Light';
+    font-family: 'Roboto-Light';
     margin-top: 10px;
     font-size: 20px;
     line-height: 25px;
@@ -66,4 +67,7 @@
 }
 html {
   scroll-behavior: smooth;
+}
+li{
+  margin-left: 20px;
 }
