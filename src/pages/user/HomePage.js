@@ -71,12 +71,27 @@ class HomePage extends Component {
           </div>
           <div className="row" style={{ paddingTop: '80px', paddingBottom: "80px" }}>
             <div className="col-sm-5" style={{ marginTop: "20px", marginLeft: "50px" }}>
-              <h2 className="title" style={{ fontSize: "24px" }}>Multi Language Support</h2>
-              <h2 className="title" style={{ fontSize: "24px" }}>Manage Multiple Stores</h2>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Allow multiple store manager to access store</h3>
-              <h2 className="title" style={{ fontSize: "24px" }}>Multi Language Support</h2>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Manage multiple stores</h3>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Maintain inventory of your stock across stores</h3>
+              <ul>
+              <h3 className="title" style={{ fontSize: "22px",fontWeight:'bold' }}>Multi Language Support</h3>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>English, Hindi</h4>
+              </li>
+              </ul>
+              <ul>
+              <h3 className="title" style={{ fontSize: "22px",fontWeight:'bold' }}>Manage Multiple Stores</h3>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>Allow multiple store manager to access store</h4>
+              </li>
+              </ul>
+              <ul>
+              <h3 className="title" style={{ fontSize: "22px",fontWeight:'bold' }}>Multi Language Support</h3>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>Manage multiple stores</h4>
+              </li>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>Maintain inventory of your stock across stores</h4>
+              </li>
+              </ul>
               {/* <div className="sub-title">Take your businness to the next level by managing from your phone!</div> */}
             </div>
             <div className="col-sm-1">
@@ -97,30 +112,49 @@ class HomePage extends Component {
               <div></div>
             </div>
             <div className="col-sm-5" style={{ marginTop: "-10px", }}>
-              <h2 className="title" style={{ fontSize: "24px" }}>Manage Suppliers</h2>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Track supplier’s credit</h3>
+              <ul>
+              
+              <h3 className="title" style={{ fontSize: "22px",fontWeight:'bold' }}>Manage Suppliers</h3>
+              
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>Track supplier’s credit</h4>
+              </li>
+              </ul>
+              <ul>
+                
 
-              <h2 className="title" style={{ fontSize: "24px" }}>Maintain Sourcing</h2>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Purchase record of your sourcing </h3>
-
-              <h2 className="title" style={{ fontSize: "24px" }}>Business Analytics</h2>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>On-demand Inventory report</h3>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Category wise classification of stock</h3>
-              <h3 className="sub-title" style={{ fontSize: "20px" }}>Record keeping and view of all past transactions </h3>
-
+              <h3 className="title" style={{ fontSize: "22px",fontWeight:'bold' }}>Maintain Sourcing</h3>
+              <li>              <h4 className="sub-title" style={{ fontSize: "18px" }}>Purchase record of your sourcing </h4>
+             
+              </li>
+             </ul>
+             <ul>
+              
+              <h3 className="title" style={{ fontSize: "22px",fontWeight:'bold' }}>Business Analytics</h3>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>On-demand Inventory report</h4>
+              </li>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>Category wise classification of stock</h4>
+              </li>
+              <li>
+              <h4 className="sub-title" style={{ fontSize: "18px" }}>Record keeping and view of all past transactions </h4>
+              
+              </li>
+              </ul>
             </div>
           </div>
           <hr />
           <div style={{ textAlign: 'center', marginTop: "50px" }} id="ourVision"> 
-            <h2 className="title" style={{ fontSize: "45px" }}>Our Vision</h2>
+            <h3 className="title" style={{ fontSize: "45px" }}>Our Vision</h3>
           </div>
-          <div className="sub-title" style={{ textAlign: 'center',marginLeft:"15%",marginRight:'15%',lineHeight:'27px',fontSize:'16px',marginTop:'15px' }}>
+          <div className="sub-title" style={{ textAlign: 'center',marginLeft:"15%",marginRight:'15%',lineHeight:'27px',fontSize:'18px',marginTop:'15px' }}>
             We aim to improve store operations of 85% unorganized stores by providing digital solutions with no dependencies on hardwares. We are working on solutions which make them as operationally efficient as supermarkets and help them make better profits. Dukaanshala is a one-stop store management solution primarily for Mom & Pop and Speciality Stores across India such as Kiranas, Hardware, Stationary, Pharmacy, Sporting goods, Electronics, Furniture, and Apparel & Garments Shops.
             
 
 
           </div>
-          <div className="sub-title" style={{ textAlign: 'center',marginLeft:"15%",marginRight:'15%',lineHeight:'27px',fontSize:'16px',marginTop:'25px' }}>
+          <div className="sub-title" style={{ textAlign: 'center',marginLeft:"15%",marginRight:'15%',lineHeight:'27px',fontSize:'18px',marginTop:'25px' }}>
             
             This ‘Made in India’ app is designed to help retailers optimize their store operations to be able to take their shops digital. Digital penetration has deepened in Bharat and a new generation of consumers are getting comfortable ordering goods online. Announcement of taking local stores digital by major e-tailers like Amazon, Flipkart, and Jiomart has validated the need to make inventory accessible to sell on all the marketplaces. Our current version has features which supports book-keeping of Inventory category wise, manage supplier credits, share current inventory details with customers.
 
@@ -130,7 +164,7 @@ class HomePage extends Component {
 
           <hr style={{marginTop:'60px'}} />
           <div style={{ textAlign: 'center', marginTop: "50px" }}>
-            <h2 className="title" style={{ fontSize: "45px" }} id="caseStudy">Case Study </h2>
+            <h3 className="title" style={{ fontSize: "45px" }} id="caseStudy">Case Study </h3>
           </div>
           <div >
             <div className="row" style={{ marginTop: '60px', marginLeft: '50px', paddingBottom: '60px' }}>

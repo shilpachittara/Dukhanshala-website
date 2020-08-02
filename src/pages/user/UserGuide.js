@@ -45,20 +45,29 @@ class UserGuide extends Component {
                                 </div>
                                 <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%', marginBottom: '80px' }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}>Features :</h3>
+                                    <ul>
                                     1.Manage Multiple Stores
-                                    a.Allow multiple store manager to access store
-                                    2.Manage Store Inventory
-                                    a.Manage multiple stores
-                                    b.Maintain inventory of your stock across stores
-                                    3.Manage Suppliers
-                                    a.Track supplier’s credit
-                                    4.Maintain Sourcing
-                                    a.purchase record of your sourcing
-                                    5.Business Analytics
-                                    a.On-demand Inventory report
-                                    b.On-demand Total Inventory worth
-                                    c.Category wise classification of stock
-                                    d.Record keeping and view of all past transactions
+                                        <li>
+                                    Allow multiple store manager to access store
+                                    </li>
+                                    </ul>
+                                    <ul>2.Manage Store Inventory
+                                        <li>Manage multiple stores</li>
+                                        <li>Maintain inventory of your stock across stores</li>
+                                    </ul>
+                                    <ul>3.Manage Suppliers
+                                        <li>Track supplier’s credit</li>
+                                    </ul>
+                                    <ul> 4.Maintain Sourcing
+                                        <li>purchase record of your sourcing</li>
+                                    </ul>
+                                    <ul>5.Business Analytics
+                                        <li>On-demand Inventory report</li>
+                                        <li>On-demand Total Inventory worth</li>
+                                        <li>Category wise classification of stock</li>
+                                        <li>Record keeping and view of all past transactions</li>
+                                    </ul>
+            
 
 
                                 </div>
