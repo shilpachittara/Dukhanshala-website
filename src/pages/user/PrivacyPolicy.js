@@ -21,9 +21,6 @@ class Privacy extends Component {
         return (
             <div>
                 <div className="home-bg-gradient">
-
-                   
-
                     <div className="container-fluid" style={{ marginTop: "-15px", zIndex: 0 }}>
 
                         <div className="row ">
