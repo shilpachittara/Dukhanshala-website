@@ -20,7 +20,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="box-shadow">
+      <div className="box-shadow" style={{width: "1000px", margin: "0 auto"}}>
         <nav className="navbar navbar-expand-lg bg-white" >
           <a className="navbar-brand" href="/"><img alt="logo" src={Logo} style={{ height: 100 }}></img></a>
 

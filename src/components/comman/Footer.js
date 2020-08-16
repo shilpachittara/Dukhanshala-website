@@ -6,6 +6,7 @@ import FbIcon from "../../assets/image/facebook.png"
 import Logo from "../../assets/image/dukaanshala.png"
 import WhatsIcon from "../../assets/image/whatsapp.png"
 import {Link} from 'react-router-dom'
+import HalfLogo from '../../assets/image/logo2.png'
 
 
 class Navbar extends Component {
@@ -25,36 +26,36 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                <div className="bo-wrap clr4 footer-bg-color">
-                    <div style={{flexDirection:'column', padding:'20px'}}>
-                        <div className="row" style={{marginTop:'10px'}}>
-                            <div className="col-md-4" style={{paddingRight:"20px",marginLeft:'40px'}}>
-                                <h5  className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px",fontWeight:'bolder'}}><strong>About Us</strong></h5>
-                                <p style={{fontFamily:"Roboto-Light", fontSize:"14px"}}>One stop store management software solution provider for Small 
-                                    Businesses and Mom & Pop Stores</p>
-                                
+                <div className="bo-wrap clr4 footer-bg-color" style={{ backgroundColor:"black", color:"white", overflowX:"hidden",  
+                width: "", margin: "0 auto",}}>
+                    <div style={{flexDirection:'column', padding:'20px',color:"white",}}>
+                        <div className="row" style={{marginTop:'10px', fontFamily:"Poppins", marginLeft:"40px"}}>
+                            <div className="col-md-4" style={{paddingLeft:"20px"}}>
+                                <img src={HalfLogo} alt="logo" style={{height:'30px',width:'40px'}}/>
+                                <p style={{color:"white", fontFamily:"Poppins-Light"}}>DUKAAN</p><p style={{color:"#FF4500", fontFamily:"Poppins-Light", marginTop:"-40px", marginLeft:"63px"}}>SHAALA</p>
+                                    <p style={{fontSize:"15px", marginTop:"-10px",color:"white", fontFamily:"Poppins-Light"}}>
+                                    Bharat ka apna Store Bahi Khata App for Businesses and Mom & Pop Stores. Available in English and हिन्दी</p> 
                             </div>
-                            <div className="col-md-3" style={{textAlign:"center"}}>
-                                <img src={Logo} alt="logo" style={{height:'150px',width:'300px', marginLeft:"5px",marginTop:"-5px"}}/>
-                            </div>
-                            <div className="col-md-4" style={{marginLeft:'40px',marginTop:'10px'}}>
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <Link to="/PrivacyPolicy">
-                                        <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Privacy Policy</strong></h5></Link>
+                    
+                            <div className="col-md-4" style={{marginTop:"10px", paddingLeft:"70px"}}> 
                                         <Link to="/TermsCondition">
-                                        <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Terms and Condition</strong></h5></Link>
-                                        {/* <h5 className="cu-ptr" style={{fontFamily:"Roboto-Light", fontSize:"18px"}}><strong>Blogs</strong></h5> */}
-                                    </div>
-                                    <div className="col-md-6">
-                                    <h5  style={{fontFamily:"Roboto-Light", fontSize:"18px",fontWeight:'bolder'}}><strong>Connect with us</strong></h5>
-                                    <p style={{fontFamily:"Roboto-Light", fontSize:"14px"}}>info@dukaanshala.com</p>
-                                    <p style={{marginTop:"-5px",fontFamily:"Roboto-Light", fontSize:"14px"}}>+91-8876058043</p>
-                                    <img className="cu-ptr" src={InstaIcon} alt="insta" style={{height:'30px',width:'30px',marginTop:"-5px"}}/>
-                                    <img className="cu-ptr" src={FbIcon} alt="insta" style={{height:'30px',width:'30px', marginLeft:"10px",marginTop:"-5px"}}/>
-                                    <img className="cu-ptr" src={WhatsIcon} alt="insta" style={{height:'30px',width:'30px', marginLeft:"10px",marginTop:"-5px"}}/>
-                                    </div>
-                                </div>
+                                        <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>Terms and Condition</strong></h5></Link>
+                                        <Link to="/PrivacyPolicy">
+                                        <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white", fontFamily:"Poppins-Light"}}>Privacy Policy</strong></h5></Link>
+                                        {/* <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>Blogs</strong></h5>
+                                        <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>About Us</strong></h5> */}
+                            </div>
+                            <div className="col-md-4" style={{marginTop:"10px", paddingLeft:"40px"}}>
+                                    <p style={{fontSize:"15px",color:"white", fontFamily:"Poppins-Light"}}>info@dukaanshala.com</p>
+                                    <p style={{marginTop:"-5px", fontSize:"14px",color:"white",fontFamily:"Poppins-Light"}}>+91-8876058043</p>
+                                    <a href="https://www.facebook.com/Dukaanshala-102099868271468/">
+                                    <img className="cu-ptr" src={FbIcon} alt="insta" style={{height:'25px',width:'25px', marginTop:"-5px"}}/>
+                                    </a>
+                                    <a href="https://instagram.com/dukaanshala?igshid=17mw0eflv9jxp">
+                                    <img className="cu-ptr" src={InstaIcon} alt="insta" style={{height:'25px',width:'25px',marginLeft:"14px",marginTop:"-5px"}}/>
+                                    </a> 
+                                    {/* <img className="cu-ptr" src={WhatsIcon} alt="insta" style={{height:'25px',width:'25px', marginLeft:"14px",marginTop:"-5px"}}/> */}
+                                
                             </div>
                         </div>
                         
