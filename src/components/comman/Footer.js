@@ -27,7 +27,7 @@ class Navbar extends Component {
         return (
             <div>
                 <div className="bo-wrap clr4 footer-bg-color" style={{ backgroundColor:"black", color:"white", overflowX:"hidden",  
-                width: "", margin: "0 auto",}}>
+                width: "", marginTop: "100px",}}>
                     <div style={{flexDirection:'column', padding:'20px',color:"white",}}>
                         <div className="row" style={{marginTop:'10px', fontFamily:"Poppins", marginLeft:"40px"}}>
                             <div className="col-md-4" style={{paddingLeft:"20px"}}>
