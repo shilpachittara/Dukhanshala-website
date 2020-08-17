@@ -124,15 +124,15 @@ class HomePage extends Component {
             <div className="col-md-6">
                {this.state.featureData.map((data, index) => {
                 return (
-                  <div className="button_div" key={index} style = { this.state.selectedIndex == data.id ? 
+                  <div className="button_div" key={index} style = { this.state.selectedIndex === data.id ? 
                   {backgroundColor:'#FF4500', color:"white", border:"1px solid grey", borderRadius:"7px",
-                  marginTop:'20px', width:"80%", textAlign:"center", fontFamily:"Lato", marginLeft:"50px",
+                  marginTop:'20px', width:"80%", textAlign:"center", marginLeft:"50px",
                      height:'50px', paddingTop:'10px',fontFamily:"Poppins-Medium"}:{backgroundColor:'white', color:"black", border:"1px solid grey", borderRadius:"7px",
-                  marginTop:'20px', width:"80%", textAlign:"center", fontFamily:"Lato", marginLeft:"50px",
+                  marginTop:'20px', width:"80%", textAlign:"center", marginLeft:"50px",
                      height:'50px', paddingTop:'10px', fontFamily:"Poppins-Medium"}}>
                     <img src={data.icon} alt="multilanguagesupport" style={{width:'30px', height:'30px'}}></img>
                       <button className="active" onClick={()=>this.renderThis(data.icon,data.header,data.subHeader,data.id)}
-                      style={ this.state.selectedIndex == data.id ? { color: "white", textAlign:'center', border:"none", borderColor:'#FF4500',marginLeft:'10px', background:"none"}: 
+                      style={ this.state.selectedIndex === data.id ? { color: "white", textAlign:'center', border:"none", borderColor:'#FF4500',marginLeft:'10px', background:"none"}: 
                       { color: "black", textAlign:'center',marginLeft:'10px', border:"none", background:"none"}}>
                       {data.buttonName}
                       </button>
@@ -144,7 +144,7 @@ class HomePage extends Component {
             <div className="col-md-6" style={{marginTop:'20px'}}>
               {this.state.renderData.map((data, index) => {
                   return (
-                  <div className="card" style={{height:'400px', width:'500px', 
+                  <div className="card" style={{height:'400px', 
                   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', 
                   borderRadius:"10px", marginLeft:"10px", width:"90%"}}>
                   <img className="card-img-top" src={data.icon} alt="multilanguagesupport" 
