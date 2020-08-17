@@ -19,6 +19,24 @@
     src: local('Poppins-Medium'), url(../fonts/RobotoCondensed-Light.ttf) format('truetype');
   }
 
+  .active:active{
+    border: none;
+    border-color: #FF4500;
+    outline-color: none;
+  }
+
+  .p-p-title{
+    font-family: 'Poppins-Medium';;
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 'bold';
+  }
+  .p-p-sub-title{
+    font-family: 'Roboto-Light';
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 25px;
+  }
   .p-v-20{
     padding-left: 20px;
     padding-right: 20px;
