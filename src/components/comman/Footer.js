@@ -6,7 +6,7 @@ import FbIcon from "../../assets/image/facebook.png"
 import Logo from "../../assets/image/dukaanshala.png"
 import WhatsIcon from "../../assets/image/whatsapp.png"
 import {Link} from 'react-router-dom'
-import HalfLogo from '../../assets/image/logo2.png'
+import HalfLogo from '../../assets/image/white_logo.svg'
 
 
 class Navbar extends Component {
@@ -27,17 +27,16 @@ class Navbar extends Component {
         return (
             <div>
                 <div className="bo-wrap clr4 footer-bg-color" style={{ backgroundColor:"black", color:"white", overflowX:"hidden",  
-                width: "", marginTop: "100px",}}>
-                    <div style={{flexDirection:'column', padding:'20px',color:"white",}}>
-                        <div className="row" style={{marginTop:'10px', fontFamily:"Poppins", marginLeft:"40px"}}>
-                            <div className="col-md-4" style={{paddingLeft:"20px"}}>
-                                <img src={HalfLogo} alt="logo" style={{height:'30px',width:'40px'}}/>
-                                <p style={{color:"white", fontFamily:"Poppins-Light"}}>DUKAAN</p><p style={{color:"#FF4500", fontFamily:"Poppins-Light", marginTop:"-40px", marginLeft:"63px"}}>SHAALA</p>
-                                    <p style={{fontSize:"15px", marginTop:"-10px",color:"white", fontFamily:"Poppins-Light"}}>
+               margin:"0 auto"}}>
+                    <div style={{flexDirection:'column',color:"white",}}>
+                        <div className="row mt-4 pl-4" style={{ width:"90%", margin:"0 auto", fontFamily:"Poppins"}}>
+                            <div className="col-md-5 col-12" style={{}}>
+                                <img src={HalfLogo} alt="logo" style={{height:'40px',width:'200px'}}/>
+                                <p style={{fontSize:"15px",color:"white", fontFamily:"Poppins-Light"}}>
                                     Bharat ka apna Store Bahi Khata App for Businesses and Mom & Pop Stores. Available in English and हिन्दी</p> 
                             </div>
                     
-                            <div className="col-md-4" style={{marginTop:"10px", paddingLeft:"70px"}}> 
+                            <div className="col-md-4 col-12 pt-2 pl-4 " style={{}}> 
                                         <Link to="/TermsCondition">
                                         <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>Terms and Condition</strong></h5></Link>
                                         <Link to="/PrivacyPolicy">
@@ -45,7 +44,7 @@ class Navbar extends Component {
                                         {/* <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>Blogs</strong></h5>
                                         <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>About Us</strong></h5> */}
                             </div>
-                            <div className="col-md-4" style={{marginTop:"10px", paddingLeft:"40px"}}>
+                            <div className="col-md-2 col-12 pl-4" style={{}}>
                                     <p style={{fontSize:"15px",color:"white", fontFamily:"Poppins-Light"}}>info@dukaanshala.com</p>
                                     <p style={{marginTop:"-5px", fontSize:"14px",color:"white",fontFamily:"Poppins-Light"}}>+91-8876058043</p>
                                     <a href="https://www.facebook.com/Dukaanshala-102099868271468/">
@@ -55,12 +54,8 @@ class Navbar extends Component {
                                     <img className="cu-ptr" src={InstaIcon} alt="insta" style={{height:'25px',width:'25px',marginLeft:"14px",marginTop:"-5px"}}/>
                                     </a> 
                                     {/* <img className="cu-ptr" src={WhatsIcon} alt="insta" style={{height:'25px',width:'25px', marginLeft:"14px",marginTop:"-5px"}}/> */}
-                                
                             </div>
                         </div>
-                        
-              
-                 
                     </div>
                     <div className="bo-footer">
                      
