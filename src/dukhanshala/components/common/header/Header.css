@@ -1,0 +1,26 @@
+.headerPanel{
+    background: #fff;
+    padding-bottom: 5px;
+    box-shadow: 0px 2px 2px #eee;    
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+.logo-title{
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+.made-title{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #777;
+}
+.socialIcon{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
