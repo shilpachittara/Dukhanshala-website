@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Categories from 'dukhanshala/components/categories/Categories';
-import Products from 'dukhanshala/components/products/Products';
-import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
+import Categories from '../components/categories/Categories';
+import Products from '../components/products/Products';
+import CompanyInfo from '../components/companyInfo/CompanyInfo';
 import { Link } from 'react-router-dom';
 
 class HomePage extends Component {

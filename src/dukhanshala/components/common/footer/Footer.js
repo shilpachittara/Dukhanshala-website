@@ -10,13 +10,13 @@ const Footer = () => (
     <nav className="fixed-bottom fixedNav border-top bg-white">
         <div className="row text-center mt-10">
             <div className="col">
-                <Link className="link" to="/"> 
+                <Link className="link" to="/" activeStyle={{color:"red"}}> 
                     <img src={HomeIcon} className="icon" alt="Home Icon" />
                     <p className="title">Home</p>
                 </Link>
             </div> 
             <div className="col">
-                <Link className="link" to="/Categories"> 
+                <Link className="link" to="/Categories" activeClassName={"active"}> 
                     <img src={CategoriesIcon} className="icon" alt="Categories Icon" />
                     <p className="title">Categories</p>
                 </Link>

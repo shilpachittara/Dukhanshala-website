@@ -15,7 +15,8 @@ const ProductItems = ({title, imageUrl, quantity, basePrice, price, offer, histo
             </div>
 
             <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto">
-                <h6 class="mt-1 mt-sm-3 mb-0">{title}</h6>
+                <h6 class="mt-1 mt-sm-3 mb-0"
+                onClick={()=> history.push(`${match.url}${linkUrl}`)}>{title}</h6>
                 <small>{quantity} piece</small>
                 <div className="mt-1">
                     <span>₹ {price}</span>

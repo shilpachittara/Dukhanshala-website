@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
-import Products from 'dukhanshala/components/products/Products';
+import CompanyInfo from '../components/companyInfo/CompanyInfo';
+import Products from '../components/products/Products';
 
 
 class ProductsPage extends Component {

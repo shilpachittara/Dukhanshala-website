@@ -17,7 +17,7 @@ class Products extends React.Component{
                   basePrice: 300, 
                   price: 200,
                   offer: 30,
-                  linkUrl: 'product/first'
+                  linkUrl: 'product/detail'
                 }, 
                 {
                     title: 'Second Products',
@@ -27,7 +27,7 @@ class Products extends React.Component{
                     basePrice: 300, 
                     price: 200,
                     offer: 30,
-                    linkUrl: 'product/Second'
+                    linkUrl: 'product/detail'
                   }                                                            
               ]
         }

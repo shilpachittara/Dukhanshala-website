@@ -32,3 +32,30 @@ body{
     font-size: 14px;
     float: right;
 }
+
+.field {
+    margin-bottom: 1em;
+}
+.field .mobileInput {
+    font-size: 1rem;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 15px;
+    height: 60px;
+    cursor: text;
+}
+
+
+@media(max-width: 767px){
+    .CategoriesPage .item-wrap {
+        width: 45%;
+        margin: 8px;
+    }  
+    .CategoriesPage .item-wrap .category-image, .CategoriesPage .item-wrap .gray-overlay {
+        height: 160px;
+    }  
+}
+
