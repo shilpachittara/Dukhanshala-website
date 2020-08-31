@@ -48,6 +48,23 @@ body{
     cursor: text;
 }
 
+input#otp {
+    display: block;
+    /* margin: 0 auto; */
+    border: none;
+    width: 6ch;
+    background: repeating-linear-gradient(90deg,#696969,#696969 1ch,transparent 0,transparent 1.5ch) 0 100%/100% 2px no-repeat;
+    color: #696969;
+    font: 5ch consolas,monospace;
+    letter-spacing: .5ch;
+    outline: none;
+}
+.form-group .form-control{
+    border: none;
+    border-bottom: solid 1px #ddd;
+    border-radius: 0;
+    background-color: #f1f1f1;
+}
 
 @media(max-width: 767px){
     .CategoriesPage .item-wrap {
