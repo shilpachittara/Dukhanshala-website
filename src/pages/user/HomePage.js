@@ -60,29 +60,29 @@ class HomePage extends Component {
       <div>
         <div className="box-shadow"  >
           <div style={{width:"90%",margin: "0 auto",}}> 
-            <nav class="navbar navbar-expand-md navbar-light " style={{ backgroundColor:"white"}}>
-              <a class="navbar-brand pt-4 pl-2 web-view-paddind" href="#" style={{}}><img className="logo-dukaan-shala" alt="logo" src={Logo} style={{width:"250px", height:"40px"}}></img></a>
-              <button class="navbar-toggler" type="button"  style={{backgroundColor:"",}}data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style={{color:"black", }}>
-                <i class="fa fa-navicon" style={{color:"black", width:"20%"}}></i>
+            <nav className="navbar navbar-expand-md navbar-light " style={{ backgroundColor:"white"}}>
+              <a className="navbar-brand pt-4 pl-2 web-view-paddind" href="#" style={{}}><img className="logo-dukaan-shala" alt="logo" src={Logo} style={{width:"250px", height:"40px"}}></img></a>
+              <button className="navbar-toggler" type="button"  style={{backgroundColor:"",}}data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon" style={{color:"black", }}>
+                <i className="fa fa-navicon" style={{color:"black", width:"20%"}}></i>
                 </span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item active">
+                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#ourFeatures">Features</a>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#ourFeatures">Features</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link"  href="#ourVision">Our Vision</a>
+                  <li className="nav-item">
+                    <a className="nav-link"  href="#ourVision">Our Vision</a>
                   </li>
-                  <li class="nav-item">
+                  <li className="nav-item">
                   <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp"><button type="button" style={{color:'#FF4500'}} className="btn btn-outline-danger btn-zoom">Get The App</button></a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link"   href="#footer">Contact Us</a>
+                  <li className="nav-item">
+                    <a className="nav-link"   href="#footer">Contact Us</a>
                   </li>
                 </ul>
               </div>
@@ -193,7 +193,7 @@ class HomePage extends Component {
                   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', borderRadius:"0px"}}>
                       <img className="card-img-top" style={{padding:"10px 10px 10px 10px"}} src={data.image} alt="Card image cap"></img>
                       <div className="card-body">
-                        <p class="card-text">{data.para}</p>
+                        <p className="card-text">{data.para}</p>
                         <a href="https://medium.com/@info_28655/small-businesses-tales-making-store-operations-efficient-98df98ac7679" className="btn" style={{backgroundColor:"white", color:"#FF4500"}}>Read Story</a>
                       </div>
                   </div>
