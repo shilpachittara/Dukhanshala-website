@@ -61,7 +61,7 @@ class HomePage extends Component {
         <div className="box-shadow"  >
           <div style={{width:"90%",margin: "0 auto",}}> 
             <nav class="navbar navbar-expand-md navbar-light " style={{ backgroundColor:"white"}}>
-              <a class="navbar-brand pt-4 pl-2" href="#" style={{}}><img className="" alt="logo" src={Logo} style={{width:"30%", height:"80%"}}></img></a>
+              <a class="navbar-brand pt-4 pl-2 web-view-paddind" href="#" style={{}}><img className="logo-dukaan-shala" alt="logo" src={Logo} style={{width:"250px", height:"40px"}}></img></a>
               <button class="navbar-toggler" type="button"  style={{backgroundColor:"",}}data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style={{color:"black", }}>
                 <i class="fa fa-navicon" style={{color:"black", width:"20%"}}></i>
@@ -76,13 +76,13 @@ class HomePage extends Component {
                     <a class="nav-link" href="#ourFeatures">Features</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#ourVision">Our Vision</a>
+                    <a class="nav-link"  href="#ourVision">Our Vision</a>
                   </li>
                   <li class="nav-item">
                   <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp"><button type="button" style={{color:'#FF4500'}} className="btn btn-outline-danger btn-zoom">Get The App</button></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" hhref="#footer">Contact Us</a>
+                    <a class="nav-link"   href="#footer">Contact Us</a>
                   </li>
                 </ul>
               </div>
@@ -92,7 +92,7 @@ class HomePage extends Component {
         
        
 
-        <div className="container-fluid mt-3 pl-5 pr-5" style={{ width:"90%", zIndex: 0, 
+        <div className="container-fluid mt-3 pl-5 pr-5 web-view-body" style={{ width:"90%", zIndex: 0, 
           backgroundColor:"white", overflowX:"hidden", margin: "0 auto",}}>
           {/* 1st section */}
           <div className="row">
@@ -168,10 +168,10 @@ class HomePage extends Component {
                 {
                   return( 
                     <div className="col-md-4 zoom">
-                      <img className="mt-3" src={data.image} alt="detail" style={{ width: '370px', height: '300px' }}></img>
+                      <img className="mt-3 mob-view-img" src={data.image} alt="detail" style={{ width: '370px', height: '300px' }}></img>
                       <div className="sub-title" style={{float: 'right', width:"40%", fontSize:"14px", fontWeight:"bold", 
                       padding:"5px", borderRadius:"5px", zIndex:"1000",
-                      position:"absolute", marginTop:"-30px", marginLeft:"3px",
+                      position:"absolute", marginTop:"-40px", marginLeft:"3px",
                       backgroundColor:"#FF4500", color:"white", fontFamily:"Poppins-Light"}}>{data.text}</div>
                     </div>
                   )
@@ -217,7 +217,7 @@ class HomePage extends Component {
             </div>
             <div className="row">
             <div className="col-md-6 col-12"></div>
-              <div className="col-md-6 col-12" style={{}}>
+              <div className="col-md-6 col-12" style={{marginTop:"10px",marginBottom:'40px'}}>
                 
                 Digital penetration has deepened in Bharat and a new generation of consumers are getting comfortable ordering goods online. Announcement of taking local stores digital by major e-tailers like Amazon, Flipkart, and Jiomart has validated the need to make inventory accessible to sell on all the marketplaces. Our current version has features which supports book-keeping of Inventory category wise, manage supplier credits, share current inventory details with customers. 
     
