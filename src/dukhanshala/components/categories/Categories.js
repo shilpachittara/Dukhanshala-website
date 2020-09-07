@@ -1,13 +1,14 @@
 import React from 'react';
 import './Categories.css'
 import CategoriesItems from '../categories-items/CategoriesItems';
+import axios from 'axios';
 
 class Categories extends React.Component{
     
     constructor(){
         super();
 
-        this.state ={
+        /*this.state ={
             sections:[
                 {
                   title: 'New Arrival',
@@ -40,14 +41,34 @@ class Categories extends React.Component{
                   linkUrl: 'categories/grocery'
                 }                                               
               ]
+        }*/
+        this.state = {
+            categories: null
         }
     }
-
+    componentDidMount() {
+        this.getCategoriesList();
+    }
+    getCategoriesList = () => {
+      let url = 'http://35.240.173.248:8005/web/category/detail/test10';
+      axios.get(url)
+          .then(response => {
+              if(response && response.data && response.data.categories){
+                  this.props.setCategories(response.data.categories);
+                  this.setState({categories: response.data.categories});
+              }
+              else{
+                  //failure scenario
+              }
+              }
+          )
+    };
     render(){
+        console.log(this.state);
         return(
                 <div className="categories-item">
-                {
-                    this.state.sections.map(({id, ...otherSectionProps}) =>(
+                { this.state.categories &&
+                    this.state.categories.map(({id, ...otherSectionProps}) =>(
                         <CategoriesItems key={id} {...otherSectionProps} />
                     ))
                 }

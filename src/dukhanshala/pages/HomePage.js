@@ -3,17 +3,28 @@ import Categories from '../components/categories/Categories';
 import Products from '../components/products/Products';
 import CompanyInfo from '../components/companyInfo/CompanyInfo';
 import { Link } from 'react-router-dom';
+import ProductList from "../components/products/ProductList";
 
 class HomePage extends Component {
-  render(){
+    constructor(props) {
+        super(props);
+        this.state = {
+            categories: null
+        }
+    }
+
+    render(){
+        console.log('----------------');
+        console.log(this.state);
     return(
       <div>
         <section className="container">
           <h2 className="heading">Categories <Link to="/categories" className="viewAll">View All</Link></h2>          
             <div className="scrolling-wrapper">
-              <Categories/>
+              <Categories setCategories={categories => {this.setState({categories})}}/>
             </div>
         </section>
+          <ProductList categories={this.state.categories}/>
         <section className="container">
           <h2 className="heading">New Arrival <Link to="/newarrival" className="viewAll">View All</Link></h2>          
             <Products/>

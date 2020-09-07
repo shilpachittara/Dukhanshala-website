@@ -3,12 +3,12 @@ import {withRouter} from 'react-router-dom';
 import './CategoriesItems.css';
 
 
-const CategoriesItems = ({title, imageUrl, history, linkUrl, match}) => (
+const CategoriesItems = ({categoryName, categoryImage, history, linkUrl, match}) => (
         <div className="item-wrap" 
         onClick={()=> history.push(`${match.url}${linkUrl}`)}>
-            <img src={imageUrl} alt={title} className="category-image rounded-xl" />
+            <img src={categoryImage} alt={categoryName} className="category-image rounded-xl" />
             <div className="gray-overlay">
-                <p className="category-text px-2">{title}</p>
+                <p className="category-text px-2">{categoryName}</p>
             </div>
         </div>
 )

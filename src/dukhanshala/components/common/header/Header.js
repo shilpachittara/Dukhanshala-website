@@ -7,7 +7,7 @@ import Search from '../search/Search';
 import { Link } from 'react-router-dom';
 
 const Header = () => (
-    <div class="sticky-top headerPanel">
+    <div className="sticky-top headerPanel">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-auto">
