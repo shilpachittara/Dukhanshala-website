@@ -34,8 +34,8 @@ class Products extends React.Component{
             <div className="container productItems">
                 <div className="row">
                 { this.state.products &&
-                    this.state.products.map(({id, ...otherSectionProps}) =>(
-                        <ProductItems key={id} {...otherSectionProps} />
+                    this.state.products.map(({id, ...otherSectionProps}, index) =>(
+                        <ProductItems key={index} {...otherSectionProps} />
                     ))
                 }
                 </div>    

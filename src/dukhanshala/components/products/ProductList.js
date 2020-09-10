@@ -1,17 +1,9 @@
 import React from 'react';
 import './Products.css'
-import ProductItems from '../product-items/ProductItems';
-import axios from "axios";
 import {Link} from "react-router-dom";
 import Products from "./Products";
 
 class ProductList extends React.Component{
-
-    constructor(){
-        super();
-
-
-    }
 
 
     render(){
@@ -19,8 +11,8 @@ class ProductList extends React.Component{
             <div className="container productItems">
                 <div className="row">
                 { this.props.categories &&
-                    this.props.categories.map(category =>(
-                        <section className="container">
+                    this.props.categories.map((category, index)  =>(
+                        <section className="container" key={index}>
                           <h2 className="heading">{category.categoryName} <Link to="/newarrival" className="viewAll">View All</Link></h2>
                             <Products categoryId={category.categoryId}/>
                         </section>

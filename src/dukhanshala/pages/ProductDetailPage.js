@@ -7,7 +7,7 @@ class ProductDetailPage extends Component {
     render(){
       return(
         <div className="container">
-            <h1 className="heading"><Link to="/"><img src={backArror} style={{marginRight:"15px"}} /></Link> New Arrival</h1>
+            <h1 className="heading"><Link to="/"><img src={backArror} style={{marginRight:"15px"}} alt="product" /></Link> New Arrival</h1>
             <ProductDetail/>
         </div>
       )

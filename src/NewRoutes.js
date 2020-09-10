@@ -6,6 +6,8 @@ import Footer from './dukhanshala/components/common/footer/Footer';
 import CategoryPage from './dukhanshala/pages/CategoryPage';
 import ProductsPage from './dukhanshala/pages/ProductsPage';
 import BagPage from './dukhanshala/pages/BagPage';
+import SendOtpPage from './dukhanshala/pages/login/SendOtpPage';
+import VerifyOtpPage from './dukhanshala/pages/login/VerifyOtpPage';
 import OrdersPage from './dukhanshala/pages/OrdersPage';
 import ProductDetailPage from './dukhanshala/pages/ProductDetailPage';
 
@@ -26,6 +28,8 @@ class NewRoutes extends Component {
               <Route  path="/product/detail" component={ProductDetailPage}/>
 
               <Route exact path="/bag" component={BagPage}/>
+              <Route exact path="/otp" component={SendOtpPage}/>
+              <Route exact path="/:otp/verify" component={VerifyOtpPage}/>
               <Route exact path="/orders" component={OrdersPage}/>
             </Switch>
           </div>

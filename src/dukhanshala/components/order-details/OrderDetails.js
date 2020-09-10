@@ -11,7 +11,7 @@ const OrderDetails = () =>(
         <span className="float-right"><i className="fas fa-circle pr-1 text-warning smallest-text"></i><span className="small-text pl-0 text-warning" style={{textTransform: "capitalize"}}>pending</span></span></h6>
         <h6 className="text-body mt-2 mb-3">30/08/2020, 20:02:56</h6>
         <Link to="/">Dukhan Shala</Link>
-        <hr class="mt-13"/>
+        <hr className="mt-13"/>
         <div>
             <h6 className="text-color-gray">
                 <section className="section">

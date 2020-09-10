@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "./Footer.css";
 import HomeIcon from '../../../assets/images/home.svg';
 import CategoriesIcon from '../../../assets/images/categories.svg';
@@ -10,21 +10,21 @@ const Footer = () => (
     <nav className="fixed-bottom fixedNav border-top bg-white">
         <div className="row text-center mt-10">
             <div className="col">
-                <Link className="link" to="/" activeStyle={{color:"red"}}> 
+                <NavLink className="link" to="/" activeStyle={{color:"red"}}> 
                     <img src={HomeIcon} className="icon" alt="Home Icon" />
                     <p className="title">Home</p>
-                </Link>
+                </NavLink>
             </div> 
             <div className="col">
-                <Link className="link" to="/Categories" activeClassName={"active"}> 
+                <NavLink className="link" to="/Categories" activeClassName={"active"}> 
                     <img src={CategoriesIcon} className="icon" alt="Categories Icon" />
                     <p className="title">Categories</p>
-                </Link>
+                </NavLink>
             </div> 
             <div className="col">
                 <Link className="link" to="/Bag"> 
                     <img src={BagIcon} className="icon" alt="Bag Icon" />
-                    <span class="icon-badge">1</span>
+                    <span className="icon-badge">1</span>
                     <p className="title">Bag</p>
                 </Link>
             </div> 

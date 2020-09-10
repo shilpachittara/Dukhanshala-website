@@ -113,3 +113,45 @@ html {
 li{
   margin-left: 20px;
 }
+
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+.web-view-paddind{
+  padding-top: 1.8rem!important;
+  padding-left: 1.6rem!important;
+
+}
+.footer-mob-view{
+  margin-left: 50px;
+}
+
+ 
+}
+@media only screen and (max-width: 768px) {
+  /* For desktop: */
+ 
+
+.web-view-body{
+  width:100%!important;
+}
+.web-view-paddind{
+width:50% !important;
+}
+.sub-title{
+  margin-top: -40px !important;
+}
+.ml-4{
+  margin-left: 0px !important;
+}
+.mob-view-img{
+  width:320px !important;
+  height:250px !important;
+}
+.logo-dukaan-shala{
+  width:200px !important;
+  height:40px !important;
+}
+
+
+}

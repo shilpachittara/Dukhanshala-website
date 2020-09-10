@@ -68,8 +68,8 @@ class Categories extends React.Component{
         return(
                 <div className="categories-item">
                 { this.state.categories &&
-                    this.state.categories.map(({id, ...otherSectionProps}) =>(
-                        <CategoriesItems key={id} {...otherSectionProps} />
+                    this.state.categories.slice(0,6).map(({id, ...otherSectionProps}, index) =>(
+                        <CategoriesItems key={index} {...otherSectionProps} />
                     ))
                 }
                 </div>    

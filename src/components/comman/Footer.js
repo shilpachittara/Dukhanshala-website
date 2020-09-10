@@ -36,7 +36,7 @@ class Navbar extends Component {
                                     Bharat ka apna Store Bahi Khata App for Businesses and Mom & Pop Stores. Available in English and हिन्दी</p> 
                             </div>
                     
-                            <div className="col-md-4 col-12 pt-2 pl-4 " style={{}}> 
+                            <div className="col-md-4 col-12 pt-2 footer-mob-view  " style={{}}> 
                                         <Link to="/TermsCondition">
                                         <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>Terms and Condition</strong></h5></Link>
                                         <Link to="/PrivacyPolicy">
@@ -44,7 +44,7 @@ class Navbar extends Component {
                                         {/* <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>Blogs</strong></h5>
                                         <h5 className="cu-ptr" style={{fontSize:"15px"}}><strong style={{color:"white",fontFamily:"Poppins-Light"}}>About Us</strong></h5> */}
                             </div>
-                            <div className="col-md-2 col-12 pl-4" style={{}}>
+                            <div className="col-md-2 col-12 " style={{}}>
                                     <p style={{fontSize:"15px",color:"white", fontFamily:"Poppins-Light"}}>info@dukaanshala.com</p>
                                     <p style={{marginTop:"-5px", fontSize:"14px",color:"white",fontFamily:"Poppins-Light"}}>+91-8876058043</p>
                                     <a href="https://www.facebook.com/Dukaanshala-102099868271468/">
