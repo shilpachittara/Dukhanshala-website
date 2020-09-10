@@ -39,14 +39,15 @@ class SendOtp extends React.Component{
             var number = "+91"+ this.state.contact;
             firebase.auth().signInWithPhoneNumber(number, appVerifier)
             .then(confirmResult => {
-                this.setState({ confirmResult })
+                this.setState({ confirmResult });
+                this.setState({redirect:true});
               })
               .catch(error => {
-                //alert(error.message)
+                alert(error.message)
                 console.log(error)
               });
             };      
-            this.setState({redirect:true})   
+             
         }
 
     render(){
@@ -54,8 +55,7 @@ class SendOtp extends React.Component{
 
         if (redirect)
             return (<Redirect to={{
-                pathname: `/${this.state.contact}/verify`,
-                state: { confirmResult: this.state.confirmResult }
+                pathname: `/${this.state.contact}/verify`
             }} />)
         return(
             <div className="container">
