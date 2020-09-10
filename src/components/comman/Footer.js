@@ -3,8 +3,6 @@ import '../../assets/css/bootstrap.min.css'
 import '../../assets/css/Footer.css'
 import InstaIcon from "../../assets/image/instagram-sketched.png"
 import FbIcon from "../../assets/image/facebook.png"
-import Logo from "../../assets/image/dukaanshala.png"
-import WhatsIcon from "../../assets/image/whatsapp.png"
 import {Link} from 'react-router-dom'
 import HalfLogo from '../../assets/image/white_logo.svg'
 

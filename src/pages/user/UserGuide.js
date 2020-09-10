@@ -116,7 +116,7 @@ Alternatively, you can select products from ‘Categories’ as well. Click on �
 
 
                                 </div> */}
-                                <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%', marginBottom: '80px' }} >
+                                {/*<div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%', marginBottom: '80px' }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}></h3>
 
                                 </div>
@@ -155,7 +155,7 @@ Alternatively, you can select products from ‘Categories’ as well. Click on �
                                 <div className="sub-title" style={{ lineHeight: '30px', marginLeft: '8%', marginRight: '8%', marginBottom: '80px' }} >
                                     <h3 className="title" style={{ fontSize: '24px' }}></h3>
 
-                                </div>
+                            </div>*/}
 
 
 
