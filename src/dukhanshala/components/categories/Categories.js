@@ -2,9 +2,10 @@ import React from 'react';
 import './Categories.css'
 import CategoriesItems from '../categories-items/CategoriesItems';
 import axios from 'axios';
+import {AppContext} from "../../../Context/AppContext";
 
 class Categories extends React.Component{
-    
+    static contextType = AppContext;
     constructor(){
         super();
 
@@ -54,7 +55,8 @@ class Categories extends React.Component{
       axios.get(url)
           .then(response => {
               if(response && response.data && response.data.categories){
-                  this.props.setCategories(response.data.categories);
+                 // this.props.setCategories(response.data.categories);
+                  this.context.updateCategories(response.data.categories);
                   this.setState({categories: response.data.categories});
               }
               else{
@@ -63,10 +65,12 @@ class Categories extends React.Component{
               }
           )
     };
+
     render(){
-        console.log(this.state);
+        console.log(this.context);
         return(
                 <div className="categories-item">
+                    <div onClick={() => {this.context.updateAppContext('jaaneman')}}> change name</div>
                 { this.state.categories &&
                     this.state.categories.slice(0,6).map(({id, ...otherSectionProps}, index) =>(
                         <CategoriesItems key={index} {...otherSectionProps} />

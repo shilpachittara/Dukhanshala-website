@@ -10,12 +10,30 @@ import SendOtpPage from './dukhanshala/pages/login/SendOtpPage';
 import VerifyOtpPage from './dukhanshala/pages/login/VerifyOtpPage';
 import OrdersPage from './dukhanshala/pages/OrdersPage';
 import ProductDetailPage from './dukhanshala/pages/ProductDetailPage';
+import {AppContextProvider} from "./Context/AppContext";
 
 
 class NewRoutes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Shilpa Baby',
+      categories: null,
+      updateAppContext: this.updateAppContext,
+      updateCategories: this.updateCategories
+    }
+  }
+  updateAppContext = (val) => {
+    this.setState({ name : val });
+  };
+  updateCategories = val =>{
+    this.setState({ categories : val });
+  }
+
   render() {
     return (
       <div>
+        <AppContextProvider value={this.state}>
         <Router>
         <Header/>
           <div>
@@ -23,8 +41,8 @@ class NewRoutes extends Component {
               <Route exact path="/" component={HomePage}/>
 
               <Route exact path="/categories" component={CategoryPage}/>
-              <Route exact path="/newarrival" component={ProductsPage}/>
-              <Route exact path="/grocery" component={ProductsPage}/>
+              <Route exact path="/Shilpa/newarrival" component={ProductsPage}/>
+              <Route exact path="/Shilpa/grocery" component={ProductsPage}/>
               <Route  path="/product/detail" component={ProductDetailPage}/>
 
               <Route exact path="/bag" component={BagPage}/>
@@ -35,6 +53,7 @@ class NewRoutes extends Component {
           </div>
           <Footer/>
         </Router>
+        </AppContextProvider>
       </div>
     );
   }
