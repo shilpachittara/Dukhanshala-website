@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Categories from '../components/categories/Categories';
-import Products from '../components/products/Products';
 import CompanyInfo from '../components/companyInfo/CompanyInfo';
 import { Link } from 'react-router-dom';
 import ProductList from "../components/products/ProductList";
@@ -25,14 +24,14 @@ class HomePage extends Component {
             </div>
         </section>
           <ProductList categories={this.state.categories}/>
-        <section className="container">
+        {/*<section className="container">
           <h2 className="heading">New Arrival <Link to="/newarrival" className="viewAll">View All</Link></h2>          
             <Products/>
         </section>
         <section className="container">
           <h2 className="heading">Grocery <Link to="/grocery" className="viewAll">View All</Link></h2>          
             <Products/>
-        </section>    
+    </section>   */} 
         <section>
           <CompanyInfo/>
         </section>    

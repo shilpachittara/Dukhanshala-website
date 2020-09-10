@@ -52,7 +52,7 @@ input#otp {
     display: block;
     /* margin: 0 auto; */
     border: none;
-    width: 6ch;
+    width: 9ch;
     background: repeating-linear-gradient(90deg,#696969,#696969 1ch,transparent 0,transparent 1.5ch) 0 100%/100% 2px no-repeat;
     color: #696969;
     font: 5ch consolas,monospace;

@@ -40,13 +40,13 @@ class SendOtp extends React.Component{
             firebase.auth().signInWithPhoneNumber(number, appVerifier)
             .then(confirmResult => {
                 this.setState({ confirmResult })
-                this.setState({redirect:true})
               })
               .catch(error => {
                 //alert(error.message)
                 console.log(error)
               });
-            };         
+            };      
+            this.setState({redirect:true})   
         }
 
     render(){
@@ -64,7 +64,7 @@ class SendOtp extends React.Component{
               <p className="small-text">Please enter your 10 digit mobile number.</p>
               <div className="field">
                 <input id="contact" type="number" className="form-control mobileInput input-lg" name="contact" placeholder="Mobile Number" required=""
-                onChange={this.handleChange} value={ this.state.contact } />
+                onChange={this.handleChange} />
                 <p className="text-danger p-1"></p>
                 <div>
                   <button id="sign-in-button" className="mb-5 btn btn-primary btn-lg" onClick={this.submitOtp}>Send OTP</button>

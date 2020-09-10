@@ -16,10 +16,10 @@ class VerifyOtp extends React.Component{
         return(
             <div className="container">
             <h1 className="heading"><Link to="/"><img src={backArror} style={{marginRight:"15px"}} alt="" /></Link> OTP Verification</h1>
-            <p className="small-text text-secondary">Please enter the 4 digit OTP sent to your number - 1234567890.</p>
+            <p className="small-text text-secondary">Please enter the 6 digit OTP sent to your number - 1234567890.</p>
             <button className="btn btn-outline-info btn-sm">Resend OTP</button>
             <div className="field">
-              <input type="text" id="otp" name="otp" placeholder=" " maxlength="4" required="" />
+              <input type="text" id="otp" name="otp" placeholder=" " maxLength="6" required="" />
               <p id="api-error" className="text-danger p-3"></p>
               <div>
                 <button className="mb-5 btn btn-primary btn-lg" disabled="">Verify OTP</button>
