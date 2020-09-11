@@ -18,9 +18,10 @@ static contextType = AppContext;
     }
 
     componentDidMount() {
+      if(this.context.storeCode == null){
         this.context.updateAppContext(window.location.pathname); 
+      }
           this.getStoreDetail();
-          console.log(this.state.store);
       }
       getStoreDetail = () => {
     var path = null; 
@@ -35,7 +36,6 @@ static contextType = AppContext;
         .then(response => {
             if(response && response.data && response.data){
                 //this.context.updateCategories(response.data);
-                console.log(response);
                 this.setState({storeName: response.data.storeName});
             }
             else{

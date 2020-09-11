@@ -26,7 +26,6 @@ class Footer extends React.Component{
             this.setState({orders: this.context.storeCode+"/orders"});
             }
             else{
-                
             this.setState({home: window.location.pathname});
             this.setState({category: window.location.pathname+"/categories"});
             this.setState({bag: window.location.pathname+"/bag"});

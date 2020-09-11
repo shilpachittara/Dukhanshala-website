@@ -4,7 +4,7 @@ import CategoriesItems from '../categories-items/CategoriesItems';
 import axios from 'axios';
 import {AppContext} from "../../../Context/AppContext";
 
-class Categories extends React.Component{
+class CategoriesHome extends React.Component{
     static contextType = AppContext;
     constructor(){
         super();
@@ -15,8 +15,7 @@ class Categories extends React.Component{
     }
     componentDidMount() {
       var path;
-      
-      if(this.context.storeCode != null){ 
+      if(this.context.storeCode != null){
         path= this.context.storeCode;
       }
       else{
@@ -45,7 +44,7 @@ class Categories extends React.Component{
         return(
                 <div className="categories-item">
                 { this.state.categories &&
-                    this.state.categories.map(({id, ...otherSectionProps}, index) =>(
+                    this.state.categories.slice(0,6).map(({id, ...otherSectionProps}, index) =>(
                         <CategoriesItems key={index} {...otherSectionProps} />
                     ))
                 }
@@ -55,4 +54,4 @@ class Categories extends React.Component{
 
 }
 
-export default Categories;
+export default CategoriesHome;

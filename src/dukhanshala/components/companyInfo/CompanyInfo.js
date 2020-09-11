@@ -15,9 +15,11 @@ class CompanyInfo extends React.Component{
         }
     }
     componentDidMount() {
+
+        if(this.context.storeCode == null){
         this.context.updateAppContext(window.location.pathname); 
+      }
           this.getStoreDetail();
-          console.log(this.state.store);
       }
       getStoreDetail = () => {
     var path = null; 
@@ -32,7 +34,6 @@ class CompanyInfo extends React.Component{
         .then(response => {
             if(response && response.data && response.data){
                 //this.context.updateCategories(response.data);
-                console.log(response);
                 this.setState({storeName: response.data.storeName, storeAddressName: response.data.storeAddressName,
                 storeAddress: response.data.storeAddress});
             }
@@ -51,7 +52,7 @@ class CompanyInfo extends React.Component{
                 <div className="py-4">
                     <small className="text-secondary">STORE DETAILS</small>
                     <p className="mt-2 mb-0"><b>{this.state.storeName}</b></p>
-                    <p className="mb-0 mt-1 mb-2"><b>{this.state.storeAddress}</b></p>
+                    <p className="mb-0 mt-1 mb-2">{this.state.storeAddress}</p>
                     <p className="mb-0 mt-1 mb-2">{this.state.storeAddressName}</p>
                 </div>
             </div>

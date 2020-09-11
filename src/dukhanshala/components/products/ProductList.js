@@ -1,7 +1,7 @@
 import React from 'react';
 import './Products.css'
 import {Link} from "react-router-dom";
-import ProductDetail from "./Products";
+import ProductDetail from "./ProductsHome";
 
 class ProductList extends React.Component{
 

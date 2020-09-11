@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Categories from '../components/categories/Categories';
 import CompanyInfo from '../components/companyInfo/CompanyInfo';
 import { Link } from 'react-router-dom';
 import ProductList from "../components/products/ProductList";
 import {AppContext} from "../../Context/AppContext";
+import CategoriesHome from '../components/categories/CategoriesHome';
 
 class HomePage extends Component {
     static contextType = AppContext;
@@ -14,13 +14,15 @@ class HomePage extends Component {
         }
     }
     
+    componentDidMount(){
+    }
     render(){
     return(
       <div>
         <section className="container">
           <h2 className="heading">Categories <Link to={`${this.context.storeCode}/categories`} className="viewAll">View All</Link></h2>          
             <div className="scrolling-wrapper">
-              <Categories/>
+              <CategoriesHome/>
             </div>
         </section>
           <ProductList categories={this.context.categories}/>

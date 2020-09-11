@@ -4,7 +4,7 @@ import ProductItems from '../product-items/ProductItems';
 import axios from "axios";
 import { AppContext } from 'Context/AppContext';
 
-class Products extends React.Component{
+class ProductsHome extends React.Component{
     static contextType = AppContext;
     constructor(){
         super();
@@ -35,7 +35,7 @@ class Products extends React.Component{
             <div className="container productItems">
                 <div className="row">
                 { this.state.products &&
-                    this.state.products.map(({id, ...otherSectionProps}, index) =>(
+                    this.state.products.slice(0,2).map(({id, ...otherSectionProps}, index) =>(
                         <ProductItems key={index} {...otherSectionProps} />
                     ))
                 }
@@ -46,4 +46,4 @@ class Products extends React.Component{
 
 }
 
-export default Products;
+export default ProductsHome;
