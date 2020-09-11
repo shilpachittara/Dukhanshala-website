@@ -17,17 +17,37 @@ class NewRoutes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Shilpa Baby',
+      storeCode: null,
       categories: null,
+      categoryId: null,
+      productId: null,
+      products: null,
+      bag: null,
       updateAppContext: this.updateAppContext,
-      updateCategories: this.updateCategories
+      updateCategories: this.updateCategories,
+      updateCategoryId: this.updateCategoryId,
+      updateProducts: this.updateProducts,
+      updateProductId: this.updateProductId,
+      updateBag: this.updateBag
     }
   }
   updateAppContext = (val) => {
-    this.setState({ name : val });
+    this.setState({ storeCode : val });
   };
   updateCategories = val =>{
     this.setState({ categories : val });
+  }
+  updateCategoryId = val =>{
+    this.setState({ categoryId : val });
+  }
+  updateProducts = val =>{
+    this.setState({ products : val });
+  }
+  updateProductId = val =>{
+    this.setState({ productId : val });
+  }
+  updateBag = val =>{
+    this.setState({ bag : val });
   }
 
   render() {
@@ -38,17 +58,17 @@ class NewRoutes extends Component {
         <Header/>
           <div>
             <Switch>
-              <Route exact path="/" component={HomePage}/>
+              <Route exact path="/:store" component={HomePage}/>
 
-              <Route exact path="/categories" component={CategoryPage}/>
-              <Route exact path="/Shilpa/newarrival" component={ProductsPage}/>
-              <Route exact path="/Shilpa/grocery" component={ProductsPage}/>
-              <Route  path="/product/detail" component={ProductDetailPage}/>
+              <Route exact path="/:store/categories" component={CategoryPage}/>
+              <Route exact path="/:store/newarrival" component={ProductsPage}/>
+              <Route exact path="/:store/grocery" component={ProductsPage}/>
+              <Route  path="/:store/product/detail" component={ProductDetailPage}/>
 
-              <Route exact path="/bag" component={BagPage}/>
-              <Route exact path="/otp" component={SendOtpPage}/>
-              <Route exact path="/:otp/verify" component={VerifyOtpPage}/>
-              <Route exact path="/orders" component={OrdersPage}/>
+              <Route exact path="/:store/bag" component={BagPage}/>
+              <Route exact path="/:store/otp" component={SendOtpPage}/>
+              <Route exact path="/:store/:otp/verify" component={VerifyOtpPage}/>
+              <Route exact path="/:store/orders" component={OrdersPage}/>
             </Switch>
           </div>
           <Footer/>

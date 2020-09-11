@@ -48,10 +48,11 @@ class Categories extends React.Component{
         }
     }
     componentDidMount() {
+      this.context.updateAppContext(window.location.pathname); 
         this.getCategoriesList();
     }
     getCategoriesList = () => {
-      let url = 'http://35.240.173.248:8005/web/category/detail/test10';
+      let url = 'http://35.240.173.248:8005/web/category/detail'+ window.location.pathname;
       axios.get(url)
           .then(response => {
               if(response && response.data && response.data.categories){
@@ -67,10 +68,8 @@ class Categories extends React.Component{
     };
 
     render(){
-        console.log(this.context);
         return(
                 <div className="categories-item">
-                    <div onClick={() => {this.context.updateAppContext('jaaneman')}}> change name</div>
                 { this.state.categories &&
                     this.state.categories.slice(0,6).map(({id, ...otherSectionProps}, index) =>(
                         <CategoriesItems key={index} {...otherSectionProps} />

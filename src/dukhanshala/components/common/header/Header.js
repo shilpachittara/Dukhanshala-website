@@ -1,12 +1,52 @@
 import React from 'react';
 import './Header.css';
 import logoImg from '../../../assets/images/logo.webp'
-import fbIcon from '../../../assets/images/facebook.svg'
-import twIcon from '../../../assets/images/twitter.svg'
+//import fbIcon from '../../../assets/images/facebook.svg'
+//import twIcon from '../../../assets/images/twitter.svg'
 import Search from '../search/Search';
 import { Link } from 'react-router-dom';
+import { AppContext } from 'Context/AppContext';
+import axios from 'axios';
 
-const Header = () => (
+class Header extends React.Component{
+static contextType = AppContext;
+    constructor(){
+        super();
+        this.state = {
+            storeName: null
+        }
+    }
+
+    componentDidMount() {
+        this.context.updateAppContext(window.location.pathname); 
+          this.getStoreDetail();
+          console.log(this.state.store);
+      }
+      getStoreDetail = () => {
+    var path = null; 
+    if(this.context.storeCode != null){
+    path = this.context.storeCode
+    }
+    else{
+        path = window.location.pathname;
+    }
+    let url = 'http://35.240.173.248:8005/web/store/detail'+ path;
+    axios.get(url)
+        .then(response => {
+            if(response && response.data && response.data){
+                //this.context.updateCategories(response.data);
+                console.log(response);
+                this.setState({storeName: response.data.storeName});
+            }
+            else{
+                //failure scenario
+            }
+            }
+        )
+        
+  };
+  render(){
+    return(
     <div className="sticky-top headerPanel">
         <div className="container">
             <div className="row align-items-center">
@@ -15,18 +55,20 @@ const Header = () => (
                 </div>
                 <div className="col">
                     <div className="store-title">
-                        <h3 className="logo-title">Dukhan Shala</h3>
-                        <p className="made-title">STORE MADE WITH @</p>
+                        <h3 className="logo-title">{this.state.storeName}</h3>
+                        <p className="made-title">STORE MADE WITH @Dukaanshala</p>
                     </div>
                 </div>
-                <div className="col-auto">
+                {/*<div className="col-auto">
                     <img className="socialIcon" src={fbIcon} alt="Facebook" />
                     <img className="socialIcon" src={twIcon} alt="Twitter" />
-                </div>
+    </div>*/}
             </div>
             <Search/>
         </div>
     </div>
 )
+    }
+}
 
 export default Header;

@@ -1,7 +1,5 @@
 import React from 'react';
 import './OrderDetails.css'
-import { Link } from 'react-router-dom';
-import backArror from '../../assets/images/icon_back.svg';
 
 
 const OrderDetails = () =>(

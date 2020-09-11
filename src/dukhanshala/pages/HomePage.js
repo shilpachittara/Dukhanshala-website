@@ -13,15 +13,12 @@ class HomePage extends Component {
             categories: null
         }
     }
-
+    
     render(){
-        console.log('----------------');
-        console.log(this.state);
-        console.log(window.location.pathname);
     return(
       <div>
         <section className="container">
-          <h2 className="heading">Categories <Link to="/categories" className="viewAll">View All</Link></h2>          
+          <h2 className="heading">Categories <Link to={`${this.context.storeCode}/categories`} className="viewAll">View All</Link></h2>          
             <div className="scrolling-wrapper">
               <Categories/>
             </div>
