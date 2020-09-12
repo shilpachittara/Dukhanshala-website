@@ -22,13 +22,15 @@ class NewRoutes extends Component {
       categoryId: null,
       productId: null,
       products: null,
-      bag: null,
+      bag: 0,
+      bagCount: null,
       updateAppContext: this.updateAppContext,
       updateCategories: this.updateCategories,
       updateCategoryId: this.updateCategoryId,
       updateProducts: this.updateProducts,
       updateProductId: this.updateProductId,
-      updateBag: this.updateBag
+      updateBag: this.updateBag,
+      updateBagCount: this.updateBagCount
     }
   }
   updateAppContext = (val) => {
@@ -49,6 +51,9 @@ class NewRoutes extends Component {
   updateBag = val =>{
     this.setState({ bag : val });
   }
+  updateBagCount = val =>{
+    this.setState({ bagCount : val });
+  }
 
   render() {
     return (
@@ -61,9 +66,9 @@ class NewRoutes extends Component {
               <Route exact path="/:store" component={HomePage}/>
 
               <Route exact path="/:store/categories" component={CategoryPage}/>
-              <Route exact path="/:store/newarrival" component={ProductsPage}/>
+              <Route exact path="/:store/products/:category" component={ProductsPage}/>
               <Route exact path="/:store/grocery" component={ProductsPage}/>
-              <Route  path="/:store/product/detail" component={ProductDetailPage}/>
+              <Route  path="/:store/product/detail/:product" component={ProductDetailPage}/>
 
               <Route exact path="/:store/bag" component={BagPage}/>
               <Route exact path="/:store/otp" component={SendOtpPage}/>

@@ -51,7 +51,7 @@ class Footer extends React.Component{
             <div className="col">
                 <Link className="link" to={`${this.state.bag}`}> 
                     <img src={BagIcon} className="icon" alt="Bag Icon" />
-                    <span className="icon-badge">1</span>
+        <span className="icon-badge">{this.context.bag}</span>
                     <p className="title">Bag</p>
                 </Link>
             </div> 
