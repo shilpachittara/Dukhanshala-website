@@ -1,6 +1,6 @@
 import React from 'react';
 import './Products.css'
-import {Link, Redirect} from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import ProductDetail from "./ProductsHome";
 import { AppContext } from 'Context/AppContext';
 
@@ -17,9 +17,10 @@ class ProductList extends React.Component{
         this.submit = this.submit.bind(this)
     }
 
-    submit(category) {
+    submit(category, name) {
 
         this.context.updateCategoryId(category);
+        this.context.updateCategoryName(name);
         var path;
       
       if(this.context.storeCode != null){ 
@@ -50,8 +51,8 @@ class ProductList extends React.Component{
                     this.props.categories.map((category, index)  =>(
                         <section className="container" key={index}>
                           <h2 className="heading">{category.categoryName} 
-                          <a className="viewAll"  onClick={this.submit.bind(this,category.categoryId)}>
-                          View All</a></h2>
+                          <span className="viewAll"  onClick={this.submit.bind(this,category.categoryId,category.categoryName)}>
+                          View All</span></h2>
                           
                             <ProductDetail categoryId={category.categoryId}/>
                         </section>

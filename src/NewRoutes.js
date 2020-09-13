@@ -22,15 +22,17 @@ class NewRoutes extends Component {
       categoryId: null,
       productId: null,
       products: null,
-      bag: 0,
-      bagCount: null,
+      categoryName: null,
+      bag: [],
+      bagCount: 0,
       updateAppContext: this.updateAppContext,
       updateCategories: this.updateCategories,
       updateCategoryId: this.updateCategoryId,
       updateProducts: this.updateProducts,
       updateProductId: this.updateProductId,
       updateBag: this.updateBag,
-      updateBagCount: this.updateBagCount
+      updateBagCount: this.updateBagCount,
+      updateCategoryName: this.updateCategoryName
     }
   }
   updateAppContext = (val) => {
@@ -53,6 +55,9 @@ class NewRoutes extends Component {
   }
   updateBagCount = val =>{
     this.setState({ bagCount : val });
+  }
+  updateCategoryName = val =>{
+    this.setState({ categoryName : val });
   }
 
   render() {

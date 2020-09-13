@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import backArror from '../assets/images/icon_back.svg';
 import { Link } from 'react-router-dom';
+import { AppContext } from 'Context/AppContext';
 
 
 class BagPage extends Component {
+  static contextType = AppContext;
     render(){
       return(
         <div className="container">
-          <h1 className="heading"><Link to="/"><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag (3)</h1>
+          <h1 className="heading"><Link to="/"><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}</h1>
 
           <div className="row pr-0 mr-0 my-0">
 
@@ -78,7 +80,7 @@ class BagPage extends Component {
                 </div>
                 <div className="text-center mt-5 pb-5 mb-5">
                   <div className="m-0">
-                    <Link to="/otp" className="btn btn-primary btn-lg btn-block text-white">Select Address</Link>
+                    <Link to={`${this.context.storeCode}/otp`} className="btn btn-primary btn-lg btn-block text-white">Select Address</Link>
                   </div>
                 </div>
               </section>

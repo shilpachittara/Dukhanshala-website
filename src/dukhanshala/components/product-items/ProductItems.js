@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter, Redirect} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import './ProductItems.css';
 import { AppContext } from 'Context/AppContext';
 
@@ -10,7 +10,7 @@ class ProductItems extends React.Component{
         super();
 
         this.state = {
-            category: null,
+            path: null,
         }
         //this.submit = this.submit.bind(this)
     }
@@ -24,13 +24,16 @@ class ProductItems extends React.Component{
         this.context.updateAppContext(window.location.pathname); 
         path= window.location.pathname;
       }
-      path = path + "/products/" + this.props.categoryId;
-      this.setState({category: path});
+      
+      path = path + "/product/detail/" + this.props.productId;
+      this.setState({path: path});
 
     }
 
-    submit = (event) => {
+    productDetail = (event) => {
+        this.context.updateCategoryName(this.props.categoryName); 
         this.context.updateCategoryId(this.props.categoryId);
+        this.context.updateProductId(this.props.productId);
         this.setState({redirect: true})
     }
 
@@ -39,11 +42,11 @@ class ProductItems extends React.Component{
 
         if (redirect)
             return (<Redirect to={{
-                pathname: `${this.state.category}`
+                pathname: `${this.state.path}`
             }} />)
  return(
    <div className="col-12 col-sm-3 px-0 pr-md-4 my-md-2 mb-2">
-        <div className="row h-50">
+        <div className="row h-50" onClick={this.productDetail}>
             
             <div className="col-4 col-sm-12" >
                 <div className="thumbnail-container thumbnail-padding">
@@ -54,10 +57,10 @@ class ProductItems extends React.Component{
 
             <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto">
                 <h6 className="mt-1 mt-sm-3 mb-0">{this.props.productName}</h6>
-                <small>{this.props.availableQuantity} piece</small>
+                <small>{this.props.availableQuantity} </small>
                 <div className="mt-1">
                     <span>₹ {this.props.sellingPrice}</span>
-                    <small className="small-text mr-2 pl-1">₹ {this.props.mrp}</small>
+                    <small className="small-text mr-2 pl-1">{this.props.mrp}</small>
                     <span className="btn btn-warning float-right py-1">ADD</span>
                 </div>
             </div>

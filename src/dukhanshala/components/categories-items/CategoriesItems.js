@@ -31,6 +31,7 @@ class CategoriesItems extends React.Component{
 
     submit = (event) => {
         this.context.updateCategoryId(this.props.categoryId);
+        this.context.updateCategoryName(this.props.categoryName);
         this.setState({redirect: true})
     }
 
