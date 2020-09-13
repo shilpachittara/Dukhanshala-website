@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import MyOrders from 'dukhanshala/components/my-orders/MyOrders';
+import OrderDetails from 'dukhanshala/components/order-details/OrderDetails';
 
 
 class OrdersPage extends Component {
     render(){
       return(
         <div className="container">
-            <MyOrders/>
+            <OrderDetails/>
         </div>
       )
     }

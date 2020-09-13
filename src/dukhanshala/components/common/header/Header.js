@@ -22,8 +22,9 @@ static contextType = AppContext;
         this.context.updateAppContext(window.location.pathname); 
       }
           this.getStoreDetail();
-      }
-      getStoreDetail = () => {
+    }
+
+    getStoreDetail = () => {
     var path = null; 
     if(this.context.storeCode != null){
     path = this.context.storeCode
