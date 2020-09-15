@@ -55,6 +55,7 @@ getCategoryName = () => {
             <h1 className="heading" ><img src={backArror} style={{marginRight:"15px"}} alt="product" onClick={this.backPage}/>{this.context.categoryName}</h1>
             <ProductDetail/>
         </div>
+        
       )
     }
   }

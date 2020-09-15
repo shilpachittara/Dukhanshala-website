@@ -28,8 +28,15 @@ class NewRoutes extends Component {
       categoryName: null,
       mobile: null,
       orderId: null,
+      minFreeDelivery: 0,
+      deliveryCharge: 0,
+      grandTotal: 0,
+      total: 0,
       confirmResult: null,
-      bag: [],
+      bag: {
+        products:[],
+        adrress:{}
+      },
       bagCount: 0,
       updateAppContext: this.updateAppContext,
       updateCategories: this.updateCategories,
@@ -41,7 +48,11 @@ class NewRoutes extends Component {
       updateCategoryName: this.updateCategoryName,
       updateMobileNumber: this.updateMobileNumber,
       updateOrderId: this.updateOrderId,
-      updateConfirmResult: this.updateConfirmResult
+      updateConfirmResult: this.updateConfirmResult,
+      updateMinFreeDelivery: this.updateMinFreeDelivery,
+      updateGrandTotal: this.updateGrandTotal,
+      updateDeliveryCharge: this.updateDeliveryCharge,
+      updateTotal: this.updateTotal
     }
   }
   updateAppContext = (val) => {
@@ -76,6 +87,18 @@ class NewRoutes extends Component {
   }
   updateConfirmResult = val =>{
     this.setState({ confirmResult : val });
+  }
+  updateMinFreeDelivery = val =>{
+    this.setState({ minFreeDelivery : val });
+  }
+  updateGrandTotal = val =>{
+    this.setState({grandTotal : val });
+  }
+  updateDeliveryCharge = val =>{
+    this.setState({deliveryCharge : val });
+  }
+  updateTotal = val =>{
+    this.setState({total : val });
   }
   render() {
     return (

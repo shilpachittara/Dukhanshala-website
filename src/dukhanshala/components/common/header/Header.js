@@ -38,6 +38,8 @@ static contextType = AppContext;
             if(response && response.data && response.data){
                 //this.context.updateCategories(response.data);
                 this.setState({storeName: response.data.storeName});
+                this.context.updateMinFreeDelivery(response.data.minFreeDelivery);
+                this.context.updateDeliveryCharge(response.data.deliveryCharge);
             }
             else{
                 //failure scenario

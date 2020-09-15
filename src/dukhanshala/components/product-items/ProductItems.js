@@ -57,7 +57,7 @@ class ProductItems extends React.Component{
 
             <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto">
                 <h6 className="mt-1 mt-sm-3 mb-0">{this.props.productName}</h6>
-                <small>{this.props.availableQuantity} </small>
+                {/*<small>{this.props.availableQuantity} </small>*/}
                 <div className="mt-1">
                     <span>₹ {this.props.sellingPrice}</span>
                     <small className="small-text mr-2 pl-1">{this.props.mrp}</small>
