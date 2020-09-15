@@ -5,9 +5,9 @@ import Validator from 'dukhanshala/util/Validator';
 import firebaseConfig  from '../../../configs/FirebaseConfig.js';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { AppContext } from 'Context/AppContext';
 class SendOtp extends React.Component{
-    
-
+  static contextType = AppContext;
     constructor(){
         super();
         this.state ={
@@ -19,12 +19,14 @@ class SendOtp extends React.Component{
         this.validator = new Validator();
     }
     componentDidMount() {
+      if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+      }
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
             'size': 'invisible',
             'callback': function(response) {
               // reCAPTCHA solved, allow signInWithPhoneNumber.
-             this.submit();
+             this.submitOtp();
             }
           });
     }
@@ -40,14 +42,16 @@ class SendOtp extends React.Component{
             firebase.auth().signInWithPhoneNumber(number, appVerifier)
             .then(confirmResult => {
                 this.setState({ confirmResult });
+                this.context.updateConfirmResult(confirmResult);
                 this.setState({redirect:true});
               })
               .catch(error => {
                 alert(error.message)
                 console.log(error)
               });
-            };      
-             
+        };   
+            this.context.updateMobileNumber(this.state.contact);
+          
         }
 
     render(){
@@ -55,7 +59,7 @@ class SendOtp extends React.Component{
 
         if (redirect)
             return (<Redirect to={{
-                pathname: `/${this.state.contact}/verify`
+                pathname: `${this.context.storeCode}/${this.state.contact}/verify`
             }} />)
         return(
             <div className="container">
@@ -70,7 +74,9 @@ class SendOtp extends React.Component{
                   <button id="sign-in-button" className="mb-5 btn btn-primary btn-lg" onClick={this.submitOtp}>Send OTP</button>
                 </div>
               </div>
+              <div  id="recaptcha" ></div>
             </div>
+            
         )
     }
 

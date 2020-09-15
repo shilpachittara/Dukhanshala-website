@@ -33,7 +33,6 @@ class ProductList extends React.Component{
       path = path + "/products/" + category;
       this.setState({path: path});
         this.setState({redirect: true});
-        console.log(this.state.path);
     }
 
     render(){

@@ -10,6 +10,7 @@ import SendOtpPage from './dukhanshala/pages/login/SendOtpPage';
 import VerifyOtpPage from './dukhanshala/pages/login/VerifyOtpPage';
 import OrdersPage from './dukhanshala/pages/OrdersPage';
 import OrderDetailPage from './dukhanshala/pages/OrderDetailPage';
+import CheckoutPage from './dukhanshala/pages/CheckoutPage';
 import ProductDetailPage from './dukhanshala/pages/ProductDetailPage';
 import {AppContextProvider} from "./Context/AppContext";
 
@@ -24,8 +25,9 @@ class NewRoutes extends Component {
       productId: null,
       products: null,
       categoryName: null,
-      mobile: 12345678,
+      mobile: null,
       orderId: null,
+      confirmResult: null,
       bag: [],
       bagCount: 0,
       updateAppContext: this.updateAppContext,
@@ -37,7 +39,8 @@ class NewRoutes extends Component {
       updateBagCount: this.updateBagCount,
       updateCategoryName: this.updateCategoryName,
       updateMobileNumber: this.updateMobileNumber,
-      updateOrderId: this.updateOrderId
+      updateOrderId: this.updateOrderId,
+      updateConfirmResult: this.updateConfirmResult
     }
   }
   updateAppContext = (val) => {
@@ -70,6 +73,9 @@ class NewRoutes extends Component {
   updateOrderId = val =>{
     this.setState({ orderId : val });
   }
+  updateConfirmResult = val =>{
+    this.setState({ confirmResult : val });
+  }
   render() {
     return (
       <div>
@@ -88,6 +94,7 @@ class NewRoutes extends Component {
               <Route exact path="/:store/bag" component={BagPage}/>
               <Route exact path="/:store/otp" component={SendOtpPage}/>
               <Route exact path="/:store/:otp/verify" component={VerifyOtpPage}/>
+              <Route exact path="/:store/checkout" component={CheckoutPage}/>
               <Route exact path="/:store/orders" component={OrdersPage}/>
               <Route exact path="/:store/order/detail" component={OrderDetailPage}/>
             </Switch>

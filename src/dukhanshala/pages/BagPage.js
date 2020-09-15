@@ -6,10 +6,24 @@ import { AppContext } from 'Context/AppContext';
 
 class BagPage extends Component {
   static contextType = AppContext;
+  static contextType = AppContext;
+    constructor(){
+        super();
+
+        this.state = {
+          bag: null
+        }
+        //this.submit = this.submit.bind(this)
+    }
+
+    componentDidMount() {
+
+  }
+
     render(){
       return(
         <div className="container">
-          <h1 className="heading"><Link to="/"><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}</h1>
+          <h1 className="heading"><Link to={`${this.context.storeCode}`}><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}</h1>
 
           <div className="row pr-0 mr-0 my-0">
 
