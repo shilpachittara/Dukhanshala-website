@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import "~bootstrap/dist/css/bootstrap.css";
+body{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.scrolling-wrapper, .scrolling-wrapper-flexbox {
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.heading{
+    font-size: 20px;
+    margin: 20px 0 15px;
+}
+.CategoriesPage .item-wrap {
+    width: 23.7%;
+}
+.CategoriesPage .item-wrap .category-image,
+.CategoriesPage .item-wrap .gray-overlay {
+    height: 224px;
+}
+.viewAll{
+    font-size: 14px;
+    float: right;
+    color: #007bff;
+}
+
+.field {
+    margin-bottom: 1em;
+}
+.field .mobileInput {
+    font-size: 1rem;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 15px;
+    height: 60px;
+    cursor: text;
+}
+
+input#otp {
+    display: block;
+    /* margin: 0 auto; */
+    border: none;
+    width: 9ch;
+    background: repeating-linear-gradient(90deg,#696969,#696969 1ch,transparent 0,transparent 1.5ch) 0 100%/100% 2px no-repeat;
+    color: #696969;
+    font: 5ch consolas,monospace;
+    letter-spacing: .5ch;
+    outline: none;
+}
+.form-group .form-control{
+    border: none;
+    border-bottom: solid 1px #ddd;
+    border-radius: 0;
+    background-color: #f1f1f1;
+}
+
+@media(max-width: 767px){
+    .CategoriesPage .item-wrap {
+        width: 45%;
+        margin: 8px;
+    }  
+    .CategoriesPage .item-wrap .category-image, .CategoriesPage .item-wrap .gray-overlay {
+        height: 160px;
+    }  
+}
+

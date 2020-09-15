@@ -1,0 +1,34 @@
+.product-detail{
+    padding: 20px 0;
+    margin-bottom: 80px;
+}
+.prod-title{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.prod-qty{
+    font-size: 14px;
+    color: #666666;
+}
+.prod-price{
+    font-size: 24px;
+    color: #111111;   
+    margin-right: 10px; 
+}
+.product-detail .small-text{
+    font-size: 17px;
+    color: #999999;
+    margin-right: 10px; 
+}
+.product-detail .discount-badge{
+    font-size: 17px;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    width: inherit;
+    height: inherit;
+    font-weight: 600;
+    color: rgb(20, 110, 180);
+    background-color: rgb(228, 241, 248);
+    font-family: Roboto, sans-serif;
+}
