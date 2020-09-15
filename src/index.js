@@ -8,7 +8,7 @@ import "./dukhanshala/assets/css/styles.css"
 
 ReactDOM.render(
   <React.StrictMode>
-    <NewRoutes/>
+    <Routes/>
   </React.StrictMode>,
   document.getElementById('root')
 );
