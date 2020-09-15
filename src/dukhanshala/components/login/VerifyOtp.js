@@ -67,7 +67,6 @@ class VerifyOtp extends React.Component {
     firebase.auth().signInWithPhoneNumber(number, appVerifier)
       .then(confirmResult => {
         this.setState({ confirmResult });
-        console.log(confirmResult)
       })
       .catch(error => {
         alert(error.message)

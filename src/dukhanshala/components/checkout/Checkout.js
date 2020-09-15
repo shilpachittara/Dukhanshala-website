@@ -1,12 +1,35 @@
 import React from 'react';
 import './Checkout.css'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import backArror from '../../assets/images/icon_back.svg';
+import { AppContext } from 'Context/AppContext';
 
 
-const Checkout = () =>(
+class Checkout extends React.Component{
+    static contextType = AppContext;
+    constructor(){
+        super();
+
+        this.state = {
+        }
+        this.submit = this.submit.bind(this);
+    }
+    componentDidMount() {
+    }
+
+    submit(){
+        this.setState({redirect: true})
+    }
+
+    render(){
+        const { redirect } = this.state
+        if (redirect)
+            return (<Redirect to={{
+                pathname: `${this.context.storeCode}/confirmation`
+            }} />)
+        return(
     <div>
-        <p className="mt-3 mb-0"><b><Link to="/"><img src={backArror} style={{marginRight:"15px"}} alt="" /></Link> Checkout</b></p>
+        <p className="mt-3 mb-0"><b><Link to={`${this.context.storeCode}/bag`}><img src={backArror} style={{marginRight:"15px"}} alt="" /></Link> Checkout</b></p>
         <p className="text-secondary">Payment of ₹400.00</p>
 
         <div className="row">
@@ -41,9 +64,10 @@ const Checkout = () =>(
             <input type="radio" id="cod" name="cod" className="custom-control-input" />
             <label className="custom-control-label" htmlFor="cod" style={{paddingTop: "2px"}}>Cash/UPI on Delivery</label></div>
         <div className="mb-5">
-            <button className="mb-5 btn btn-primary btn-lg" >Place Order</button>
+            <button className="mb-5 btn btn-primary btn-lg" onClick={this.submit}>Place Order</button>
         </div>        
     </div>
 )
-
+        }
+    }
 export default Checkout;

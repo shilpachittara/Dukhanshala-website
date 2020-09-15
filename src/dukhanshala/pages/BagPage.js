@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import backArror from '../assets/images/icon_back.svg';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 
 
 class BagPage extends Component {
-  static contextType = AppContext;
   static contextType = AppContext;
     constructor(){
         super();
@@ -13,14 +12,32 @@ class BagPage extends Component {
         this.state = {
           bag: null
         }
-        //this.submit = this.submit.bind(this)
+        this.address = this.address.bind(this)
     }
 
-    componentDidMount() {
+    componentDidMount() {}
 
-  }
-
+    address(){
+      if(this.context.mobile != null){
+        this.setState({redirectCheckOut: true})
+      }
+      else{
+        this.setState({redirectLogin: true})
+      }
+    }
     render(){
+
+      const { redirectLogin } = this.state
+      const { redirectCheckOut } = this.state
+        if (redirectCheckOut)
+            return (<Redirect to={{
+                pathname: `${this.context.storeCode}/checkout`
+            }} />)
+        if(redirectLogin)
+            return(
+              <Redirect to={{
+                pathname: `${this.context.storeCode}/otp`
+            }} />)
       return(
         <div className="container">
           <h1 className="heading"><Link to={`${this.context.storeCode}`}><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}</h1>
@@ -94,7 +111,7 @@ class BagPage extends Component {
                 </div>
                 <div className="text-center mt-5 pb-5 mb-5">
                   <div className="m-0">
-                    <Link to={`${this.context.storeCode}/otp`} className="btn btn-primary btn-lg btn-block text-white">Select Address</Link>
+                    <div className="btn btn-primary btn-lg btn-block text-white" onClick={this.address}>Select Address</div>
                   </div>
                 </div>
               </section>

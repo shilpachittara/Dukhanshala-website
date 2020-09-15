@@ -11,6 +11,7 @@ import VerifyOtpPage from './dukhanshala/pages/login/VerifyOtpPage';
 import OrdersPage from './dukhanshala/pages/OrdersPage';
 import OrderDetailPage from './dukhanshala/pages/OrderDetailPage';
 import CheckoutPage from './dukhanshala/pages/CheckoutPage';
+import OrderConfirmPage from './dukhanshala/pages/OrderConfirmPage';
 import ProductDetailPage from './dukhanshala/pages/ProductDetailPage';
 import {AppContextProvider} from "./Context/AppContext";
 
@@ -95,6 +96,7 @@ class NewRoutes extends Component {
               <Route exact path="/:store/otp" component={SendOtpPage}/>
               <Route exact path="/:store/:otp/verify" component={VerifyOtpPage}/>
               <Route exact path="/:store/checkout" component={CheckoutPage}/>
+              <Route exact path="/:store/confirmation" component={OrderConfirmPage}/>
               <Route exact path="/:store/orders" component={OrdersPage}/>
               <Route exact path="/:store/order/detail" component={OrderDetailPage}/>
             </Switch>
