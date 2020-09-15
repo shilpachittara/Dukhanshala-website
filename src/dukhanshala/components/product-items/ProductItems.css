@@ -1,0 +1,37 @@
+.thumbnail-padding {
+    padding-bottom: 100%;
+}
+.thumbnail-container {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    object-position: center;
+}
+.thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    border-radius: .5rem!important;    
+}
+.discount-badge {
+    position: absolute;
+    padding-top: 4.3px;
+    margin-left: -60px;
+    font-size: 12px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    background-color: #146eb4;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: inline-block;
+    width: 60px;
+    height: 22px;
+    font-family: Galano;
+}

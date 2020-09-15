@@ -1,0 +1,36 @@
+.item-wrap {
+    width: 136px;
+    margin-right: 14px;
+    position: relative;
+    overflow: hidden;
+    object-position: center;
+    display: inline-block;
+    cursor: pointer;
+}
+.category-block-image, .category-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+}
+.category-image,
+.gray-overlay {
+    height: 124px;
+}
+.gray-overlay, 
+.gray-overlay-sm {
+    width: 100%;
+    position: relative;
+    border-radius: 8px;
+    background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.4) 99%);
+}
+.category-text {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 12px;
+    white-space: pre-wrap;
+    line-height: 20px;
+    color: #fff;
+    font-size: 15px;
+}

@@ -14,7 +14,6 @@ import Mst1 from "../../assets/image/MST1.jpg"
 import Mst2 from "../../assets/image/MST2.jpg"
 import Mst3 from "../../assets/image/MST3.jpg"
 import CaseStudy1 from "../../assets/image/caseStudy1.jpeg"
-import VisionImage from "../../assets/image/vision_image.png"
 import WebGif from "../../assets/image/web_gif.gif"
 
 
@@ -61,7 +60,7 @@ class HomePage extends Component {
         <div className="box-shadow"  >
           <div style={{width:"90%",margin: "0 auto",}}> 
             <nav className="navbar navbar-expand-md navbar-light " style={{ backgroundColor:"white"}}>
-              <a className="navbar-brand pt-4 pl-2 web-view-paddind" href="#" style={{}}><img className="logo-dukaan-shala" alt="logo" src={Logo} style={{width:"250px", height:"40px"}}></img></a>
+              <a className="navbar-brand pt-4 pl-2 web-view-paddind" href="#home" style={{}}><img className="logo-dukaan-shala" alt="logo" src={Logo} style={{width:"250px", height:"40px"}}></img></a>
               <button className="navbar-toggler" type="button"  style={{backgroundColor:"",}}data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" style={{color:"black", }}>
                 <i className="fa fa-navicon" style={{color:"black", width:"20%"}}></i>
@@ -70,7 +69,7 @@ class HomePage extends Component {
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item active">
-                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="#home">Home <span className="sr-only">(current)</span></a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#ourFeatures">Features</a>
@@ -106,7 +105,7 @@ class HomePage extends Component {
               </a>
               </div>
               <div className="col-md-6 col-12 pl-5 pt-3">
-                <img className ="" src={WebGif} style={{width:"90%"}}></img>
+                <img className ="" alt="gif" src={WebGif} style={{width:"90%"}}></img>
               </div>
           </div>
 
@@ -136,7 +135,7 @@ class HomePage extends Component {
             <div className="col-md-6 col-12 mt-2" style={{}}>
               {this.state.renderData.map((data, index) => {
                   return (
-                  <div className="card" style={{height:'100%', 
+                  <div className="card" key={index} style={{height:'100%', 
                   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', 
                   }}>
                   <img className="card-img-top" src={data.icon} alt="multilanguagesupport" 
@@ -167,7 +166,7 @@ class HomePage extends Component {
             {this.state.multipleStoreTypeData.map((data, index) => 
                 {
                   return( 
-                    <div className="col-md-4 zoom">
+                    <div className="col-md-4 zoom" key={index}>
                       <img className="mt-3 mob-view-img" src={data.image} alt="detail" style={{ width: '370px', height: '300px' }}></img>
                       <div className="sub-title" style={{float: 'right', width:"40%", fontSize:"14px", fontWeight:"bold", 
                       padding:"5px", borderRadius:"5px", zIndex:"1000",
@@ -188,10 +187,10 @@ class HomePage extends Component {
               {this.state.caseStudyData.map((data, index) => 
               {
                 return(
-                  <div className="col-md-4" style={{fontFamily:"Poppins-Light"}}>
+                  <div className="col-md-4" key={index} style={{fontFamily:"Poppins-Light"}}>
                     <div className="card" style={{marginLeft:"20px", marginRight:"20px",
                   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', borderRadius:"0px"}}>
-                      <img className="card-img-top" style={{padding:"10px 10px 10px 10px"}} src={data.image} alt="Card image cap"></img>
+                      <img className="card-img-top" style={{padding:"10px 10px 10px 10px"}} src={data.image} alt="Card cap"></img>
                       <div className="card-body">
                         <p className="card-text">{data.para}</p>
                         <a href="https://medium.com/@info_28655/small-businesses-tales-making-store-operations-efficient-98df98ac7679" className="btn" style={{backgroundColor:"white", color:"#FF4500"}}>Read Story</a>
