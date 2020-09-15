@@ -26,7 +26,7 @@ class ProductDetailPage extends Component {
 }
 
 getCategoryName = () => {
-    let url = 'http://35.240.173.248:8005/web/category/'+ this.context.categoryId;
+    let url = 'https://35.240.173.248:4200/web/category/'+ this.context.categoryId;
     Axios.get(url)
         .then(response => {
             if(response && response.data && response.data){

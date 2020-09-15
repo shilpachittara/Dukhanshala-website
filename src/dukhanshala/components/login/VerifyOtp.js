@@ -53,7 +53,7 @@ class VerifyOtp extends React.Component {
   }
 
   loginDetail() {
-    Axios.post(`http://35.240.173.248:8005/web/login/${this.context.mobile}`)
+    Axios.post(`https://35.240.173.248:4200/web/login/${this.context.mobile}`)
       .then(res => {
         this.setState({ redirect: true });
       })

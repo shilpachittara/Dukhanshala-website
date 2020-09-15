@@ -56,7 +56,6 @@ class ObjectCreation {
     productObject(input) {
         let productList = [];
         input.forEach((item) => {
-            console.log("count:" + item.count);
             let data = {
                 'itemQuantity': item.count,
                 'productId': item.productId,
@@ -64,6 +63,7 @@ class ObjectCreation {
             }
             productList.push(data);
         })
+        return productList;
     }
 }
 
