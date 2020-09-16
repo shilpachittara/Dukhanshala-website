@@ -32,7 +32,7 @@ static contextType = AppContext;
     else{
         path = window.location.pathname;
     }
-    let url = 'https://35.198.221.218:4200/web/store/detail'+ path;
+    let url = 'https://35.240.173.248:4200/web/store/detail'+ path;
     axios.get(url)
         .then(response => {
             if(response && response.data && response.data){
