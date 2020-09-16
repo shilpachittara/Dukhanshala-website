@@ -37,7 +37,7 @@ class Footer extends React.Component{
     <nav className="fixed-bottom fixedNav border-top bg-white">
         <div className="row text-center mt-10">
             <div className="col">
-                <NavLink className="link" to={`${this.state.home}`} activeStyle={{color:"red"}}> 
+                <NavLink className="link" to="/test15" activeStyle={{color:"red"}}> 
                     <img src={HomeIcon} className="icon" alt="Home Icon" />
                     <p className="title">Home</p>
                 </NavLink>
