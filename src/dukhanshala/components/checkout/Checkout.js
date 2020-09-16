@@ -6,6 +6,7 @@ import { AppContext } from 'Context/AppContext';
 import Validator from 'dukhanshala/util/Validator';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
 import Axios from 'axios';
+import https from 'https';
 
 class Checkout extends React.Component {
     static contextType = AppContext;
@@ -13,7 +14,7 @@ class Checkout extends React.Component {
         super();
 
         this.state = {
-            bag : {},
+            bag: {},
             name: null,
             address: null,
             city: null,
@@ -32,13 +33,13 @@ class Checkout extends React.Component {
         this.objectCreation = new ObjectCreation();
     }
     componentDidMount() {
-        this.setState({contact: this.context.mobile});
-        this.setState({storeCode: this.context.storeCode});
-        this.setState({deliveryCharge: this.context.deliveryCharge});
-        this.setState({grandTotal: this.context.grandTotal});
-        this.setState({totalItem: this.context.bagCount});
-        this.setState({total: this.context.total});
-        this.setState({bag: this.context.bag});
+        this.setState({ contact: this.context.mobile });
+        this.setState({ storeCode: this.context.storeCode });
+        this.setState({ deliveryCharge: this.context.deliveryCharge });
+        this.setState({ grandTotal: this.context.grandTotal });
+        this.setState({ totalItem: this.context.bagCount });
+        this.setState({ total: this.context.total });
+        this.setState({ bag: this.context.bag });
     }
 
     handleChange({ target }) {
@@ -47,15 +48,18 @@ class Checkout extends React.Component {
         });
     }
     submit() {
-        if(this.validator.validateAddress(this.state)){
+        if (this.validator.validateAddress(this.state)) {
             let request = this.objectCreation.orderObject(this.state);
             console.log(request);
-            Axios.post('https://35.240.173.248:4200/web/order', request)
-      .then(res => {
-        this.setState({ redirect: true });
-        this.context.updateBagCount(0);
-      })
-        
+            const agent = new https.Agent({
+                rejectUnauthorized: false,
+            });
+            Axios.post('https://35.198.221.218:4200/web/order', request, { httpsAgent: agent })
+                .then(res => {
+                    this.setState({ redirect: true });
+                    this.context.updateBagCount(0);
+                })
+
         }
     }
 

@@ -4,6 +4,7 @@ import backArror from '../assets/images/icon_back.svg';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
+import https from 'https';
 
 class ProductDetailPage extends Component {
 
@@ -26,8 +27,11 @@ class ProductDetailPage extends Component {
 }
 
 getCategoryName = () => {
-    let url = 'https://35.240.173.248:4200/web/category/'+ this.context.categoryId;
-    Axios.get(url)
+    let url = 'https://35.198.221.218:4200/web/category/'+ this.context.categoryId;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        Axios.get(url, { httpsAgent: agent })
         .then(response => {
             if(response && response.data && response.data){
                // this.props.setCategories(response.data.categories);

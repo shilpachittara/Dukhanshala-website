@@ -3,7 +3,7 @@ import './ProductDetail.css'
 import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
-
+import https from 'https';
 
 class ProductDetail extends React.Component {
     static contextType = AppContext;
@@ -38,8 +38,11 @@ class ProductDetail extends React.Component {
     }
 
     getProductDetail = () => {
-        let url = 'https://35.240.173.248:4200/web/category/product/detail' + this.context.storeCode + '/' + this.context.productId;
-        Axios.get(url)
+        let url = 'https://35.198.221.218:4200/web/category/product/detail' + this.context.storeCode + '/' + this.context.productId;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        Axios.get(url, { httpsAgent: agent })
             .then(response => {
                 if (response && response.data && response.data) {
                     // this.props.setCategories(response.data.categories);

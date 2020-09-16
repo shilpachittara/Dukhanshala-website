@@ -3,6 +3,7 @@ import './Categories.css'
 import CategoriesItems from '../categories-items/CategoriesItems';
 import axios from 'axios';
 import {AppContext} from "../../../Context/AppContext";
+import https from 'https';
 
 class CategoriesHome extends React.Component{
     static contextType = AppContext;
@@ -25,8 +26,11 @@ class CategoriesHome extends React.Component{
         this.getCategoriesList(path);
     }
     getCategoriesList = (path) => {
-      let url = 'https://35.240.173.248:4200/web/category/detail'+ path;
-      axios.get(url)
+        let url = 'https://35.198.221.218:4200/web/category/detail' + path;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        axios.get(url, { httpsAgent: agent })
           .then(response => {
               if(response && response.data && response.data.categories){
                  // this.props.setCategories(response.data.categories);
