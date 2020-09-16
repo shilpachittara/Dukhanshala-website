@@ -50,7 +50,7 @@ class Checkout extends React.Component {
         if(this.validator.validateAddress(this.state)){
             let request = this.objectCreation.orderObject(this.state);
             console.log(request);
-            Axios.post('https://35.240.173.248:4200/web/order', request)
+            Axios.post('https://35.198.221.218:4200/web/order', request)
       .then(res => {
         this.setState({ redirect: true });
         this.context.updateBagCount(0);
