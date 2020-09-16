@@ -13,11 +13,6 @@ import OrderDetailPage from './dukhanshala/pages/OrderDetailPage';
 import CheckoutPage from './dukhanshala/pages/CheckoutPage';
 import OrderConfirmPage from './dukhanshala/pages/OrderConfirmPage';
 import ProductDetailPage from './dukhanshala/pages/ProductDetailPage';
-import MainHomePage from '../src/pages/user/HomePage'
-import PrivacyPolicy from '../src/pages/user/PrivacyPolicy'
-import TermsCondition from '../src/pages/user/TermsCondition'
-import UserGuide from '../src/pages/user/UserGuide'
-import UserGuideHindi from '../src/pages/user/UserGuideHindi'
 import {AppContextProvider} from "./Context/AppContext";
 
 
@@ -127,11 +122,6 @@ class Routes extends Component {
               <Route exact path="/:store/confirmation" component={OrderConfirmPage}/>
               <Route exact path="/:store/orders" component={OrdersPage}/>
               <Route exact path="/:store/order/detail" component={OrderDetailPage}/>
-              <Route exact path="/" component={MainHomePage}/>
-              <Route exact path="/PrivacyPolicy" component={PrivacyPolicy}/>
-              <Route exact path="/TermsCondition" component={TermsCondition}/>
-              <Route exact path="/userguideen" component={UserGuide}/>
-              <Route exact path="/userguidehi" component={UserGuideHindi}/>
             </Switch>
           </div>
           <Footer/>
