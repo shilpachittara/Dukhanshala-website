@@ -26,7 +26,7 @@ class Categories extends React.Component{
         this.getCategoriesList(path);
     }
     getCategoriesList = (path) => {
-      let url = 'https://35.198.221.218:4200/web/category/detail'+ path;
+      let url = 'https://35.240.173.248:4200/web/category/detail'+ path;
       axios.get(url)
           .then(response => {
               if(response && response.data && response.data.categories){

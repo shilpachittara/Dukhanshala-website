@@ -17,7 +17,7 @@ class Products extends React.Component{
         this.getProductList();
     }
     getProductList = () => {
-      let url = `https://35.198.221.218:4200/web/category/products${this.context.storeCode}/${this.context.categoryId}`;
+      let url = `https://35.240.173.248:4200/web/category/products${this.context.storeCode}/${this.context.categoryId}`;
       axios.get(url)
           .then(response => {
               if(response && response.data && response.data.products){
