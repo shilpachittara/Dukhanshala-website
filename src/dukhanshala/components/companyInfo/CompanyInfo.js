@@ -2,7 +2,7 @@ import React from 'react';
 import './CompanyInfo.css';
 import { AppContext } from 'Context/AppContext';
 import axios from 'axios';
-
+import https from 'https';
 
 class CompanyInfo extends React.Component{
     static contextType = AppContext;
@@ -29,8 +29,11 @@ class CompanyInfo extends React.Component{
     else{
         path = window.location.pathname;
     }
-    let url = 'https://35.240.173.248:4200/web/store/detail'+ path;
-    axios.get(url)
+    let url = 'https://35.198.221.218:4200/web/store/detail'+ path;
+    const agent = new https.Agent({
+        rejectUnauthorized: false,
+    });
+    axios.get(url,{httpsAgent: agent})
         .then(response => {
             if(response && response.data && response.data){
                 //this.context.updateCategories(response.data);
