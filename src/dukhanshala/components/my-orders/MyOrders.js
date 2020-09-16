@@ -18,7 +18,7 @@ class MyOrders extends React.Component {
         this.getOrdersByContactNumber();
     }
     getOrdersByContactNumber = () => {
-        let url = 'https://35.240.173.248:4200/web/orders/' + this.context.mobile;
+        let url = 'https://35.198.221.218:4200/web/orders/' + this.context.mobile;
         Axios.get(url)
             .then(response => {
                 if (response && response.data && response.data.orderDetails) {
