@@ -33,7 +33,7 @@ static contextType = AppContext;
     else{
         path = window.location.pathname;
     }
-    let url = 'https://35.198.221.218:4200/web/store/detail'+ path;
+    let url = 'https://api.dukaanshala.com/web/store/detail'+ path;
     const agent = new https.Agent({
         rejectUnauthorized: false,
     });

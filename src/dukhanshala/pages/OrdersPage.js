@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MyOrders from 'dukhanshala/components/my-orders/MyOrders';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
+import Footer from 'dukhanshala/components/common/footer/Footer';
+import Header from 'dukhanshala/components/common/header/Header';
 
 
 class OrdersPage extends Component {
@@ -25,7 +27,9 @@ class OrdersPage extends Component {
           }} />)
       return(
         <div className="container">
+          <Header />
             <MyOrders/>
+            <Footer/>
         </div>
       )
     }

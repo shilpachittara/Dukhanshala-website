@@ -27,7 +27,7 @@ class Categories extends React.Component {
         this.getCategoriesList(path);
     }
     getCategoriesList = (path) => {
-        let url = 'https://35.198.221.218:4200/web/category/detail' + path;
+        let url = 'https://api.dukaanshala.com/web/category/detail' + path;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });

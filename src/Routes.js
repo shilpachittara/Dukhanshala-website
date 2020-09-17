@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './dukhanshala/pages/HomePage';
-import Header from './dukhanshala/components/common/header/Header';
-import Footer from './dukhanshala/components/common/footer/Footer';
 import CategoryPage from './dukhanshala/pages/CategoryPage';
 import ProductsPage from './dukhanshala/pages/ProductsPage';
 import BagPage from './dukhanshala/pages/BagPage';
@@ -105,7 +103,6 @@ class Routes extends Component {
       <div>
         <AppContextProvider value={this.state}>
         <Router>
-        <Header/>
           <div>
             <Switch>
               <Route exact path="/:store" component={HomePage}/>
@@ -124,7 +121,6 @@ class Routes extends Component {
               <Route exact path="/:store/order/detail" component={OrderDetailPage}/>
             </Switch>
           </div>
-          <Footer/>
         </Router>
         </AppContextProvider>
       </div>

@@ -38,7 +38,7 @@ class ProductDetail extends React.Component {
     }
 
     getProductDetail = () => {
-        let url = 'https://35.198.221.218:4200/web/category/product/detail' + this.context.storeCode + '/' + this.context.productId;
+        let url = 'https://api.dukaanshala.com/web/category/product/detail' + this.context.storeCode + '/' + this.context.productId;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });
