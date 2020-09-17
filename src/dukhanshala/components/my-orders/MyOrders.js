@@ -3,7 +3,7 @@ import './MyOrders.css'
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
-
+import https from 'https';
 class MyOrders extends React.Component {
     static contextType = AppContext;
     constructor() {
@@ -18,8 +18,11 @@ class MyOrders extends React.Component {
         this.getOrdersByContactNumber();
     }
     getOrdersByContactNumber = () => {
-        let url = 'https://35.240.173.248:4200/web/orders/' + this.context.mobile;
-        Axios.get(url)
+        let url = 'https://api.dukaanshala.com/web/orders/' + this.context.mobile;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        Axios.get(url, { httpsAgent: agent })
             .then(response => {
                 if (response && response.data && response.data.orderDetails) {
                     // this.props.setCategories(response.data.categories);

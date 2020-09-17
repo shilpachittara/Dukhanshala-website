@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './dukhanshala/pages/HomePage';
-import Header from './dukhanshala/components/common/header/Header';
-import Footer from './dukhanshala/components/common/footer/Footer';
 import CategoryPage from './dukhanshala/pages/CategoryPage';
 import ProductsPage from './dukhanshala/pages/ProductsPage';
 import BagPage from './dukhanshala/pages/BagPage';
@@ -13,11 +11,6 @@ import OrderDetailPage from './dukhanshala/pages/OrderDetailPage';
 import CheckoutPage from './dukhanshala/pages/CheckoutPage';
 import OrderConfirmPage from './dukhanshala/pages/OrderConfirmPage';
 import ProductDetailPage from './dukhanshala/pages/ProductDetailPage';
-import MainHomePage from '../src/pages/user/HomePage'
-import PrivacyPolicy from '../src/pages/user/PrivacyPolicy'
-import TermsCondition from '../src/pages/user/TermsCondition'
-import UserGuide from '../src/pages/user/UserGuide'
-import UserGuideHindi from '../src/pages/user/UserGuideHindi'
 import {AppContextProvider} from "./Context/AppContext";
 
 
@@ -110,7 +103,6 @@ class Routes extends Component {
       <div>
         <AppContextProvider value={this.state}>
         <Router>
-        <Header/>
           <div>
             <Switch>
               <Route exact path="/:store" component={HomePage}/>
@@ -127,14 +119,8 @@ class Routes extends Component {
               <Route exact path="/:store/confirmation" component={OrderConfirmPage}/>
               <Route exact path="/:store/orders" component={OrdersPage}/>
               <Route exact path="/:store/order/detail" component={OrderDetailPage}/>
-              <Route exact path="/" component={MainHomePage}/>
-              <Route exact path="/PrivacyPolicy" component={PrivacyPolicy}/>
-              <Route exact path="/TermsCondition" component={TermsCondition}/>
-              <Route exact path="/userguideen" component={UserGuide}/>
-              <Route exact path="/userguidehi" component={UserGuideHindi}/>
             </Switch>
           </div>
-          <Footer/>
         </Router>
         </AppContextProvider>
       </div>

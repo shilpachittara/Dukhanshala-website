@@ -4,6 +4,9 @@ import backArror from '../assets/images/icon_back.svg';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
+import https from 'https';
+import Footer from 'dukhanshala/components/common/footer/Footer';
+import Header from 'dukhanshala/components/common/header/Header';
 
 class ProductDetailPage extends Component {
 
@@ -26,8 +29,11 @@ class ProductDetailPage extends Component {
 }
 
 getCategoryName = () => {
-    let url = 'https://35.240.173.248:4200/web/category/'+ this.context.categoryId;
-    Axios.get(url)
+    let url = 'https://api.dukaanshala.com/web/category/'+ this.context.categoryId;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        Axios.get(url, { httpsAgent: agent })
         .then(response => {
             if(response && response.data && response.data){
                // this.props.setCategories(response.data.categories);
@@ -51,11 +57,14 @@ getCategoryName = () => {
                 pathname: `${this.context.storeCode}/products/${this.context.categoryId}`
             }} />)
       return(
+    
         <div className="container">
+          <Header />
             <h1 className="heading" ><img src={backArror} style={{marginRight:"15px"}} alt="product" onClick={this.backPage}/>{this.context.categoryName}</h1>
             <ProductDetail/>
+            <Footer/>
         </div>
-        
+       
       )
     }
   }

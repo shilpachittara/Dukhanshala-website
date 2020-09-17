@@ -3,6 +3,7 @@ import './Products.css'
 import ProductItems from '../product-items/ProductItems';
 import axios from "axios";
 import { AppContext } from 'Context/AppContext';
+import https from 'https';
 
 class ProductsHome extends React.Component{
     static contextType = AppContext;
@@ -17,8 +18,11 @@ class ProductsHome extends React.Component{
         this.getProductList();
     }
     getProductList = () => {
-      let url = `https://35.240.173.248:4200/web/category/products${this.context.storeCode}/${this.props.categoryId}`;
-      axios.get(url)
+      let url = `https://api.dukaanshala.com/web/category/products${this.context.storeCode}/${this.props.categoryId}`;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        axios.get(url, { httpsAgent: agent })
           .then(response => {
               if(response && response.data && response.data.products){
                   this.setState({products: response.data.products});

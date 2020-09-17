@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import backArror from '../assets/images/icon_back.svg';
 import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
+import Footer from 'dukhanshala/components/common/footer/Footer';
+import Header from 'dukhanshala/components/common/header/Header';
 
 
 class BagPage extends Component {
@@ -110,6 +112,7 @@ class BagPage extends Component {
             }} />)
       return(
         <div className="container">
+          <Header />
           <h1 className="heading"><Link to={`${this.context.storeCode}`}><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}</h1>
 
           <div className="row pr-0 mr-0 my-0">
@@ -162,7 +165,7 @@ class BagPage extends Component {
               </section>
             </div>
           </div>
-
+          <Footer/>
         </div>
       )
     }

@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import backArror from '../../assets/images/icon_back.svg';
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
-
+import https from 'https';
 class OrderDetails extends React.Component {
     static contextType = AppContext;
     constructor() {
@@ -19,8 +19,11 @@ class OrderDetails extends React.Component {
         this.getOrdersByContactNumber();
     }
     getOrdersByContactNumber = () => {
-        let url = 'https://35.240.173.248:4200/web/order/detail/' + this.context.orderId;
-        Axios.get(url)
+        let url = 'https://api.dukaanshala.com/web/order/detail/' + this.context.orderId;
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        Axios.get(url, { httpsAgent: agent })
             .then(response => {
                 if (response && response.data) {
                     this.setState({ order: response.data });

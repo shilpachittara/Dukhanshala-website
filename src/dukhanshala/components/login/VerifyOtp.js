@@ -5,6 +5,7 @@ import { AppContext } from 'Context/AppContext';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Axios from 'axios';
+import https from 'https';
 class VerifyOtp extends React.Component {
   static contextType = AppContext;
   constructor(props) {
@@ -53,7 +54,10 @@ class VerifyOtp extends React.Component {
   }
 
   loginDetail() {
-    Axios.post(`https://35.240.173.248:4200/web/login/${this.context.mobile}`)
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+    Axios.post(`https://api.dukaanshala.com/web/login/${this.context.mobile}`, { httpsAgent: agent })
       .then(res => {
         this.setState({ redirect: true });
       })
