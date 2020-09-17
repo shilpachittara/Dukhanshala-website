@@ -18,7 +18,7 @@ class MyOrders extends React.Component {
         this.getOrdersByContactNumber();
     }
     getOrdersByContactNumber = () => {
-        let url = 'https://35.198.221.218:4200/web/orders/' + this.context.mobile;
+        let url = 'https://api.dukaanshala.com/web/orders/' + this.context.mobile;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });
