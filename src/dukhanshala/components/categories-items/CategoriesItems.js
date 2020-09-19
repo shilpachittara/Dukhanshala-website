@@ -15,15 +15,51 @@ class CategoriesItems extends React.Component{
         //this.submit = this.submit.bind(this)
     }
     componentDidMount() {
-      var path;
-      
-      if(this.context.storeCode != null){ 
-        path= this.context.storeCode;
+ 
+
+    //   ===
+
+    var path;
+
+
+    if(this.context.storeCode != null){
+      path= this.context.storeCode;
+    
+    }
+    else{ 
+      let url = window.location.pathname;
+     
+        let index = url.search("/")
+        let lastIndexOf=url.indexOf("/", url.indexOf("/") + 1);
+
+  if (index !== -1) {
+      let urlLength;
+      if(lastIndexOf==-1){
+          let token = url;
+          this.context.updateAppContext(token)
+          console.log("this.context.storeCode",this.context.storeCode)
+    
+          path= token;
+       
       }
       else{
-        this.context.updateAppContext(window.location.pathname); 
-        path= window.location.pathname;
+           urlLength = lastIndexOf;
+           let token = url.slice(index , urlLength);
+           this.context.updateAppContext(token)
+    
+           path= token
+           console.log("this.context.storeCode",this.context.storeCode)
+
       }
+  
+  }
+  else {
+    alert("try again")
+  }
+
+    }
+ 
+    // ===
       path = path + "/products/" + this.props.categoryId;
       this.setState({category: path});
 

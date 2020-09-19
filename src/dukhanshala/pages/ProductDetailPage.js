@@ -21,10 +21,43 @@ class ProductDetailPage extends Component {
   }
 
   componentDidMount() {
-      
-      if(this.context.storeCode == null){ 
-        this.context.updateAppContext(window.location.pathname); 
+    var path;
+
+
+    if(this.context.storeCode != null){
+      path= this.context.storeCode;
+   
+   
+    }
+    else{ 
+      let url = window.location.pathname;
+     
+        let index = url.search("/")
+        let lastIndexOf=url.indexOf("/", url.indexOf("/") + 1);
+
+  if (index !== -1) {
+      let urlLength;
+      if(lastIndexOf==-1){
+          let token = url;
+          this.context.updateAppContext(token)
+       
       }
+      else{
+           urlLength = lastIndexOf;
+           let token = url.slice(index , urlLength);
+           this.context.updateAppContext(token)
+    
+           
+
+      }
+  
+  }
+  else {
+    alert("try again")
+  }
+
+    }
+ 
     //this.getCategoryName();
 }
 
