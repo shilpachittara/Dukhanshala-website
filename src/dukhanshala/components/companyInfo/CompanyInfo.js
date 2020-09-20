@@ -22,10 +22,8 @@ class CompanyInfo extends React.Component{
 
         if(this.context.storeCode != null){
           path= this.context.storeCode;
-          this.setState({
-            globalPath:path   
-          })
-          this.getStoreDetail();
+ 
+          this.getStoreDetail(path);
        
         }
         else{ 
@@ -39,20 +37,16 @@ class CompanyInfo extends React.Component{
           if(lastIndexOf==-1){
               let token = url;
               this.context.updateAppContext(token)
-              this.setState({
-                globalPath:token  
-              })
-              this.getStoreDetail();
+          
+              this.getStoreDetail(token);
            
           }
           else{
                urlLength = lastIndexOf;
                let token = url.slice(index , urlLength);
                this.context.updateAppContext(token)
-               this.setState({
-                globalPath:token  
-              })
-              this.getStoreDetail();
+          
+              this.getStoreDetail(token);
     
           }
       
@@ -64,15 +58,9 @@ class CompanyInfo extends React.Component{
         }
 
       }
-      getStoreDetail = () => {
-    var path = null; 
-    if(this.context.storeCode != null){
-    path = this.context.storeCode
-    }
-    else{
-        path = this.state.globalPath;
-    }
-    let url = 'https://api.dukaanshala.com/web/store/detail'+ path;
+      getStoreDetail = (val) => {
+
+    let url = 'https://api.dukaanshala.com/web/store/detail'+ val;
     const agent = new https.Agent({
         rejectUnauthorized: false,
     });
