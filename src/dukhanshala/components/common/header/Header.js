@@ -108,7 +108,7 @@ static contextType = AppContext;
                 <div className="col">
                     <div className="store-title">
                         <h3 className="logo-title">{this.state.storeName}</h3>
-                        <p className="made-title">STORE MADE WITH @Dukaanshala</p>
+                        <p className="made-title">Store made with Dukaanshala</p>
                     </div>
                 </div>
                 {/*<div className="col-auto">
