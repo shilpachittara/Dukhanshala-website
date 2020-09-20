@@ -36,7 +36,7 @@ class VerifyOtp extends React.Component {
 
   handleChange({ target }) {
     this.setState({
-      [target.name]: target.value
+      otp: target.value
     });
   }
 
@@ -66,6 +66,9 @@ class VerifyOtp extends React.Component {
   resend() {
     var appVerifier = window.recaptchaVerifier;
     var number = "+91" + this.state.mobile;
+    this.setState({
+      otp: ''
+    });
     firebase.auth().signInWithPhoneNumber(number, appVerifier)
       .then(confirmResult => {
         this.setState({ confirmResult });
@@ -90,7 +93,7 @@ class VerifyOtp extends React.Component {
         <p className="small-text text-secondary">Please enter the 6 digit OTP sent to your number - {this.context.mobile}</p>
         <button className="btn btn-outline-info btn-sm" onClick={this.resend}>Resend OTP</button>
         <div className="field">
-          <input type="text" id="otp" name="otp" placeholder=" " maxLength="6" required="" onChange={this.handleChange} />
+          <input type="text" value={this.state.otp} id="otp" name="otp" placeholder=" " maxLength="6" required="" onChange={this.handleChange} />
           <p id="api-error" className="text-danger p-3"></p>
           <div>
             <button id="resend-button" className="mb-5 btn btn-primary btn-lg" onClick={() => this.verify()}>Verify OTP</button>

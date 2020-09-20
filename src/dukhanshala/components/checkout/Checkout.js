@@ -103,8 +103,8 @@ class Checkout extends React.Component {
                 </div>
                 <p className="small-text mt-3 pt-3 mb-0">PAYMENT METHOD</p>
                 <div className="custom-control custom-radio custom-control-inline mt-3 mb-3">
-                    <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} />
-                    <label className="custom-control-label" htmlFor="cod" style={{ paddingTop: "2px" }}>Cash/UPI on Delivery</label></div>
+                    <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} checked={true}/>
+                    <label className="custom-control-label" htmlFor="cod" style={{ paddingLeft: '10px' }}>Cash/UPI on Delivery</label></div>
                 <div className="mb-5">
                     <button className="mb-5 btn btn-primary btn-lg" onClick={this.submit}>Place Order</button>
                 </div>

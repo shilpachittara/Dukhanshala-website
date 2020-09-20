@@ -14,15 +14,60 @@ static contextType = AppContext;
     constructor(){
         super();
         this.state = {
-            storeName: null
+            storeName: null,
+            globalPath:''
         }
     }
 
     componentDidMount() {
-      if(this.context.storeCode == null){
-        this.context.updateAppContext(window.location.pathname); 
-      }
+
+        var path;
+
+
+        if(this.context.storeCode != null){
+          path= this.context.storeCode;
+          this.setState({
+            globalPath:path   
+          })
           this.getStoreDetail();
+       
+        }
+        else{ 
+          let url = window.location.pathname;
+         
+            let index = url.search("/")
+            let lastIndexOf=url.indexOf("/", url.indexOf("/") + 1);
+    
+      if (index !== -1) {
+          let urlLength;
+          if(lastIndexOf==-1){
+              let token = url;
+              this.context.updateAppContext(token)
+              this.setState({
+                globalPath:token  
+              })
+              this.getStoreDetail();
+           
+          }
+          else{
+               urlLength = lastIndexOf;
+               let token = url.slice(index , urlLength);
+               this.context.updateAppContext(token)
+               this.setState({
+                globalPath:token  
+              })
+              this.getStoreDetail();
+    
+          }
+      
+      }
+      else {
+        alert("try again")
+      }
+    
+        }
+ 
+          
     }
 
     getStoreDetail = () => {
@@ -31,7 +76,7 @@ static contextType = AppContext;
     path = this.context.storeCode
     }
     else{
-        path = window.location.pathname;
+        path = this.state.globalPath;
     }
     let url = 'https://api.dukaanshala.com/web/store/detail'+ path;
     const agent = new https.Agent({
