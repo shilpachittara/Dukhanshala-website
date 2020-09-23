@@ -46,7 +46,7 @@ class VerifyOtp extends React.Component {
       this.loginDetail();
     }).catch(function (error) {
       alert(error.message)
-      console.log(error)
+  
     });
     if (call) {
       this.loginDetail();
@@ -75,7 +75,7 @@ class VerifyOtp extends React.Component {
       })
       .catch(error => {
         alert(error.message)
-        console.log(error)
+      
       });
 
   }

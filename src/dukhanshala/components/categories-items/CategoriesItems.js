@@ -34,10 +34,10 @@ class CategoriesItems extends React.Component{
 
   if (index !== -1) {
       let urlLength;
-      if(lastIndexOf==-1){
+      if(lastIndexOf===-1){
           let token = url;
           this.context.updateAppContext(token)
-          console.log("this.context.storeCode",this.context.storeCode)
+   
     
           path= token;
        
@@ -48,7 +48,7 @@ class CategoriesItems extends React.Component{
            this.context.updateAppContext(token)
     
            path= token
-           console.log("this.context.storeCode",this.context.storeCode)
+         
 
       }
   
@@ -91,14 +91,3 @@ class CategoriesItems extends React.Component{
 }
 
 export default CategoriesItems;
-/*const CategoriesItems = ({categoryName, categoryImage, history, match,categoryId}) => (
-        <div className="item-wrap" 
-        onClick={()=> history.push(`${match.url}/${categoryId}`)}>
-            <img src={categoryImage} alt={categoryName} className="category-image rounded-xl" />
-            <div className="gray-overlay">
-                <p className="category-text px-2">{categoryName}</p>
-            </div>
-        </div>
-)
-
-export default withRouter(CategoriesItems);*/

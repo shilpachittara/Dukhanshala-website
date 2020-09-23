@@ -50,7 +50,7 @@ class Checkout extends React.Component {
     submit() {
         if (this.validator.validateAddress(this.state)) {
             let request = this.objectCreation.orderObject(this.state);
-            console.log(request);
+
             const agent = new https.Agent({
                 rejectUnauthorized: false,
             });

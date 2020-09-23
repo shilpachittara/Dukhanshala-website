@@ -37,7 +37,7 @@ class ProductList extends React.Component{
         if(lastIndexOf==-1){
             let token = url;
             this.context.updateAppContext(token)
-            console.log("this.context.storeCode",this.context.storeCode)
+
       
             path= token;
          
@@ -48,7 +48,7 @@ class ProductList extends React.Component{
              this.context.updateAppContext(token)
       
              path= token
-             console.log("this.context.storeCode",this.context.storeCode)
+        
   
         }
     

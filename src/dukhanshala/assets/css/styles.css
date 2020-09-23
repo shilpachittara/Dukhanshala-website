@@ -66,6 +66,50 @@ input#otp {
     border-radius: 0;
     background-color: #f1f1f1;
 }
+/* css for homepage slider */
+div.scrollmenu {
+    background-color: white;
+    overflow: auto;
+    white-space: nowrap;
+    
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .a-a:first-child {
+    border-bottom: 3px solid #F8462B !important;
+    font-weight: bold !important;
+    color:#F8462B
+ 
+  }
+
+  .b-b{
+    border-bottom: none!important;
+    font-weight: lighter !important;  
+  }
+  
+  div.scrollmenu a:hover {
+    border-bottom: 3px solid #F8462B;
+    font-weight: bold;
+    color:#F8462B
+  }
+
+  div.scrollmenu a:active {
+   border-bottom: 1px solid #F8462B;
+  }
+
+/* ===end */
+.box-shadow{
+    -webkit-box-shadow: 0px 0px 7px 1px rgba(248, 159, 159, 0.46); 
+    box-shadow: 0px 0px 7px 1px rgba(247, 0, 0, 0.26);
+    border-radius: 2px;
+}
 
 @media(max-width: 767px){
     .CategoriesPage .item-wrap {
@@ -76,4 +120,13 @@ input#otp {
         height: 160px;
     }  
 }
+
+.prod-box{
+    background-color:#FEF0F0;
+    min-height:500px;
+    padding-top: 20px;
+    padding-bottom:80px;
+}
+
+
 

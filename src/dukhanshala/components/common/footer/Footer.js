@@ -16,10 +16,10 @@ class Footer extends React.Component {
             bag: null,
             orders: null,
             globalPath: '',
-            activeHome: window.location.pathname.indexOf("/", window.location.pathname.indexOf("/") + 1)==-1?true:false,
-            activeCategories: window.location.pathname.indexOf("categories")==-1?false:true,
-            activeBag: window.location.pathname.indexOf("bag")==-1?false:true,
-            aciveOrders:  window.location.pathname.indexOf("orders")==-1?false:true,
+            activeHome: window.location.pathname.indexOf("/", window.location.pathname.indexOf("/") + 1)===-1?true:false,
+            activeCategories: window.location.pathname.indexOf("categories")===-1?false:true,
+            activeBag: window.location.pathname.indexOf("bag")===-1?false:true,
+            aciveOrders:  window.location.pathname.indexOf("orders")===-1?false:true,
         }
     }
     componentDidMount() {
@@ -27,8 +27,8 @@ class Footer extends React.Component {
 
     }
     changeActiveButton = (value) => {
-        console.log("value ,",value)
-        if (value == "home") {
+ 
+        if (value === "home") {
             this.setState({
                 activeHome: true,
                 activeCategories: false,
@@ -37,7 +37,7 @@ class Footer extends React.Component {
             })
         }
 
-        if (value == "categories") {
+        if (value === "categories") {
             this.setState({
                 activeHome: false,
                 activeCategories: true,
@@ -45,7 +45,7 @@ class Footer extends React.Component {
                 activeOrders: false
             })
         }
-        if(value=="bag"){
+        if(value==="bag"){
             this.setState({
                 activeHome:false,
                 activeCategories:false,
@@ -53,7 +53,7 @@ class Footer extends React.Component {
                 activeOrders:false 
             })
         }
-       if(value=="orders"){
+       if(value==="orders"){
             this.setState({
                 activeHome:false,
                 activeCategories:false,
@@ -114,13 +114,13 @@ class Footer extends React.Component {
                 <nav className="fixed-bottom fixedNav border-top bg-white">
                     <div className="row text-center mt-10">
                         <div className="col" onClick={() => this.changeActiveButton("home")}>
-                            <a className="link" href={`${this.state.home}`} activeStyle={{ color: "red" }} >
+                            <a className="link" href={`${this.state.home}`}  >
                                 <img src={HomeIcon} className={this.state.activeHome?"active-icon":"icon"} alt="Home Icon" />
                                 <p className="title" style={this.state.activeHome?{color:'black'}:{}}>Home</p>
                             </a>
                         </div>
                         <div className="col" onClick={() => this.changeActiveButton("categories")}>
-                            <a className="link" href={`${this.state.category}`} activeClassName={"active"} >
+                            <a className="link" href={`${this.state.category}`} >
                                 <img src={CategoriesIcon} className={this.state.activeCategories?"active-icon":"icon"} alt="Categories Icon" />
                                 <p className="title"  style={this.state.activeCategories?{color:'black'}:{}}>Categories</p>
                             </a>

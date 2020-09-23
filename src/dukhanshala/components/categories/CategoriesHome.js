@@ -34,10 +34,10 @@ class CategoriesHome extends React.Component{
 
   if (index !== -1) {
       let urlLength;
-      if(lastIndexOf==-1){
+      if(lastIndexOf===-1){
           let token = url;
           this.context.updateAppContext(token)
-          console.log("this.context.storeCode",this.context.storeCode)
+        
           this.getCategoriesList(token);
        
       }
@@ -46,7 +46,7 @@ class CategoriesHome extends React.Component{
            let token = url.slice(index , urlLength);
            this.context.updateAppContext(token)
            this.getCategoriesList(token);
-           console.log("this.context.storeCode",this.context.storeCode)
+   
 
       }
   
