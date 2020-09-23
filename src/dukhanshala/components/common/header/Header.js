@@ -20,16 +20,10 @@ static contextType = AppContext;
     }
 
     componentDidMount() {
-
         var path;
-
-
         if(this.context.storeCode != null){
           path= this.context.storeCode;
-          this.setState({
-            globalPath:path   
-          })
-          this.getStoreDetail();
+          this.getStoreDetail(path);
        
         }
         else{ 
@@ -43,20 +37,16 @@ static contextType = AppContext;
           if(lastIndexOf==-1){
               let token = url;
               this.context.updateAppContext(token)
-              this.setState({
-                globalPath:token  
-              })
-              this.getStoreDetail();
+         
+              this.getStoreDetail(token);
            
           }
           else{
                urlLength = lastIndexOf;
                let token = url.slice(index , urlLength);
                this.context.updateAppContext(token)
-               this.setState({
-                globalPath:token  
-              })
-              this.getStoreDetail();
+          
+              this.getStoreDetail(token);
     
           }
       
@@ -70,15 +60,9 @@ static contextType = AppContext;
           
     }
 
-    getStoreDetail = () => {
-    var path = null; 
-    if(this.context.storeCode != null){
-    path = this.context.storeCode
-    }
-    else{
-        path = this.state.globalPath;
-    }
-    let url = 'https://api.dukaanshala.com/web/store/detail'+ path;
+    getStoreDetail = (val) => {
+
+    let url = 'https://api.dukaanshala.com/web/store/detail'+ val;
     const agent = new https.Agent({
         rejectUnauthorized: false,
     });
@@ -103,12 +87,12 @@ static contextType = AppContext;
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-auto">
-                    <Link to="/"><img className="logo" src={logoImg} alt="Dukhan Shala" /></Link>
+                    <Link to={`${this.context.storeCode}`}><img className="logo" src={logoImg} alt="Dukhan Shala" /></Link>
                 </div>
                 <div className="col">
                     <div className="store-title">
                         <h3 className="logo-title">{this.state.storeName}</h3>
-                        <p className="made-title">STORE MADE WITH @Dukaanshala</p>
+                        <p className="made-title">Store made with Dukaanshala</p>
                     </div>
                 </div>
                 {/*<div className="col-auto">

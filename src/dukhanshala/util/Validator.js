@@ -45,9 +45,6 @@ class Validator {
         else if(inputData.pincode.match(pin)){
           errorMsg +="Please enter valid pincode.\n"
         }
-        if(!inputData.cod) {
-          errorMsg +="Please select payment mode.\n"
-        }
         if(errorMsg.length === 0){
           return true;
         } else {

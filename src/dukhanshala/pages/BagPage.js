@@ -30,8 +30,8 @@ class BagPage extends Component {
     }
 
     totalCalculation(){
-      var totalOrder;
-      var grandTotal;
+      var totalOrder=0;
+      var grandTotal=0;
       var delivery = this.context.minFreeDelivery;
       var length = this.context.bag.products.length;
       for (var i = 0; i < length; i++) {
@@ -112,8 +112,8 @@ class BagPage extends Component {
             }} />)
       return(
         <div className="container">
-          <Header />
-          <h1 className="heading"><Link to={`${this.context.storeCode}`}><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}</h1>
+          <Header/>
+          <h1 className="heading"><Link to={`${this.context.storeCode}`}><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}{" items"} </h1>
 
           <div className="row pr-0 mr-0 my-0">
             
