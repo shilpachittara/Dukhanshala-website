@@ -1,6 +1,9 @@
 .thumbnail-padding {
     padding-bottom: 100%;
 }
+.img-padding-product{
+    padding-bottom: 80%; 
+}
 .thumbnail-container {
     position: relative;
     overflow: hidden;

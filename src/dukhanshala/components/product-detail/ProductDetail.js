@@ -118,6 +118,7 @@ class ProductDetail extends React.Component {
     }
 
     render() {
+      
         const { redirectBack } = this.state
 
         if (redirectBack)
@@ -130,31 +131,39 @@ class ProductDetail extends React.Component {
                 pathname: `${this.context.storeCode}/bag`
             }} />)
         return (
-            <div className="row product-detail">
+            
+            <div className="row product-detail" style={{backgroundColor: '#FEF0F0'}}>
+                 
                 <div className="col-12 col-sm-5">
-                    <div className="thumbnail-container thumbnail-padding" >
-                        <img src={this.state.product.productImage} alt={""} className="thumbnail rounded-xl img-fluid" />
+                <div><h4 className="prod-detail-name" style={{marginBottom:'10px',marginTop:'10px'}}>{this.state.product.productName}</h4></div>
+                   
+                    <div className="thumbnail-container img-padding-product" >
+                    
+                        <img src={this.state.product.productImage} alt={""} style={{height: "300px"}}className="thumbnail rounded-xl img-fluid fit-img" />
                     </div>
                 </div>
                 <div className="col-12 col-sm-7">
-                    <h4 className="prod-title">{this.state.product.productName}</h4>
+                   
                     {/*<h6 className="prod-qty">{"3"} piece</h6>*/}
                     <div className="mt-3">
-                        <span className="prod-price">₹ {this.state.product.sellingPrice}</span>
-                        {/*<small className="small-text mr-2 pl-1"><strike>₹ {this.state.product.mrp}</strike></small>
-                    <span className="discount-badge">{"10"}% off</span>*/}
-                    </div>
+                        <span>Price: ₹</span> <span style={{fontWeight:"bold",fontSize:'18px'}}>{" "+this.state.product.sellingPrice}</span>
+                         <small className="small-text mr-2 pl-1" style={{color:'black',fontSize:'14px'}} >{this.state.product.mrp !==null ?"MRP: ₹":""}<span style={this.state.product.sellingPrice !==null? {textDecoration: 'line-through'}:{display:'none'} }>{" "+this.state.product.mrp !==null ?this.state.product.mrp:""}</span></small>
+                         {/* <span className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white'}}>ADD</span> */}
+                     </div>
+                     <div className="mt-3">
+                <div style={{fontSize:'16px'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </div>
+                     </div>
                     <div className="mt-3">
                         <div className="row">
                             <div className="col pr-0">
                                 <p className="btn-group w-100 my-3">
-                                    <span className="btn btn-outline-primary btn-lg" onClick={this.subProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#146EB4" d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></svg></span>
-                                    <span className="btn btn-outline-secondary btn-lg">{this.state.count}</span>
-                                    <span className="btn btn-outline-primary btn-lg" onClick={this.addProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="#146EB4"><path d="M8 0c.513 0 .936.386.993.883L9 1v14c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L7 15V1c0-.552.448-1 1-1z"></path><path d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></g></svg></span>
+                                    <span className="btn btn-outline-danger btn-lg" style={{borderColor:'#F8462B'}} onClick={this.subProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill='black' d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></svg></span>
+                                    <span className="btn btn-outline-secondary btn-lg" style={{borderColor:'#F8462B',color:'black'}}>{this.state.count}</span>
+                                    <span className="btn btn-outline-danger btn-lg" style={{borderColor:'#F8462B'}} onClick={this.addProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill='black'><path d="M8 0c.513 0 .936.386.993.883L9 1v14c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L7 15V1c0-.552.448-1 1-1z"></path><path d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></g></svg></span>
                                 </p>
                             </div>
                             <div className="col">
-                                <button className="btn btn-primary w-100 my-3 btn-lg" onClick={this.goToBag}>Go to Bag</button>
+                                <button className="btn btn-primary w-100 my-3 btn-lg" onClick={this.goToBag} style={{backgroundColor:'#F8462B' ,borderColor:'#F8462B'}}>Go to Bag</button>
                             </div>
                         </div>
                     </div>

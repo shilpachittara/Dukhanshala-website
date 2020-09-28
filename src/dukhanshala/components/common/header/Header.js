@@ -15,7 +15,8 @@ static contextType = AppContext;
         super();
         this.state = {
             storeName: null,
-            globalPath:''
+            globalPath:'',
+            storeAddress:null
         }
     }
 
@@ -69,8 +70,8 @@ static contextType = AppContext;
     axios.get(url,{httpsAgent: agent})
         .then(response => {
             if(response && response.data && response.data){
-                //this.context.updateCategories(response.data);
-                this.setState({storeName: response.data.storeName});
+                this.setState({storeName: response.data.storeName,
+                storeAddress:response.data.storeAddress});
                 this.context.updateMinFreeDelivery(response.data.minFreeDelivery);
                 this.context.updateDeliveryCharge(response.data.deliveryCharge);
             }
@@ -81,7 +82,7 @@ static contextType = AppContext;
         )
         
   };
-  render(){
+  render(){ 
     return(
     <div className="sticky-top headerPanel">
         <div className="container">
@@ -91,8 +92,12 @@ static contextType = AppContext;
                 </div>
                 <div className="col">
                     <div className="store-title">
-                        <h3 className="logo-title">{this.state.storeName}</h3>
-                        <p className="made-title">Store made with Dukaanshala</p>
+                        <h3 className="logo-title">{this.state.storeName}</h3>           
+                        <p className="made-title">{this.state.storeAddress}</p>
+                       
+                        <p className="made-title">1234567890</p>
+                        <p className="made-title">Powered by Dukaanshala</p>
+                 
                     </div>
                 </div>
                 {/*<div className="col-auto">
@@ -106,5 +111,6 @@ static contextType = AppContext;
 )
     }
 }
+
 
 export default Header;

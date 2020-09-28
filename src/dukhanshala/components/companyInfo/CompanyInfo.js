@@ -1,5 +1,5 @@
 import React from 'react';
-import './CompanyInfo.css';
+// import './CompanyInfo.css';
 import { AppContext } from 'Context/AppContext';
 import axios from 'axios';
 import https from 'https';
@@ -84,9 +84,8 @@ class CompanyInfo extends React.Component{
         <div className="container">
             <div className="col-12 col-sm-6 px-0">
                 <div className="py-4">
-                    <small className="text-secondary">STORE DETAILS</small>
-                    <p className="mt-2 mb-0"><b>{this.state.storeName}</b></p>
-                    <p className="mb-0 mt-1 mb-2">{this.state.storeAddress}</p>
+                    
+                    <p className="mb-0 mt-1 mb-2">{this.state.storeAddress} </p>
                     <p className="mb-0 mt-1 mb-2">{this.state.storeAddressName}</p>
                 </div>
             </div>

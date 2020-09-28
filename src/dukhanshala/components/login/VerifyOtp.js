@@ -29,7 +29,7 @@ class VerifyOtp extends React.Component {
       'size': 'invisible',
       'callback': function (response) {
         // reCAPTCHA solved, allow signInWithPhoneNumber.
-        this.resend();
+        // this.resend();
       }
     });
   }
@@ -60,6 +60,7 @@ class VerifyOtp extends React.Component {
     Axios.post(`https://api.dukaanshala.com/web/login/${this.context.mobile}`, { httpsAgent: agent })
       .then(res => {
         this.setState({ redirect: true });
+        localStorage.setItem('userMobile',this.context.mobile )
       })
   }
 

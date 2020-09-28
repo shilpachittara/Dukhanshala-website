@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Categories from '../components/categories/Categories';
-import CompanyInfo from '../components/companyInfo/CompanyInfo';
+// import CompanyInfo from '../components/companyInfo/CompanyInfo';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
 
@@ -15,7 +15,7 @@ class CategoryPage extends Component {
               <Categories/>
           </section>   
           <section>
-            <CompanyInfo/>
+            {/* <CompanyInfo/> */}
           </section>    
           <Footer/>
         </div>

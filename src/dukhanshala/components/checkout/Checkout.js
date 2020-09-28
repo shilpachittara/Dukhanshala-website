@@ -71,8 +71,8 @@ class Checkout extends React.Component {
             }} />)
         return (
             <div>
-                <p className="mt-3 mb-0"><b><Link to={`${this.context.storeCode}/bag`}><img src={backArror} style={{ marginRight: "15px" }} alt="" /></Link> Checkout</b></p>
-                <p className="text-secondary">Payment of ₹{this.context.grandTotal}</p>
+                {/* <p className="mt-3 mb-0"><b><Link to={`${this.context.storeCode}/bag`}><img src={backArror} style={{ marginRight: "15px" }} alt="" /></Link> Checkout</b></p>
+                <p className="text-secondary">Payment of ₹{this.context.grandTotal}</p> */}
 
                 <div className="row">
                     <div className="col-12 col-lg-8 mt-3">

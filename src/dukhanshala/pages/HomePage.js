@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-// import CompanyInfo from '../components/companyInfo/CompanyInfo';
+
 import { Link } from 'react-router-dom';
 // import ProductList from "../components/products/ProductList";
 import { AppContext } from "../../Context/AppContext";
 // import CategoriesHome from '../components/categories/CategoriesHome';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
+import CompanyInfo from '../components/companyInfo/CompanyInfo'
 import https from 'https';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
@@ -171,11 +172,11 @@ class HomePage extends Component {
                  </div>
 
                  <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto" >
-                     <h6 className="mt-1 mt-sm-3 mb-0">Name:{" "+productData.productName}</h6>
+                     <h6 className="mt-1 mt-sm-3 mb-0">{" "+productData.productName}</h6>
                  
                      <div className="mt-1">
-                        <span>SP: ₹</span> <span style={{fontWeight:"bold"}}>{" "+productData.sellingPrice}</span>
-                         <small className="small-text mr-2 pl-1" >{productData.mrp !==null ?"MRP: ₹":""}<span style={productData.sellingPrice !==null? {textDecoration: 'line-through'}:{display:'none'} }>{" "+productData.mrp !==null ?productData.mrp:""}</span></small>
+                        <span>₹</span> <span style={{fontWeight:"bold"}}>{" "+productData.sellingPrice}</span>
+                         <small className="small-text mr-2 pl-1" ><span style={productData.sellingPrice !==null? {textDecoration: 'line-through'}:{display:'none'} }>{" "+productData.mrp !==null ?productData.mrp:""}</span></small>
                          <span className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white'}}>ADD</span>
                      </div>
                  </div>
@@ -196,7 +197,7 @@ class HomePage extends Component {
             <Products/>
     </section>   */}
         <section>
-          {/* <CompanyInfo /> */}
+          <CompanyInfo />
         </section>
         <div ></div>
         <Footer />

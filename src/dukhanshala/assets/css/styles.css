@@ -128,5 +128,15 @@ div.scrollmenu {
     padding-bottom:80px;
 }
 
+.fit-img{
+    object-fit: contain;
+}
+/* .product-header{
+    -webkit-box-shadow: -1px 5px 8px -5px rgba(0,0,0,0.51);
+-moz-box-shadow: -1px 5px 8px -5px rgba(0,0,0,0.51);
+box-shadow: -1px 5px 8px -5px rgba(0,0,0,0.51);
+z-index: 10;
+} */
+
 
 

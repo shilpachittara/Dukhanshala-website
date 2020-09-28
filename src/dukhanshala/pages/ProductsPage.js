@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CompanyInfo from '../components/companyInfo/CompanyInfo';
+// import CompanyInfo from '../components/companyInfo/CompanyInfo';
 import Products from '../components/products/Products';
 import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
@@ -18,7 +18,7 @@ class ProductsPage extends Component {
               <Products/>
           </section>   
           <section>
-            <CompanyInfo/>
+            {/* <CompanyInfo/> */}
           </section>   
           <Footer/> 
         </div>

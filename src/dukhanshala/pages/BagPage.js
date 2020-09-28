@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
+import Checkout from 'dukhanshala/components/checkout/Checkout';
 
 
 class BagPage extends Component {
@@ -53,7 +54,8 @@ class BagPage extends Component {
     }
 
     address(){
-      if(this.context.mobile != null){
+      const userVerified = window.localStorage.getItem('userMobile')
+      if(userVerified != null){
         this.setState({redirectCheckOut: true})
       }
       else{
@@ -157,9 +159,17 @@ class BagPage extends Component {
                     <p><b>Grand Total: <span className="float-right">₹{this.state.grandTotal}</span></b></p>
                   </div>
                 </div>
+                <div className="row col-sm-12">
+                <div className="col-sm-12" style={{textAlign:"center",marginTop:'20px',marginBottom:'10px',fontWeight:'bold'}}>
+                  Delivery Address
+                  </div>
+                </div>
+                <div>
+                <Checkout/>
+                </div>
                 <div className="text-center mt-5 pb-5 mb-5">
                   <div className="m-0">
-                    <div className="btn btn-primary btn-lg btn-block text-white" onClick={this.address}>Select Address</div>
+                    <div className="btn btn-primary btn-lg btn-block text-white" onClick={this.address}>Checkout</div>
                   </div>
                 </div>
               </section>

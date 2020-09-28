@@ -43,6 +43,7 @@ class SendOtp extends React.Component {
         .then(confirmResult => {
           this.setState({ confirmResult });
           this.context.updateConfirmResult(confirmResult);
+          this.setState({ redirect: true });
         })
         .catch(error => {
           alert(error.message)
@@ -50,7 +51,7 @@ class SendOtp extends React.Component {
         });
     };
 
-    this.setState({ redirect: true });
+  
     this.context.updateMobileNumber(this.state.contact);
 
   }
