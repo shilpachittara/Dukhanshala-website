@@ -16,7 +16,13 @@ body{
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    /* padding-top: 5px; */
 }
+.pos-fixed{
+    overflow: hidden;
+  position: fixed;
+  z-index: 1020;
+  }
 .heading{
     font-size: 20px;
     margin: 20px 0 15px;
@@ -71,6 +77,7 @@ div.scrollmenu {
     background-color: white;
     overflow: auto;
     white-space: nowrap;
+    padding-top: 5px;
     
   }
   

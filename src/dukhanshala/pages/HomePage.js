@@ -10,6 +10,9 @@ import CompanyInfo from '../components/companyInfo/CompanyInfo'
 import https from 'https';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import IncrementButton from '../components/IncrementButton'
+
+
 
 class HomePage extends Component {
   static contextType = AppContext;
@@ -19,7 +22,9 @@ class HomePage extends Component {
       categories: [],
       products:[],
       landing:true,
-      redirect:""
+      redirect:"",
+      showCount:false,
+      
     }
   }
 
@@ -126,7 +131,11 @@ class HomePage extends Component {
       this.setState({redirect:`${this.context.storeCode+ "/product/detail/" + prodId}` })
   }
 
-
+  clickAdd=()=>{
+   this.setState({
+     showCount:true
+   })
+  }
 
   render() {
     if (this.state.redirect !="")
@@ -138,11 +147,11 @@ class HomePage extends Component {
 
         <Header />
         <section className="container" >
-          <div >
+          {/* <div >
           <h2 className="heading">Categories
            <Link to={`${this.context.storeCode}/categories`} className="viewAll">View All</Link></h2>
-           </div>
-          <div className="scrolling-wrapper row">
+           </div> */}
+          <div className="scrolling-wrapper row pos-fixed">
             <div className="scrollmenu col-sm-12 col-md-12" >
            
               {this.state.categories && this.state.categories.map((categoryData, index) => (
@@ -157,14 +166,14 @@ class HomePage extends Component {
         {/* <ProductList categories={this.context.categories} /> */}
 
        <div className="prod-box">
-        <div className="container productItems">
+        <div className="container productItems" style={{marginTop:'65px'}}>
                 
         {this.state.products ===[] ?<div>...loading</div>:this.state.products.map((productData,index)=>(
           <div key={index} className="col-12 col-sm-3 px-0 pr-md-4 my-md-2 mb-2 box-shadow" style={{backgroundColor:'white'}}>
          <div className="row h-50"  style={{marginTop:'10px'}}
-          onClick={()=>this.productDetail(productData.categoryName,productData.categoryId,productData.productId)}
+         
          >
-                 <div className="col-4 col-sm-12" >
+                 <div className="col-4 col-sm-12"  onClick={()=>this.productDetail(productData.categoryName,productData.categoryId,productData.productId)}>
                      <div style={{marginLeft:"10px"}} className="thumbnail-container thumbnail-padding">
                          <img src={productData.productImage} alt={productData.productName} style={{height:"90px",width:"90px",marginTop:"10px"}} className="thumbnail rounded-xl img-fluid" />
                          <span className="discount-badge">{productData.offer}% off</span>
@@ -172,12 +181,16 @@ class HomePage extends Component {
                  </div>
 
                  <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto" >
-                     <h6 className="mt-1 mt-sm-3 mb-0">{" "+productData.productName}</h6>
+                     <h6 className="mt-1 mt-sm-3 mb-0"  onClick={()=>this.productDetail(productData.categoryName,productData.categoryId,productData.productId)}>{" "+productData.productName}</h6>
                  
                      <div className="mt-1">
                         <span>₹</span> <span style={{fontWeight:"bold"}}>{" "+productData.sellingPrice}</span>
                          <small className="small-text mr-2 pl-1" ><span style={productData.sellingPrice !==null? {textDecoration: 'line-through'}:{display:'none'} }>{" "+productData.mrp !==null ?productData.mrp:""}</span></small>
-                         <span className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white'}}>ADD</span>
+                         {this.state.showCount?
+                      <div className="float-right ">
+              <IncrementButton/>
+                      </div>:<div className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white',zIndex:9999}} onClick={()=>{this.clickAdd()}}> ADD</div>
+                         }
                      </div>
                  </div>
                  </div>
