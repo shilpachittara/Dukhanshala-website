@@ -12,6 +12,7 @@ class OrderDetails extends React.Component {
 
         this.state = {
             order: {},
+            redirect:false
         }
         this.backPage = this.backPage.bind(this)
     }
@@ -38,9 +39,9 @@ class OrderDetails extends React.Component {
         this.setState({ redirect: true })
     }
     render() {
-        const { redirect } = this.state
+   
 
-        if (redirect)
+        if (this.state.redirect)
             return (<Redirect to={{
                 pathname: `${this.context.storeCode}/orders`
             }} />)

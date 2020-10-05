@@ -9,8 +9,9 @@ import Header from 'dukhanshala/components/common/header/Header';
 import CompanyInfo from '../components/companyInfo/CompanyInfo'
 import https from 'https';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import IncrementButton from '../components/IncrementButton'
+
 
 
 
@@ -23,7 +24,8 @@ class HomePage extends Component {
       products:[],
       landing:true,
       redirect:"",
-      showCount:false,
+      showCount:"",
+       
       
     }
   }
@@ -31,13 +33,14 @@ class HomePage extends Component {
 
 
   getCategoriesList = (path) => {
+   
     let url = 'https://api.dukaanshala.com/web/category/detail' + path;
     const agent = new https.Agent({
       rejectUnauthorized: false,
     });
     axios.get(url, { httpsAgent: agent })
       .then(response => {
-        if (response && response.data && response.data.categories) {
+        if (response && response.data && response.data.categories && response.data.categories.length>=1 ) {
       
           this.context.updateCategories(response.data.categories);
           this.setState({ categories: response.data.categories });
@@ -56,6 +59,8 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
+    let xx=this.props.match.params.store
+  
     var path;
 
     if (this.context.storeCode != null) {
@@ -63,33 +68,7 @@ class HomePage extends Component {
       this.getCategoriesList(path);
     }
     else {
-      let url = window.location.pathname;
-
-      let index = url.search("/")
-      let lastIndexOf = url.indexOf("/", url.indexOf("/") + 1);
-
-      if (index !== -1) {
-        let urlLength;
-        if (lastIndexOf == -1) {
-          let token = url;
-          this.context.updateAppContext(token)
-          this.getCategoriesList(token);
-
-        }
-        else {
-          urlLength = lastIndexOf;
-          let token = url.slice(index, urlLength);
-          this.context.updateAppContext(token)
-          this.getCategoriesList(token);
-          
-
-
-        }
-
-      }
-      else {
-        alert("try again")
-      }
+      this.getCategoriesList("/"+xx);
 
     }
   }
@@ -131,9 +110,10 @@ class HomePage extends Component {
       this.setState({redirect:`${this.context.storeCode+ "/product/detail/" + prodId}` })
   }
 
-  clickAdd=()=>{
+  clickAdd=(id)=>{
+
    this.setState({
-     showCount:true
+     showCount:id
    })
   }
 
@@ -175,7 +155,7 @@ class HomePage extends Component {
          >
                  <div className="col-4 col-sm-12"  onClick={()=>this.productDetail(productData.categoryName,productData.categoryId,productData.productId)}>
                      <div style={{marginLeft:"10px"}} className="thumbnail-container thumbnail-padding">
-                         <img src={productData.productImage} alt={productData.productName} style={{height:"90px",width:"90px",marginTop:"10px"}} className="thumbnail rounded-xl img-fluid" />
+                         <img src={productData.productImage} alt={productData.productName}  className="thumbnail rounded-xl img-fluid custome-img" />
                          <span className="discount-badge">{productData.offer}% off</span>
                      </div>
                  </div>
@@ -186,10 +166,12 @@ class HomePage extends Component {
                      <div className="mt-1">
                         <span>₹</span> <span style={{fontWeight:"bold"}}>{" "+productData.sellingPrice}</span>
                          <small className="small-text mr-2 pl-1" ><span style={productData.sellingPrice !==null? {textDecoration: 'line-through'}:{display:'none'} }>{" "+productData.mrp !==null ?productData.mrp:""}</span></small>
-                         {this.state.showCount?
+                         {this.state.showCount===productData.productId?
                       <div className="float-right ">
               <IncrementButton/>
-                      </div>:<div className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white',zIndex:9999}} onClick={()=>{this.clickAdd()}}> ADD</div>
+                      </div>:<div className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white',zIndex:9999}} 
+                      // onClick={()=>{this.clickAdd(productData.productId)}}
+                      > ADD</div>
                          }
                      </div>
                  </div>

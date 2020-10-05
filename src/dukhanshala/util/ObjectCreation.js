@@ -38,9 +38,9 @@ class ObjectCreation {
         if (input.name) {
             order.customerName = input.name;
         }
-        if (input.contact) {
-            order.customerMobile = input.contact;
-        }
+       
+            order.customerMobile = window.localStorage.getItem('userMobile');
+     
         if (input.storeCode) {
             order.storeCode = input.storeCode.slice(1);
         }

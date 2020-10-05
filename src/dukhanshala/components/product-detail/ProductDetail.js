@@ -132,14 +132,14 @@ class ProductDetail extends React.Component {
             }} />)
         return (
             
-            <div className="row product-detail" style={{backgroundColor: '#FEF0F0'}}>
+            <div className="row " style={{backgroundColor: '#FEF0F0'}}>
                  
                 <div className="col-12 col-sm-5">
                 <div><h4 className="prod-detail-name" style={{marginBottom:'10px',marginTop:'10px'}}>{this.state.product.productName}</h4></div>
                    
                     <div className="thumbnail-container img-padding-product" >
                     
-                        <img src={this.state.product.productImage} alt={""} style={{height: "300px"}}className="thumbnail rounded-xl img-fluid fit-img" />
+                        <img src={this.state.product.productImage} alt={""} style={{ height: 'calc(40vh - 50px)'}}className="thumbnail rounded-xl img-fluid fit-img" />
                     </div>
                 </div>
                 <div className="col-12 col-sm-7">
@@ -154,7 +154,7 @@ class ProductDetail extends React.Component {
                 <div style={{fontSize:'16px'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </div>
                      </div>
                     <div className="mt-3">
-                        <div className="row">
+                        <div className="row" style={{paddingBottom:'15%'}}>
                             <div className="col pr-0">
                                 <p className="btn-group w-100 my-3">
                                     <span className="btn btn-outline-danger btn-lg" style={{borderColor:'#F8462B'}} onClick={this.subProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill='black' d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></svg></span>

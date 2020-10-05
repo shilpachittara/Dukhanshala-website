@@ -34,7 +34,7 @@ class Checkout extends React.Component {
     }
     componentDidMount() {
         this.setState({ contact: this.context.mobile });
-        this.setState({ storeCode: this.context.storeCode });
+        this.setState({ storeCode:this.context.storeCode });
         this.setState({ deliveryCharge: this.context.deliveryCharge });
         this.setState({ grandTotal: this.context.grandTotal });
         this.setState({ totalItem: this.context.bagCount });
@@ -49,13 +49,15 @@ class Checkout extends React.Component {
     }
     submit() {
         if (this.validator.validateAddress(this.state)) {
+         
             let request = this.objectCreation.orderObject(this.state);
-
+  
             const agent = new https.Agent({
                 rejectUnauthorized: false,
             });
             Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
                 .then(res => {
+                   
                     this.setState({ redirect: true });
                     this.context.updateBagCount(0);
                 })
@@ -105,8 +107,8 @@ class Checkout extends React.Component {
                 <div className="custom-control custom-radio custom-control-inline mt-3 mb-3">
                     <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} checked={true}/>
                     <label className="custom-control-label" htmlFor="cod" style={{ paddingLeft: '20px' }}>Cash/UPI on Delivery</label></div>
-                <div className="mb-5">
-                    <button className="mb-5 btn btn-primary btn-lg" onClick={this.submit}>Place Order</button>
+                <div className="mb-5" style={{marginTop:'20px',paddingBottom:'30px'}}>
+                    <button className="btn btn-primary btn-lg btn-block text-white"  onClick={this.submit}>Place Order</button>
                 </div>
             </div>
         )

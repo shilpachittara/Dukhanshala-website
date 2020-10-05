@@ -87,7 +87,7 @@ getCategoryName = () => {
 
         if (redirect)
             return (<Redirect to={{
-                pathname: `${this.context.storeCode}/products/${this.context.categoryId}`
+                pathname: `${this.context.storeCode}`
             }} />)
       return(
     

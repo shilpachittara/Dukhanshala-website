@@ -115,7 +115,7 @@ class BagPage extends Component {
       return(
         <div className="container">
           <Header/>
-          <h1 className="heading"><Link to={`${this.context.storeCode}`}><img src={backArror} style={{marginRight:"15px"}} alt="bag"/></Link> Bag {this.context.bagCount}{" items"} </h1>
+          <h1 className="heading"><img onClick={()=>this.address()} src={backArror} style={{marginRight:"15px"}} alt="bag"/> Bag {this.context.bagCount}{" items"} </h1>
 
           <div className="row pr-0 mr-0 my-0">
             
@@ -167,11 +167,11 @@ class BagPage extends Component {
                 <div>
                 <Checkout/>
                 </div>
-                <div className="text-center mt-5 pb-5 mb-5">
+                {/* <div className="text-center mt-5 pb-5 mb-5">
                   <div className="m-0">
                     <div className="btn btn-primary btn-lg btn-block text-white" onClick={this.address}>Checkout</div>
                   </div>
-                </div>
+                </div> */}
               </section>
             </div>
           </div>
