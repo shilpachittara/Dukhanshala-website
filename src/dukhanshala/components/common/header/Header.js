@@ -16,7 +16,8 @@ static contextType = AppContext;
         this.state = {
             storeName: null,
             globalPath:'',
-            storeAddress:null
+            storeAddress:null,
+            mobile:null
         }
     }
 
@@ -71,7 +72,8 @@ static contextType = AppContext;
         .then(response => {
             if(response && response.data && response.data){
                 this.setState({storeName: response.data.storeName,
-                storeAddress:response.data.storeAddress});
+                storeAddress:response.data.storeAddress,
+                mobile: response.data.mobile});
                 this.context.updateMinFreeDelivery(response.data.minFreeDelivery);
                 this.context.updateDeliveryCharge(response.data.deliveryCharge);
             }
