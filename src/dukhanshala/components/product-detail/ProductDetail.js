@@ -134,7 +134,7 @@ class ProductDetail extends React.Component {
             }} />)
         return (
             
-            <div className="row " style={{backgroundColor: '#FEF0F0'}}>
+            <div className="row " style={{backgroundColor: '#bff9f347'}}>
                  
                 <div className="col-12 col-sm-5">
                 <div><h4 className="prod-detail-name" style={{marginBottom:'10px',marginTop:'10px'}}>{this.state.product.productName}</h4></div>
@@ -159,13 +159,13 @@ class ProductDetail extends React.Component {
                         <div className="row" style={{paddingBottom:'15%'}}>
                             <div className="col pr-0">
                                 <p className="btn-group w-100 my-3">
-                                    <span className="btn btn-outline-danger btn-lg" style={{borderColor:'#F8462B'}} onClick={this.subProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill='black' d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></svg></span>
-                                    <span className="btn btn-outline-secondary btn-lg" style={{borderColor:'#F8462B',color:'black'}}>{this.state.count}</span>
-                                    <span className="btn btn-outline-danger btn-lg" style={{borderColor:'#F8462B'}} onClick={this.addProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill='black'><path d="M8 0c.513 0 .936.386.993.883L9 1v14c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L7 15V1c0-.552.448-1 1-1z"></path><path d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></g></svg></span>
+                                    <span className="btn btn-outline-info btn-lg" style={{borderColor:' #3BB3A6'}} onClick={this.subProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill='black' d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></svg></span>
+                                    <span className="btn btn-outline-secondary btn-lg" style={{borderColor:' #3BB3A6',color:'black'}}>{this.state.count}</span>
+                                    <span className="btn btn-outline-info btn-lg" style={{borderColor:' #3BB3A6'}} onClick={this.addProduct}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill='black'><path d="M8 0c.513 0 .936.386.993.883L9 1v14c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L7 15V1c0-.552.448-1 1-1z"></path><path d="M15 7c.552 0 1 .448 1 1 0 .513-.386.936-.883.993L15 9H1c-.552 0-1-.448-1-1 0-.513.386-.936.883-.993L1 7h14z"></path></g></svg></span>
                                 </p>
                             </div>
                             <div className="col">
-                                <button className="btn btn-primary w-100 my-3 btn-lg" onClick={this.goToBag} style={{backgroundColor:'#F8462B' ,borderColor:'#F8462B'}}>Go to Bag</button>
+                                <button className="btn btn-primary w-100 my-3 btn-lg" onClick={this.goToBag} style={{backgroundColor:' #3BB3A6' ,borderColor:' #3BB3A6'}}>Go to Bag</button>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import logoImg from '../../../assets/images/logo.webp'
+import logo from '../../../assets/images/logo2.png'
 //import fbIcon from '../../../assets/images/facebook.svg'
 //import twIcon from '../../../assets/images/twitter.svg'
 import Search from '../search/Search';
@@ -90,7 +91,7 @@ static contextType = AppContext;
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-auto">
-                    <Link to={`${this.context.storeCode}`}><img className="logo" src={logoImg} alt="Dukhan Shala" /></Link>
+                    <Link to={`${this.context.storeCode}`}><img className="logo" src={logo} alt="Dukhan Shala" /></Link>
                 </div>
                 <div className="col">
                     <div className="store-title">

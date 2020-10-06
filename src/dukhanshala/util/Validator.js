@@ -50,6 +50,10 @@ class Validator {
         }
         if(errorMsg.length === 0){
           return true;
+        }
+        else if(inputData.name===null){
+          window.scrollTo(0,400)
+          return false;
         } else {
           alert(errorMsg);
           return false;

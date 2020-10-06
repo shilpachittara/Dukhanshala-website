@@ -31,7 +31,7 @@ export default function BasicButtonGroup() {
         <Button style={{width:"20px",height:'20px'}} >+</Button>
     
       </ButtonGroup>
-      <ButtonGroup color="primary" aria-label="contained primary button group" style={{backgroundColor:'#F8462B'}}>
+      <ButtonGroup color="primary" aria-label="contained primary button group" style={{backgroundColor:'#3BB3A6'}}>
       <Button style={{width:"20px",height:'20px'}} >1</Button>
   
       </ButtonGroup>

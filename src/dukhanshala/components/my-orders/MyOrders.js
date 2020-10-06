@@ -77,7 +77,7 @@ class MyOrders extends React.Component {
                             <p className="mt-3 small-text">
                                 <i className="fas fa-circle pr-1 text-yellow smallest-text"></i>
                                 <span className="pl-0 text-warning" style={{ textTransform: "capitalize" }}>{order.status}</span>
-                                <span className="btn btn-outline-primary float-right" style={{ marginTop: "-7px" }} onClick={this.orderDetail.bind(this,order.orderId)}>
+                                <span className="btn btn-outline-info float-right" style={{ marginTop: "-7px" }} onClick={this.orderDetail.bind(this,order.orderId)}>
                                     Detail
                                 </span>
                             </p>
