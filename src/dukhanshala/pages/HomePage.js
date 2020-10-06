@@ -10,6 +10,7 @@ import https from 'https';
 import axios from 'axios';
 import { Redirect, useParams } from 'react-router-dom';
 import IncrementButton from '../components/IncrementButton'
+import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
 
 
 
@@ -188,12 +189,12 @@ class HomePage extends Component {
         <section className="container">
           <h2 className="heading">Grocery <Link to="/grocery" className="viewAll">View All</Link></h2>          
             <Products/>
-    </section>  
+    </section>  */}
     <section>
           <CompanyInfo />
         </section> 
         
-        <div ></div>*/}
+        <div ></div>
         <Footer />
       </div>
     )

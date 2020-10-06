@@ -16,7 +16,8 @@ static contextType = AppContext;
         this.state = {
             storeName: null,
             globalPath:'',
-            storeAddress:null
+            storeAddress:null,
+            mobile: null
         }
     }
 
@@ -71,7 +72,8 @@ static contextType = AppContext;
         .then(response => {
             if(response && response.data && response.data){
                 this.setState({storeName: response.data.storeName,
-                storeAddress:response.data.storeAddress});
+                storeAddress:response.data.storeAddress,
+                mobile: response.data.mobile});
                 this.context.updateMinFreeDelivery(response.data.minFreeDelivery);
                 this.context.updateDeliveryCharge(response.data.deliveryCharge);
             }
@@ -95,7 +97,7 @@ static contextType = AppContext;
                         <h3 className="logo-title">{this.state.storeName}</h3>           
                         <p className="made-title">{this.state.storeAddress}</p>
                        
-                        <p className="made-title">1234567890</p>
+                        <p className="made-title">{this.state.mobile}</p>
                         <p className="made-title">Powered by Dukaanshala</p>
                  
                     </div>
