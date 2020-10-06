@@ -91,6 +91,7 @@ class ProductDetail extends React.Component {
     }
 
     subProduct = (event) => {
+        if(this.state.count != 0){
         var count = this.state.count - 1;
         var prod = this.state.product;
         prod.quantity = count;
@@ -98,6 +99,7 @@ class ProductDetail extends React.Component {
         this.setState({ count: count });
         this.context.updateBagCount(this.context.bagCount - 1);
         this.subFromBag();
+        }
     }
 
     subFromBag = () => {

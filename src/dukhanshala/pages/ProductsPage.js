@@ -17,9 +17,9 @@ class ProductsPage extends Component {
             <h2 className="heading">Products</h2>          
               <Products/>
           </section>   
-          <section>
-            {/* <CompanyInfo/> */}
-          </section>   
+          {/* <section>
+            <CompanyInfo/> 
+          </section>   */}
           <Footer/> 
         </div>
       )

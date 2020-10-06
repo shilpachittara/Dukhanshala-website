@@ -45,6 +45,9 @@ class Validator {
         else if(inputData.pincode.match(pin)){
           errorMsg +="Please enter valid pincode.\n"
         }
+        if(!inputData.bag) {
+          errorMsg +="Please select product.\n"
+        }
         if(errorMsg.length === 0){
           return true;
         } else {

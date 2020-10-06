@@ -5,6 +5,7 @@ import CategoriesIcon from '../../../assets/images/categories.svg';
 import BagIcon from '../../../assets/images/bag.svg';
 import OrderIcon from '../../../assets/images/orders.svg';
 import { AppContext } from 'Context/AppContext';
+import { Link, NavLink } from 'react-router-dom';
 
 class Footer extends React.Component {
     static contextType = AppContext;
@@ -80,7 +81,7 @@ class Footer extends React.Component {
 
                 if (index !== -1) {
                     let urlLength;
-                    if (lastIndexOf == -1) {
+                    if (lastIndexOf === -1) {
                         let token = url;
                         this.context.updateAppContext(token)
                         this.setState({ home: token });
@@ -114,29 +115,29 @@ class Footer extends React.Component {
                 <nav className="fixed-bottom fixedNav border-top bg-white">
                     <div className="row text-center mt-10">
                         <div className="col" onClick={() => this.changeActiveButton("home")}>
-                            <a className="link" href={`${this.state.home}`}  >
+                        <NavLink className="link" to={`${this.state.home}`} activeClassName={"active"}>
                                 <img src={HomeIcon} className={this.state.activeHome?"active-icon":"icon"} alt="Home Icon" />
                                 <p className="title" style={this.state.activeHome?{color:'black'}:{}}>Home</p>
-                            </a>
+                            </NavLink>
                         </div>
                         <div className="col" onClick={() => this.changeActiveButton("categories")}>
-                            <a className="link" href={`${this.state.category}`} >
+                        <NavLink className="link" to={`${this.state.category}`} activeClassName={"active"}>
                                 <img src={CategoriesIcon} className={this.state.activeCategories?"active-icon":"icon"} alt="Categories Icon" />
                                 <p className="title"  style={this.state.activeCategories?{color:'black'}:{}}>Categories</p>
-                            </a>
+                            </NavLink>
                         </div>
                         <div className="col"  onClick={() => this.changeActiveButton("bag")}>
-                            <a className="link" href={`${this.state.bag}`}>
+                        <Link className="link" to={`${this.state.bag}`}>
                                 <img src={BagIcon} className={this.state.activeBag?"active-icon":"icon"} alt="Bag Icon" />
                                 <span className="icon-badge">{this.context.bagCount}</span>
                                 <p className="title"  style={this.state.activeBag?{color:'black'}:{}}>Bag</p>
-                            </a>
+                            </Link>
                         </div>
                         <div className="col" onClick={() => this.changeActiveButton("orders")}>
-                            <a className="link" href={`${this.state.orders}`} >
+                        <Link className="link" to={`${this.state.orders}`}>
                                 <img src={OrderIcon} className={this.state.activeOrders?"active-icon":"icon"} alt="Orders Icon" />
                                 <p className="title"  style={this.state.activeOrders?{color:'black'}:{}}>Orders</p>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </nav>

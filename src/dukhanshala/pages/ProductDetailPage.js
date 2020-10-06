@@ -37,7 +37,7 @@ class ProductDetailPage extends Component {
 
   if (index !== -1) {
       let urlLength;
-      if(lastIndexOf==-1){
+      if(lastIndexOf===-1){
           let token = url;
           this.context.updateAppContext(token)
        

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 // import ProductList from "../components/products/ProductList";
 import { AppContext } from "../../Context/AppContext";
 // import CategoriesHome from '../components/categories/CategoriesHome';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
-import CompanyInfo from '../components/companyInfo/CompanyInfo'
 import https from 'https';
 import axios from 'axios';
 import { Redirect, useParams } from 'react-router-dom';
@@ -25,7 +24,6 @@ class HomePage extends Component {
       landing:true,
       redirect:"",
       showCount:"",
-       
       
     }
   }
@@ -118,7 +116,7 @@ class HomePage extends Component {
   }
 
   render() {
-    if (this.state.redirect !="")
+    if (this.state.redirect !=="")
     return (<Redirect to={{
         pathname: this.state.redirect
     }} />)
@@ -190,11 +188,12 @@ class HomePage extends Component {
         <section className="container">
           <h2 className="heading">Grocery <Link to="/grocery" className="viewAll">View All</Link></h2>          
             <Products/>
-    </section>   */}
-        <section>
+    </section>  
+    <section>
           <CompanyInfo />
-        </section>
-        <div ></div>
+        </section> 
+        
+        <div ></div>*/}
         <Footer />
       </div>
     )

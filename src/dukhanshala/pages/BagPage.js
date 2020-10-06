@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import backArror from '../assets/images/icon_back.svg';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
@@ -36,7 +36,7 @@ class BagPage extends Component {
       var delivery = this.context.minFreeDelivery;
       var length = this.context.bag.products.length;
       for (var i = 0; i < length; i++) {
-        totalOrder = this.context.bag.products[i].count* this.context.bag.products[i].sellingPrice;
+        totalOrder += this.context.bag.products[i].count* this.context.bag.products[i].sellingPrice;
       }
       if(totalOrder >= delivery){
         delivery = "Free";
@@ -86,18 +86,24 @@ class BagPage extends Component {
     }
 
     subProduct(productId){
-      this.context.updateBagCount(this.context.bagCount - 1);
+     var selectedCount = 0;
       var products = this.context.bag.products;
         var length = this.context.bag.products.length;
         for(var i=0; i< length; i++){
             if (this.context.bag.products[i].productId === productId) {
+              selectedCount = products[i].count;
+                if(products[i].count !== 0){
                 products[i].count = products[i].count - 1;
+                }
             }
         }
         var updatedBag = {products:[],address:{}}
         updatedBag.products = products;
+        if(selectedCount !== 0){
+        this.context.updateBagCount(this.context.bagCount - 1);
         this.context.updateBag(updatedBag); 
         this.totalCalculation();
+        }
     }
     render(){
 
