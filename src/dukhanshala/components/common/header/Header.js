@@ -63,7 +63,7 @@ static contextType = AppContext;
 
     getStoreDetail = (val) => {
 
-    let url = 'https://api.dukaanshala.com/web/store/detail'+ val;
+    let url = 'http://35.240.173.248:8000/web/store/detail'+ val;
     const agent = new https.Agent({
         rejectUnauthorized: false,
     });
@@ -95,7 +95,7 @@ static contextType = AppContext;
                         <h3 className="logo-title">{this.state.storeName}</h3>           
                         <p className="made-title">{this.state.storeAddress}</p>
                        
-                        <p className="made-title">1234567890</p>
+                        <p className="made-title">{this.state.mobile}</p>
                         <p className="made-title">Powered by Dukaanshala</p>
                  
                     </div>

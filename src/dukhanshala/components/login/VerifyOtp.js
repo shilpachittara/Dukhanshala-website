@@ -57,7 +57,7 @@ class VerifyOtp extends React.Component {
     const agent = new https.Agent({
       rejectUnauthorized: false,
     });
-    Axios.post(`https://api.dukaanshala.com/web/login/${this.context.mobile}`, { httpsAgent: agent })
+    Axios.post(`http://35.240.173.248:8000/web/login/${this.context.mobile}`, { httpsAgent: agent })
       .then(res => {
         this.setState({ redirect: true });
         localStorage.setItem('userMobile',this.context.mobile )
