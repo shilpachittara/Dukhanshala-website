@@ -33,13 +33,14 @@ class Checkout extends React.Component {
         this.objectCreation = new ObjectCreation();
     }
     componentDidMount() {
-        this.setState({ contact: this.context.mobile });
+        this.setState({ contact: window.localStorage.getItem('userMobile')});
         this.setState({ storeCode:this.context.storeCode });
         this.setState({ deliveryCharge: this.context.deliveryCharge });
         this.setState({ grandTotal: this.context.grandTotal });
         this.setState({ totalItem: this.context.bagCount });
         this.setState({ total: this.context.total });
         this.setState({ bag: this.context.bag });
+      
     }
 
     handleChange({ target }) {
@@ -54,9 +55,10 @@ class Checkout extends React.Component {
         if (this.validator.validateAddress(this.state)) {
          
             let request = this.objectCreation.orderObject(this.state);
-  
+            console.log('request bag',request)
             const agent = new https.Agent({
                 rejectUnauthorized: false,
+                
             });
             Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
                 .then(res => {

@@ -9,7 +9,7 @@ class ObjectCreation {
             deliveryFee: null,
             grandTotal: null,
             customerName: null,
-            customerMobile: null,
+            customerMobile: window.localStorage.getItem('userMobile'),
             pincode: null,
             address: null,
             city: null,
@@ -39,7 +39,7 @@ class ObjectCreation {
             order.customerName = input.name;
         }
        
-            order.customerMobile = window.localStorage.getItem('userMobile');
+            
      
         if (input.storeCode) {
             order.storeCode = input.storeCode.slice(1);
