@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useRef }from 'react';
 import './Checkout.css'
 import { Link, Redirect } from 'react-router-dom';
 import backArror from '../../assets/images/icon_back.svg';
@@ -47,7 +47,10 @@ class Checkout extends React.Component {
             [target.name]: target.value
         });
     }
+
+    
     submit() {
+        
         if (this.validator.validateAddress(this.state)) {
          
             let request = this.objectCreation.orderObject(this.state);
@@ -63,6 +66,7 @@ class Checkout extends React.Component {
                 })
 
         }
+      
     }
 
     render() {
@@ -76,7 +80,7 @@ class Checkout extends React.Component {
                 {/* <p className="mt-3 mb-0"><b><Link to={`${this.context.storeCode}/bag`}><img src={backArror} style={{ marginRight: "15px" }} alt="" /></Link> Checkout</b></p>
                 <p className="text-secondary">Payment of ₹{this.context.grandTotal}</p> */}
 
-                <div className="row">
+                <div id="ourVision" className="row">
                     <div className="col-12 col-lg-8 mt-3">
                         <div className="form-group">
                             <label htmlFor="customer_name" className="float">Name</label>
@@ -103,13 +107,14 @@ class Checkout extends React.Component {
                         </div>
                     </div>
                 </div>
-                <p className="small-text mt-3 pt-3 mb-0">PAYMENT METHOD</p>
-                <div className="custom-control custom-radio custom-control-inline mt-3 mb-3">
+                <p className="small-text mt-1  mb-0">PAYMENT METHOD</p>
+                <div className="custom-control custom-radio custom-control-inline mt-3 mb-3" style={{paddingBottom:'110px'}}>
                     <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} checked={true}/>
                     <label className="custom-control-label" htmlFor="cod" style={{ paddingLeft: '20px' }}>Cash/UPI on Delivery</label></div>
-                <div className="mb-5" style={{marginTop:'20px',paddingBottom:'30px'}}>
-                    <button className="btn btn-primary btn-lg btn-block text-white"  onClick={this.submit}>Place Order</button>
+                    <div className="mb-5 fixed-bottom " style={{marginTop:'20px',paddingBottom:'15px',marginLeft:'10px',marginRight:'10px'}}>
+                    <button href="#ourVision" className="btn  btn-lg btn-block text-white" style={{backgroundColor:'rgb(59, 179, 166)'}} onClick={this.submit}>Place Order</button>
                 </div>
+            
             </div>
         )
     }

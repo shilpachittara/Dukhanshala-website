@@ -90,9 +90,9 @@ div.scrollmenu {
     text-transform: uppercase;
   }
   .a-a:first-child {
-    border-bottom: 3px solid #F8462B !important;
+    border-bottom: 3px solid #3BB3A6!important;
     font-weight: bold !important;
-    color:#F8462B
+    color:#3BB3A6
  
   }
 
@@ -102,19 +102,19 @@ div.scrollmenu {
   }
   
   div.scrollmenu a:hover {
-    border-bottom: 3px solid #F8462B;
+    border-bottom: 3px solid  #3BB3A6;
     font-weight: bold;
-    color:#F8462B
+    color: #3BB3A6
   }
 
   div.scrollmenu a:active {
-   border-bottom: 1px solid #F8462B;
+   border-bottom: 1px solid  #3BB3A6;
   }
 
 /* ===end */
 .box-shadow{
-    -webkit-box-shadow: 0px 0px 7px 1px rgba(248, 159, 159, 0.46); 
-    box-shadow: 0px 0px 7px 1px rgba(247, 0, 0, 0.26);
+    -webkit-box-shadow: 0px 2px 3px 1px #82f3e76b; 
+    box-shadow: 0px 2px 3px 1px #82f3e76b;
     border-radius: 2px;
 }
 
@@ -128,7 +128,7 @@ div.scrollmenu {
     }  
 }
 
-@media(max-width: 700px){
+@media(min-width: 370px){
 .custome-img{
     width:90px!important;
     height: 70px!important;
@@ -141,7 +141,7 @@ div.scrollmenu {
     margin-top:10px!important;
 }
 .prod-box{
-    background-color:#FEF0F0;
+    background-color:#bff9f347;
     min-height:500px;
     padding-top: 20px;
     padding-bottom:80px;

@@ -92,7 +92,7 @@ class ProductItems extends React.Component {
                         <div className="mt-1">
                             <span>₹ {this.props.sellingPrice}</span>
                             <small className="small-text mr-2 pl-1">{this.props.mrp}</small>
-                            <span className="btn btn-warning float-right py-1">ADD</span>
+                            <span className="btn float-right py-1">ADD</span>
                         </div>
                     </div>
 
