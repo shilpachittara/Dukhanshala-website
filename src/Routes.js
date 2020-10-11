@@ -36,6 +36,11 @@ class Routes extends Component {
         adrress:{}
       },
       bagCount: 0,
+      name:null,
+      address:null,
+      cod:null,
+      city:null,
+      pincode:null,
       updateAppContext: this.updateAppContext,
       updateCategories: this.updateCategories,
       updateCategoryId: this.updateCategoryId,
@@ -50,7 +55,12 @@ class Routes extends Component {
       updateMinFreeDelivery: this.updateMinFreeDelivery,
       updateGrandTotal: this.updateGrandTotal,
       updateDeliveryCharge: this.updateDeliveryCharge,
-      updateTotal: this.updateTotal
+      updateTotal: this.updateTotal,
+      updateName:this.updateName,
+      updateAddress:this.updateAddress,
+      updateCity:this.updateCity,
+      updatePincode:this.updatePincode,
+      updateCod:this.updateCod
     }
   }
   updateAppContext = (val) => {
@@ -97,6 +107,21 @@ class Routes extends Component {
   }
   updateTotal = val =>{
     this.setState({total : val });
+  }
+  updateName = val =>{
+    this.setState({name : val });
+  }
+  updateAddress = val =>{
+    this.setState({address: val });
+  }
+  updateCity = val =>{
+    this.setState({city : val });
+  }
+  updatePincode = val =>{
+    this.setState({pincode : val });
+  }
+  updateCod = val =>{
+    this.setState({cod : val });
   }
   render() {
     return (

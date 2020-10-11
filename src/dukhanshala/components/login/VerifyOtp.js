@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import Axios from 'axios';
 import https from 'https';
+import ObjectCreation from 'dukhanshala/util/ObjectCreation';
 class VerifyOtp extends React.Component {
   static contextType = AppContext;
   constructor(props) {
@@ -14,16 +15,43 @@ class VerifyOtp extends React.Component {
     this.state = {
       otp: null,
       confirmResult: [],
-      mobile: null
+      mobile: null,
+      bag: {},
+      name: null,
+      address: null,
+      city: null,
+      pincode: null,
+      cod: null,
+      contact: null,
+      storeCode: null,
+      deliveryCharge: null,
+      grandTotal: null,
+      total: null,
+      totalItem: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.verify = this.verify.bind(this);
     this.loginDetail = this.loginDetail.bind(this);
     this.resend = this.resend.bind(this);
+    this.objectCreation = new ObjectCreation();
   }
   componentDidMount() {
     this.setState({ confirmResult: this.context.confirmResult });
-    this.setState({ mobile: this.context.mobile })
+
+    this.setState({ contact: window.localStorage.getItem('userMobile')});
+    this.setState({ storeCode:this.context.storeCode });
+    this.setState({ deliveryCharge: this.context.deliveryCharge });
+    this.setState({ grandTotal: this.context.grandTotal });
+    this.setState({ totalItem: this.context.bagCount });
+    this.setState({ total: this.context.total });
+    this.setState({ bag: this.context.bag });
+
+
+    this.setState({ name: this.context.name });
+    this.setState({ address: this.context.address });
+    this.setState({ city: this.context.city });
+    this.setState({ pincode: this.context.pincode });
+    this.setState({ cod: this.context.cod });
     //this.login();
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('resend-recaptcha', {
       'size': 'invisible',
@@ -59,9 +87,24 @@ class VerifyOtp extends React.Component {
     });
     Axios.post(`https://api.dukaanshala.com/web/login/${this.context.mobile}`, { httpsAgent: agent })
       .then(res => {
-        this.setState({ redirect: true });
         localStorage.setItem('userMobile',this.context.mobile )
+
+        //order  api called
+        let request = this.objectCreation.orderObject(this.state);
+      
+        const agent = new https.Agent({
+            rejectUnauthorized: false,
+            
+        });
+        Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
+            .then(res => {
+               
+                this.setState({ redirect: true });
+                this.context.updateBagCount(0);
+            })
       })
+
+ 
   }
 
   resend() {
@@ -86,7 +129,7 @@ class VerifyOtp extends React.Component {
 
     if (redirect)
       return (<Redirect to={{
-        pathname: `${this.context.storeCode}/checkout`
+        pathname: `${this.context.storeCode}/confirmation`
       }} />)
     return (
       <div className="container">

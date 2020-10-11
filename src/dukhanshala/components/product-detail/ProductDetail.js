@@ -120,7 +120,7 @@ class ProductDetail extends React.Component {
     }
 
     render() {
-      
+    //   console.log("product",this.state.product)
         const { redirectBack } = this.state
 
         if (redirectBack)
@@ -153,7 +153,7 @@ class ProductDetail extends React.Component {
                          {/* <span className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white'}}>ADD</span> */}
                      </div>
                      <div className="mt-3">
-                <div style={{fontSize:'16px'}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </div>
+        <div style={{fontSize:'16px'}}>{this.state.product.productDescription}</div>
                      </div>
                     <div className="mt-3">
                         <div className="row" style={{paddingBottom:'15%'}}>

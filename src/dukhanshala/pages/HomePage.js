@@ -27,6 +27,7 @@ class HomePage extends Component {
       showCount:"",
       
     }
+    // localStorage.removeItem("userMobile");
   }
 
 
@@ -58,6 +59,7 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
+
     let xx=this.props.match.params.store
   
     var path;

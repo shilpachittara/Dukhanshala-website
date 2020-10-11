@@ -69,7 +69,7 @@ class SendOtp extends React.Component {
         <p className="mt-3 mb-0"><b>Mobile Verification</b></p>
         <p className="small-text">Please enter your 10 digit mobile number.</p>
         <div className="field">
-          <input id="contact" type="number" className="form-control mobileInput input-lg" name="contact" placeholder="Mobile Number" required=""
+          <input id="contact" type="number" className="form-control mobileInput input-lg" name="contact" placeholder="Mobile Number" required
             onChange={this.handleChange} />
           <p className="text-danger p-1"></p>
           <div>

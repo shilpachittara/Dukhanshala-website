@@ -25,7 +25,8 @@ class Checkout extends React.Component {
             deliveryCharge: null,
             grandTotal: null,
             total: null,
-            totalItem: null
+            totalItem: null,
+            redirectLogin:false
         }
         this.submit = this.submit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -51,23 +52,41 @@ class Checkout extends React.Component {
 
     
     submit() {
-        
-        if (this.validator.validateAddress(this.state)) {
-         
-            let request = this.objectCreation.orderObject(this.state);
-            console.log('request bag',request)
-            const agent = new https.Agent({
-                rejectUnauthorized: false,
-                
-            });
-            Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
-                .then(res => {
-                   
-                    this.setState({ redirect: true });
-                    this.context.updateBagCount(0);
-                })
+        const userVerified = window.localStorage.getItem('userMobile')
 
+
+        if (this.validator.validateAddress(this.state)) {
+            this.context.updateName(this.state.name)
+            this.context.updateAddress(this.state.address)
+         
+            this.context.updateCity(this.state.city)
+            this.context.updatePincode(this.state.pincode)
+            this.context.updateCod(this.state.cod)
+           
+        if(userVerified != null){
+          
+         
+                let request = this.objectCreation.orderObject(this.state);
+                console.log('request bag',request)
+                const agent = new https.Agent({
+                    rejectUnauthorized: false,
+                    
+                });
+                Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
+                    .then(res => {
+                       
+                        this.setState({ redirect: true });
+                        this.context.updateBagCount(0);
+                    })
+    
+            }
+            else{
+                this.setState({redirectLogin: true})
+              }
         }
+      
+        
+   
       
     }
 
@@ -76,6 +95,10 @@ class Checkout extends React.Component {
         if (redirect)
             return (<Redirect to={{
                 pathname: `${this.context.storeCode}/confirmation`
+            }} />)
+           else if (this.state.redirectLogin)
+            return (<Redirect to={{
+                pathname: `${this.context.storeCode}/otp`
             }} />)
         return (
             <div>
