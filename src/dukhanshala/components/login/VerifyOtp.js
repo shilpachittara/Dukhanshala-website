@@ -133,7 +133,7 @@ class VerifyOtp extends React.Component {
       }} />)
     return (
       <div className="container">
-        <h1 className="heading"><Link to={`${this.context.storeCode}/bag`}><img src={backArror} style={{ marginRight: "15px" }} alt="" /></Link> OTP Verification</h1>
+        <h1 className="heading"><Link to={`${this.context.storeCode}/otp`}><img src={backArror} style={{ marginRight: "15px" }} alt="" /></Link> OTP Verification</h1>
         <p className="small-text text-secondary">Please enter the 6 digit OTP sent to your number - {this.context.mobile}</p>
         <button className="btn btn-outline-info btn-sm" onClick={this.resend}>Resend OTP</button>
         <div className="field">

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './ProductDetail.css'
-import { Redirect } from 'react-router-dom';
+import { Redirect,Link } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
 import https from 'https';
@@ -56,9 +56,10 @@ class ProductDetail extends React.Component {
             )
     };
 
-    goToBag = () => {
-        this.setState({ redirect: true })
-    }
+    // goToBag = () => {
+    //     // this.setState({ redirect: true })
+    //     this.props.history.push(`${this.context.storeCode}/bag`)
+    // }
 
     addProduct = () => {
         var count = this.state.count + 1;
@@ -165,8 +166,9 @@ class ProductDetail extends React.Component {
                                 </p>
                             </div>
                             <div className="col">
-                                <button className="btn btn-primary w-100 my-3 btn-lg" onClick={this.goToBag} style={{backgroundColor:' #3BB3A6' ,borderColor:' #3BB3A6'}}>Go to Bag</button>
-                            </div>
+                                <Link to={this.context.storeCode+"/bag"}>
+                                <button className="btn btn-primary w-100 my-3 btn-lg"  style={{backgroundColor:' #3BB3A6' ,borderColor:' #3BB3A6'}}>Go to Bag</button>
+                                </Link>  </div>
                         </div>
                     </div>
                 </div>

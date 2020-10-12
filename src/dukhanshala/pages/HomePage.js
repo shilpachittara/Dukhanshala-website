@@ -23,11 +23,10 @@ class HomePage extends Component {
       categories: [],
       products:[],
       landing:true,
-      redirect:"",
       showCount:"",
       
     }
-    // localStorage.removeItem("userMobile");
+    localStorage.removeItem("userMobile");
   }
 
 
@@ -108,7 +107,8 @@ class HomePage extends Component {
       this.context.updateCategoryName(catName);
       this.context.updateCategoryId(catId);
       this.context.updateProductId(prodId);
-      this.setState({redirect:`${this.context.storeCode+ "/product/detail/" + prodId}` })
+
+      this.props.history.push(`${this.context.storeCode+ "/product/detail/" + prodId}`);
   }
 
   clickAdd=(id)=>{
@@ -119,10 +119,7 @@ class HomePage extends Component {
   }
 
   render() {
-    if (this.state.redirect !=="")
-    return (<Redirect to={{
-        pathname: this.state.redirect
-    }} />)
+
     return (
       <div>
 

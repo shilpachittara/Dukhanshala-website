@@ -54,13 +54,10 @@ class BagPage extends Component {
     }
 
     address(){
-      const userVerified = window.localStorage.getItem('userMobile')
-      if(userVerified != null){
-        this.setState({redirectCheckOut: true})
-      }
-      else{
-        this.setState({redirectLogin: true})
-      }
+
+      // this.props.history.push(`${this.context.storeCode+ "/product/detail/" + prodId}`);
+   
+      this.props.history.goBack();
     }
 
     addProduct(productId){
@@ -107,17 +104,8 @@ class BagPage extends Component {
     }
     render(){
 
-      const { redirectLogin } = this.state
-      const { redirectCheckOut } = this.state
-        if (redirectCheckOut)
-            return (<Redirect to={{
-                pathname: `${this.context.storeCode}/checkout`
-            }} />)
-        if(redirectLogin)
-            return(
-              <Redirect to={{
-                pathname: `${this.context.storeCode}/otp`
-            }} />)
+      
+   
       return(
         <div className="container">
           <Header/>
