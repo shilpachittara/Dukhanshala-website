@@ -28,17 +28,19 @@ class ProductDetail extends React.Component {
     }
     componentDidMount() {
         this.setState({ bag: this.context.bag });
+        if(this.context.bag.products[0]){
         var length = this.context.bag.products.length;
         for (var i = 0; i < length; i++) {
             if (this.context.bag.products[i].productId === this.context.productId) {
                 this.setState({ count: this.context.bag.products[i].count })
             }
         }
+    }
         this.getProductDetail();
     }
 
     getProductDetail = () => {
-        let url = 'https://api.dukaanshala.com/web/category/product/detail' + this.context.storeCode + '/' + this.context.productId;
+        let url = 'http://35.240.173.248:8000/web/category/product/detail' + this.context.storeCode + '/' + this.context.productId;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });
@@ -110,6 +112,9 @@ class ProductDetail extends React.Component {
             if (this.context.bag.products[i].productId === this.context.productId) {
                 products[i].count = products[i].count - 1;
             }
+            if(products[i].count === 0){
+                delete products[i];
+              }
         }
         var updatedBag = {products:[],address:{}}
         updatedBag.products = products;

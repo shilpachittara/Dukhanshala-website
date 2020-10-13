@@ -58,7 +58,7 @@ class CategoriesHome extends React.Component{
     }
   }
     getCategoriesList = (path) => {
-        let url = 'https://api.dukaanshala.com/web/category/detail' + path;
+        let url = 'http://35.240.173.248:8000/web/category/detail' + path;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });

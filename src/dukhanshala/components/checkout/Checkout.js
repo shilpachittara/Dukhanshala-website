@@ -14,6 +14,9 @@ class Checkout extends React.Component {
         super();
 
         this.state = {
+            updateBag : {
+                "products":[]
+            },
             bag: {},
             name: null,
             address: null,
@@ -72,11 +75,12 @@ class Checkout extends React.Component {
                     rejectUnauthorized: false,
                     
                 });
-                Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
+                Axios.post('http://35.240.173.248:8000/web/order', request, { httpsAgent: agent })
                     .then(res => {
                        
                         this.setState({ redirect: true });
                         this.context.updateBagCount(0);
+                        this.context.updateBag(this.state.updateBag);
                     })
     
             }

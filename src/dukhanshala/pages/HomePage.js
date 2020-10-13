@@ -33,7 +33,7 @@ class HomePage extends Component {
 
   getCategoriesList = (path) => {
    
-    let url = 'https://api.dukaanshala.com/web/category/detail' + path;
+    let url = 'http://35.240.173.248:8000/web/category/detail' + path;
     const agent = new https.Agent({
       rejectUnauthorized: false,
     });
@@ -87,7 +87,7 @@ class HomePage extends Component {
       })
     }
     this.setState({products: []});
-      let url = `https://api.dukaanshala.com/web/category/products${this.context.storeCode}/${id}`;
+      let url = `http://35.240.173.248:8000/web/category/products${this.context.storeCode}/${id}`;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });
@@ -103,7 +103,7 @@ class HomePage extends Component {
               }
           )
     };
-    productDetail = (catId,catName,prodId) => {
+    productDetail = (catName,catId,prodId) => {
       this.context.updateCategoryName(catName);
       this.context.updateCategoryId(catId);
       this.context.updateProductId(prodId);
