@@ -13,6 +13,9 @@ class VerifyOtp extends React.Component {
     super(props);
 
     this.state = {
+      updateBag : {
+        "products":[]
+    },
       otp: null,
       confirmResult: [],
       mobile: null,
@@ -101,6 +104,7 @@ class VerifyOtp extends React.Component {
                
                 this.setState({ redirect: true });
                 this.context.updateBagCount(0);
+                this.context.updateBag(this.state.updateBag);
             })
       })
 
