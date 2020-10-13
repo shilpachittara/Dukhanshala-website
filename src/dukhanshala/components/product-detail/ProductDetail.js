@@ -118,7 +118,7 @@ class ProductDetail extends React.Component {
                 products[i].count = products[i].count - 1;
             }
             if(products[i].count === 0){
-                delete products[i]
+                products.splice(i,1);
                 if(length == 1){
                     products = [];
                 }
