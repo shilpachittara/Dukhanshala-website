@@ -34,15 +34,12 @@ class BagPage extends Component {
       var totalOrder=0;
       var grandTotal=0;
       var delivery = this.context.minFreeDelivery;
-      if(this.context.bag.products[0]){
         var length = this.context.bag.products.length;
-        
         for (var i = 0; i < length; i++) {
           if(this.context.bag.products[i]){
           totalOrder += this.context.bag.products[i].count* this.context.bag.products[i].sellingPrice;
         }
       }
-    }
       if(totalOrder >= delivery){
         delivery = "Free";
         grandTotal = totalOrder;
