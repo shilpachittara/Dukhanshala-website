@@ -31,9 +31,11 @@ class ProductDetail extends React.Component {
         if(this.context.bag.products[0]){
         var length = this.context.bag.products.length;
         for (var i = 0; i < length; i++) {
+            if(this.context.bag.products[i]){
             if (this.context.bag.products[i].productId === this.context.productId) {
                 this.setState({ count: this.context.bag.products[i].count })
             }
+        }
         }
     }
         this.getProductDetail();
@@ -78,10 +80,12 @@ class ProductDetail extends React.Component {
         var found = false;
         var length = this.context.bag.products.length;
         for(var i=0; i< length; i++){
+            if(this.context.bag.products[i]){
             if (this.context.bag.products[i].productId === this.context.productId) {
                 products[i].count = products[i].count+ 1;
                 found = true;
             }
+        }
         }
         if(!found){
             var newProduct = this.state.product;
@@ -109,12 +113,16 @@ class ProductDetail extends React.Component {
         var products = this.context.bag.products;
         var length = this.context.bag.products.length;
         for(var i=0; i< length; i++){
+            if(this.context.bag.products[i]){
             if (this.context.bag.products[i].productId === this.context.productId) {
                 products[i].count = products[i].count - 1;
             }
             if(products[i].count === 0){
-                delete products[i];
-              }
+                delete products[i]
+                if(length == 1){
+                    products = [];
+                }
+              }}
         }
         var updatedBag = {products:[],address:{}}
         updatedBag.products = products;

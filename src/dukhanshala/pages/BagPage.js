@@ -36,10 +36,13 @@ class BagPage extends Component {
       var delivery = this.context.minFreeDelivery;
       if(this.context.bag.products[0]){
         var length = this.context.bag.products.length;
+        
         for (var i = 0; i < length; i++) {
+          if(this.context.bag.products[i]){
           totalOrder += this.context.bag.products[i].count* this.context.bag.products[i].sellingPrice;
         }
       }
+    }
       if(totalOrder >= delivery){
         delivery = "Free";
         grandTotal = totalOrder;
@@ -68,10 +71,12 @@ class BagPage extends Component {
         var found = false;
         var length = this.context.bag.products.length;
         for(var i=0; i< length; i++){
+          if(this.context.bag.products[i]){
             if (this.context.bag.products[i].productId === productId) {
                 products[i].count = products[i].count+ 1;
                 found = true;
             }
+          }
         }
         if(!found){
             var newProduct = this.state.product;
@@ -89,6 +94,7 @@ class BagPage extends Component {
       var products = this.context.bag.products;
         var length = this.context.bag.products.length;
         for(var i=0; i< length; i++){
+          if(this.context.bag.products[i]){
             if (this.context.bag.products[i].productId === productId) {
               selectedCount = products[i].count;
                 if(products[i].count !== 0){
@@ -96,14 +102,18 @@ class BagPage extends Component {
                 }
                 if(products[i].count === 0){
                   delete products[i];
+                  if(length == 1){
+                    products = [];
+                }
                 }
             }
+          }
         }
         var updatedBag = {products:[],address:{}}
         updatedBag.products = products;
         if(selectedCount !== 0){
         this.context.updateBagCount(this.context.bagCount - 1);
-        this.context.updateBag(updatedBag); 
+        this.context.updateBag(updatedBag);
         this.totalCalculation();
         }
     }
