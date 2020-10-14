@@ -40,13 +40,32 @@ class Checkout extends React.Component {
         this.setState({ contact: window.localStorage.getItem('userMobile')});
         this.setState({ storeCode:this.context.storeCode });
         this.setState({ deliveryCharge: this.context.deliveryCharge });
-        this.setState({ grandTotal: this.context.grandTotal });
         this.setState({ totalItem: this.context.bagCount });
-        this.setState({ total: this.context.total });
         this.setState({ bag: this.context.bag });
-      
+        this.totalCalculation();
+
     }
 
+    totalCalculation(){
+        var totalOrder=0;
+        var grandTotal=0;
+        var delivery = this.context.minFreeDelivery;
+          var length = this.context.bag.products.length;
+          for (var i = 0; i < length; i++) {
+            if(this.context.bag.products[i]){
+            totalOrder += this.context.bag.products[i].count* this.context.bag.products[i].sellingPrice;
+          }
+        }
+        if(totalOrder >= delivery){
+          grandTotal = totalOrder;
+        }
+        else{
+          delivery = this.context.deliveryCharge;
+          grandTotal = delivery + totalOrder;
+        }
+        this.setState({total: totalOrder});
+        this.setState({grandTotal: grandTotal});
+      }
     handleChange({ target }) {
         this.setState({
             [target.name]: target.value
