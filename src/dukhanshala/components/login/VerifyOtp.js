@@ -42,6 +42,7 @@ class VerifyOtp extends React.Component {
     this.setState({ confirmResult: this.context.confirmResult });
 
     this.setState({ contact: window.localStorage.getItem('userMobile')});
+    this.setState({ mobile: this.context.mobile});
     this.setState({ storeCode:this.context.storeCode });
     this.setState({ deliveryCharge: this.context.deliveryCharge });
     this.setState({ grandTotal: this.context.grandTotal });
