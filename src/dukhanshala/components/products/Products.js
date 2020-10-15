@@ -18,7 +18,7 @@ class Products extends React.Component{
         this.getProductList();
     }
     getProductList = () => {
-      let url = `http://35.240.173.248:8000/web/category/products${this.context.storeCode}/${this.context.categoryId}`;
+      let url = `https://api.dukaanshala.com/web/category/products${this.context.storeCode}/${this.context.categoryId}`;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });

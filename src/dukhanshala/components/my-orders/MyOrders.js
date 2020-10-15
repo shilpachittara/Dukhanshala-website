@@ -20,7 +20,7 @@ class MyOrders extends React.Component {
     }
     getOrdersByContactNumber = () => {
         let mobileNo= window.localStorage.getItem('userMobile')
-        let url = 'http://35.240.173.248:8000/web/orders/' + mobileNo;
+        let url = 'https://api.dukaanshala.com/web/orders/' + mobileNo;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });

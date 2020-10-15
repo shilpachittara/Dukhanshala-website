@@ -89,7 +89,7 @@ class VerifyOtp extends React.Component {
     const agent = new https.Agent({
       rejectUnauthorized: false,
     });
-    Axios.post(`http://35.240.173.248:8000/web/login/${this.context.mobile}`, { httpsAgent: agent })
+    Axios.post(`https://api.dukaanshala.com/web/login/${this.context.mobile}`, { httpsAgent: agent })
       .then(res => {
         localStorage.setItem('userMobile',this.context.mobile )
 
@@ -100,7 +100,7 @@ class VerifyOtp extends React.Component {
             rejectUnauthorized: false,
             
         });
-        Axios.post('http://35.240.173.248:8000/web/order', request, { httpsAgent: agent })
+        Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
             .then(res => {
                
                 this.setState({ redirect: true });

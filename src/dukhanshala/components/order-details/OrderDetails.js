@@ -20,7 +20,7 @@ class OrderDetails extends React.Component {
         this.getOrdersByContactNumber();
     }
     getOrdersByContactNumber = () => {
-        let url = 'http://35.240.173.248:8000/web/order/detail/' + this.context.orderId;
+        let url = 'https://api.dukaanshala.com/web/order/detail/' + this.context.orderId;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });

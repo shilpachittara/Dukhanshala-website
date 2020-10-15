@@ -62,7 +62,7 @@ class ProductDetailPage extends Component {
 }
 
 getCategoryName = () => {
-    let url = 'http://35.240.173.248:8000/web/category/'+ this.context.categoryId;
+    let url = 'https://api.dukaanshala.com/web/category/'+ this.context.categoryId;
         const agent = new https.Agent({
             rejectUnauthorized: false,
         });

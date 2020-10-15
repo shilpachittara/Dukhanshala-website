@@ -60,7 +60,7 @@ class CompanyInfo extends React.Component{
       }
       getStoreDetail = (val) => {
 
-    let url = 'http://35.240.173.248:8000/web/store/detail'+ val;
+    let url = 'https://api.dukaanshala.com/web/store/detail'+ val;
     const agent = new https.Agent({
         rejectUnauthorized: false,
     });
