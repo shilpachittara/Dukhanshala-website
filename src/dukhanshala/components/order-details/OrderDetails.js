@@ -95,7 +95,7 @@ class OrderDetails extends React.Component {
                         <p>Delivery:<span className="float-right text-success">{this.state.order.deliveryFee}</span></p>
                         <p><b>Grand Total: <span className="float-right">₹{this.state.order.deliveryFee}</span></b></p>
                         </div>*/}
-                    <div className="d-none d-md-block d-lg-block p-3 bg-light">
+                    <div className="d-md-block d-lg-block p-3 bg-light">
                         <p className="mb-2">Item Total: <span className="float-right">₹{this.state.order.orderValue}</span></p>
                         <p>Delivery:<span className="float-right text-success">{this.state.order.deliveryFee}</span></p>
                         <p><b>Grand Total: <span className="float-right">₹{this.state.order.grandTotal}</span></b></p>

@@ -65,6 +65,7 @@ class Checkout extends React.Component {
         }
         this.setState({total: totalOrder});
         this.setState({grandTotal: grandTotal});
+        this.setState({deliveryCharge: delivery});
       }
     handleChange({ target }) {
         this.setState({
