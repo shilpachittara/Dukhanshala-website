@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import logoImg from '../../../assets/images/logo.webp'
 import logo from '../../../assets/images/logo2.png'
+import dukaanshala from '../../../assets/images/dukaanshala.png'
 //import fbIcon from '../../../assets/images/facebook.svg'
 //import twIcon from '../../../assets/images/twitter.svg'
 import Search from '../search/Search';
@@ -18,7 +19,11 @@ static contextType = AppContext;
             storeName: null,
             globalPath:'',
             storeAddress:null,
-            mobile: null
+            mobile: null,
+            storeImage: logo,
+            totalReferral: null,
+            poweredBy: "Powered by",
+            dukaanshalaLogo: true 
         }
     }
 
@@ -75,6 +80,15 @@ static contextType = AppContext;
                 this.setState({storeName: response.data.storeName,
                 storeAddress:response.data.storeAddress,
                 mobile: response.data.mobile});
+                if(response.data.totalReferral >= 5){
+                    var poweredBy = "";
+                    this.setState({poweredBy :poweredBy});
+                    this.setState({dukaanshalaLogo: false});
+                }
+                if(response.data.storeImage){
+                    var storeImage = response.data.storeImage;
+                    this.setState({storeImage: storeImage});
+                }
                 this.context.updateMinFreeDelivery(response.data.minFreeDelivery);
                 this.context.updateDeliveryCharge(response.data.deliveryCharge);
             }
@@ -91,15 +105,13 @@ static contextType = AppContext;
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-auto">
-                    <Link to={`${this.context.storeCode}`}><img className="logo" src={logo} alt="Dukhan Shala" /></Link>
-                </div>
+                <Link to={`${this.context.storeCode}`}><img className="logo" src={this.state.storeImage} alt="Dukhaanshala" /></Link>                </div>
                 <div className="col">
                     <div className="store-title">
                         <h3 className="logo-title">{this.state.storeName}</h3>        
                        
                         <p className="made-title">{this.state.mobile}</p>
-                        <p className="made-title">Powered by Dukaanshala</p>
-                 
+                        <p className="made-title">{this.state.poweredBy} {this.state.dukaanshalaLogo ? (<img className="powered" src={dukaanshala} alt="Dukhaanshala" />  ) : null}</p>
                     </div>
                 </div>
                 {/*<div className="col-auto">
