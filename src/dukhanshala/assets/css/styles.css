@@ -95,6 +95,12 @@ div.scrollmenu {
     color:#3BB3A6
  
   }
+  .a-a {
+    border-bottom: 3px solid #3BB3A6!important;
+    font-weight: bold !important;
+    color:#3BB3A6 !important
+ 
+  }
 
   .b-b{
     border-bottom: none!important;

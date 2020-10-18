@@ -103,7 +103,7 @@ static contextType = AppContext;
     return(
     <div className="sticky-top headerPanel">
         <div className="container">
-            <div className="row align-items-center">
+            <div className="row align-items-center"  style={{minHeight:"90px"}}>
                 <div className="col-auto">
                     <Link to={`${this.context.storeCode}`}><img className="logo" src={this.state.storeImage} alt="Dukhaanshala" /></Link>
                 </div>
