@@ -25,7 +25,7 @@ export default function BasicButtonGroup() {
 
   return (
     <div className={classes.root} >
-         <Grid container spacing={0} justifyContent="flex-end"> 
+         <Grid container spacing={0} > 
         <Grid item xs={12} style={{marginRight:'5px'}}>
         <ButtonGroup color="primary" aria-label="outlined primary button group" >
         <Button style={{width:"20px",height:'20px'}} >+</Button>
