@@ -32,7 +32,7 @@ export default function BasicButtonGroup() {
     
       </ButtonGroup>
       <ButtonGroup color="primary" aria-label="contained primary button group" style={{backgroundColor:'#3BB3A6'}}>
-      <Button style={{width:"20px",height:'20px'}} >1</Button>
+      <Button style={{width:"20px",height:'20px',}}  >1</Button>
   
       </ButtonGroup>
       <ButtonGroup color="primary" aria-label="outlined primary button group" >

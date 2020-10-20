@@ -24,7 +24,7 @@ class HomePage extends Component {
       products: [],
       landing: true,
       showCount: "",
-      active:false
+      active: false
 
     }
     //localStorage.removeItem("userMobile");
@@ -86,7 +86,7 @@ class HomePage extends Component {
 
 
 
-  getProductList = (id,name,flag) => {
+  getProductList = (id, name, flag) => {
     if (this.state.categories[0].categoryId !== id) {
       this.setState({
         landing: false
@@ -97,20 +97,20 @@ class HomePage extends Component {
         landing: true
       })
     }
-   
-  let temp1=this.state.categories
-  for(let i=0;i<this.state.categories.length;i++){
-    if(id==this.state.categories[i].categoryId){
-      temp1[i].isActive=true
-    }
-    else{
-      temp1[i].isActive=false
-    }
-  }
 
-  this.setState({
-    categories:temp1
-  })
+    let temp1 = this.state.categories
+    for (let i = 0; i < this.state.categories.length; i++) {
+      if (id == this.state.categories[i].categoryId) {
+        temp1[i].isActive = true
+      }
+      else {
+        temp1[i].isActive = false
+      }
+    }
+
+    this.setState({
+      categories: temp1
+    })
 
 
 
@@ -124,7 +124,7 @@ class HomePage extends Component {
           let tempArr = []
           for (let i = 0; i < response.data.products.length; i++) {
             let obj = {}
-            obj.isAdded = false
+            obj.isAdded = this.isPreAdded(response.data.products[i].productId)
             obj.availableQuantity = response.data.products[i].availableQuantity
             obj.categoryId = response.data.products[i].categoryId
             obj.categoryName = response.data.products[i].categoryName
@@ -135,6 +135,8 @@ class HomePage extends Component {
             obj.productName = response.data.products[i].productName
             obj.sellingPrice = response.data.products[i].sellingPrice
             tempArr.push(obj)
+       
+
 
           }
           this.setState({ products: tempArr });
@@ -156,6 +158,9 @@ class HomePage extends Component {
   }
 
   clickAdd = (id, flag) => {
+    let arr = this.context.addedProdId;//adding and updating  clicked prod id to an array
+    arr.push(id)
+    this.context.updateAddedProdId(arr);
 
     let tempArr = this.state.products
     if (flag === false) {
@@ -168,6 +173,29 @@ class HomePage extends Component {
       this.setState({ products: tempArr })
     }
 
+  }
+  isPreAdded = (id) => {
+    let flag;
+    if (this.context.addedProdId.length > 0) {
+      for (let i = 0; i < this.context.addedProdId.length; i++) {
+   
+        if (id == this.context.addedProdId[i]) {
+
+          flag = true;
+          break;
+
+        }
+        else {
+          flag = false
+        }
+
+      }
+      return flag
+    }
+    else {
+      flag = false
+      return flag
+    }
   }
 
   render() {
@@ -185,7 +213,7 @@ class HomePage extends Component {
             <div className="scrollmenu col-sm-12 col-md-12" >
               {this.state.categories && this.state.categories.map((categoryData, index) => (
 
-                <a key={index} className={categoryData.isActive ? "a-a " : ""} onClick={() => this.getProductList(categoryData.categoryId, categoryData.categoryName,categoryData.isActive)} href="#home">{categoryData.categoryName}</a>
+                <a key={index} className={categoryData.isActive ? "a-a " : ""} onClick={() => this.getProductList(categoryData.categoryId, categoryData.categoryName, categoryData.isActive)} href="#home">{categoryData.categoryName}</a>
               ))}
 
 

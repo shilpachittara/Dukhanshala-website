@@ -65,6 +65,7 @@ class ProductDetail extends React.Component {
     //     this.props.history.push(`${this.context.storeCode}/bag`)
     // }
 
+    
     addProduct = () => {
         var count = this.state.count + 1;
         var prod = this.state.product;
@@ -134,7 +135,7 @@ class ProductDetail extends React.Component {
     }
 
     render() {
-    //   console.log("product",this.state.product)
+
         const { redirectBack } = this.state
 
         if (redirectBack)
@@ -160,11 +161,11 @@ class ProductDetail extends React.Component {
                 </div>
                 <div className="col-12 col-sm-7">
                    
-                    {/*<h6 className="prod-qty">{"3"} piece</h6>*/}
+   
                     <div className="mt-3">
                         <span>Price: ₹</span> <span style={{fontWeight:"bold",fontSize:'18px'}}>{" "+this.state.product.sellingPrice}</span>
                          <small className="small-text mr-2 pl-1" style={{color:'black',fontSize:'14px'}} >{this.state.product.mrp !==null ?"MRP: ₹":""}<span style={this.state.product.sellingPrice !==null? {textDecoration: 'line-through'}:{display:'none'} }>{" "+this.state.product.mrp !==null ?this.state.product.mrp:""}</span></small>
-                         {/* <span className="btn btn-warning float-right py-1" style={{marginRight:'10px',backgroundColor:'#F8462B',color:'white'}}>ADD</span> */}
+
                      </div>
                      <div className="mt-3">
         <div style={{fontSize:'16px'}}>{this.state.product.productDescription}</div>

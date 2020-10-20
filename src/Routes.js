@@ -41,6 +41,7 @@ class Routes extends Component {
       cod:null,
       city:null,
       pincode:null,
+      addedProdId:[],
       updateAppContext: this.updateAppContext,
       updateCategories: this.updateCategories,
       updateCategoryId: this.updateCategoryId,
@@ -60,7 +61,8 @@ class Routes extends Component {
       updateAddress:this.updateAddress,
       updateCity:this.updateCity,
       updatePincode:this.updatePincode,
-      updateCod:this.updateCod
+      updateCod:this.updateCod,
+      updateAddedProdId:this.updateAddedProdId
     }
   }
   updateAppContext = (val) => {
@@ -122,6 +124,9 @@ class Routes extends Component {
   }
   updateCod = val =>{
     this.setState({cod : val });
+  }
+  updateAddedProdId = (val) => {
+    this.setState({ addedProdId : val });
   }
   render() {
     return (
