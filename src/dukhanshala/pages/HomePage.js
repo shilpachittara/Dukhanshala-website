@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-
-//import { Link } from 'react-router-dom';
-// import ProductList from "../components/products/ProductList";
 import { AppContext } from "../../Context/AppContext";
-// import CategoriesHome from '../components/categories/CategoriesHome';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
-import https from 'https';
-import axios from 'axios';
-import { Redirect, useParams } from 'react-router-dom';
 import IncrementButton from '../components/IncrementButton'
 import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
-
-
+import * as HomepageServices from '../../services/HomepageServices'
 
 
 class HomePage extends Component {
@@ -31,44 +23,39 @@ class HomePage extends Component {
   }
 
 
+  getCategoriesList = async (path) => {
+    let response = await HomepageServices.getCategories(path)
+    try {
+      if (response && response.status === 200 && response.data && response.data.categories && response.data.categories.length >= 1) {
+        this.context.updateCategories(response.data.categories);
+  
 
-  getCategoriesList = (path) => {
-
-    let url = 'http://35.240.173.248:8000/web/category/detail' + path;
-    const agent = new https.Agent({
-      rejectUnauthorized: false,
-    });
-    axios.get(url, { httpsAgent: agent })
-      .then(response => {
-        if (response && response.data && response.data.categories && response.data.categories.length >= 1) {
-
-          this.context.updateCategories(response.data.categories);
-
-          let tempArr = []
-          for (let i = 0; i < response.data.categories.length; i++) {
-            let obj = {}
-            obj.categoryId = response.data.categories[i].categoryId
-            obj.categoryImage = response.data.categories[i].categoryImage
-            obj.categoryName = response.data.categories[i].categoryName
-            obj.isActive = false;
-            tempArr.push(obj)
-          }
-          this.setState({ categories: tempArr });
-
-          this.getProductList(response.data.categories[0].categoryId)
-
+        let tempArr = []
+        for (let i = 0; i < response.data.categories.length; i++) {
+          let obj = {}
+          obj.categoryId = response.data.categories[i].categoryId
+          obj.categoryImage = response.data.categories[i].categoryImage
+          obj.categoryName = response.data.categories[i].categoryName
+          obj.isActive = false;
+          tempArr.push(obj)
         }
-        else {
-          //failure scenario
-          alert("Something went wronge. Please try again !")
-        }
+        this.setState({ categories: tempArr });
+
+        this.getProductList(response.data.categories[0].categoryId)
+
       }
-
-      )
+      else {
+        //failure scenario
+        alert("Something went wronge. Please try again !")
+      }
+    }
+    catch (err) {
+      alert(err)
+    }
 
   };
 
-  componentDidMount() {
+  getStoreCode = () => {
 
     let xx = this.props.match.params.store
 
@@ -84,9 +71,11 @@ class HomePage extends Component {
     }
   }
 
+  componentDidMount() {
+    this.getStoreCode()
+  }
 
-
-  getProductList = (id, name, flag) => {
+  getProductList = async (id, name, flag) => {
     if (this.state.categories[0].categoryId !== id) {
       this.setState({
         landing: false
@@ -112,48 +101,45 @@ class HomePage extends Component {
       categories: temp1
     })
 
+    let requestPath = {}
+    requestPath.storeCode = this.context.storeCode
+    requestPath.id = id
 
 
-    let url = `http://35.240.173.248:8000/web/category/products${this.context.storeCode}/${id}`;
-    const agent = new https.Agent({
-      rejectUnauthorized: false,
-    });
-    axios.get(url, { httpsAgent: agent })
-      .then(response => {
-        if (response && response.data && response.data.products) {
-          let tempArr = []
-          for (let i = 0; i < response.data.products.length; i++) {
-            let obj = {}
-            obj.isAdded = this.isPreAdded(response.data.products[i].productId)
-            obj.availableQuantity = response.data.products[i].availableQuantity
-            obj.categoryId = response.data.products[i].categoryId
-            obj.categoryName = response.data.products[i].categoryName
-            obj.mrp = response.data.products[i].mrp
-            obj.productDescription = response.data.products[i].productDescription
-            obj.productId = response.data.products[i].productId
-            obj.productImage = response.data.products[i].productImage
-            obj.productName = response.data.products[i].productName
-            obj.sellingPrice = response.data.products[i].sellingPrice
-            tempArr.push(obj)
-       
-
-
-          }
-          this.setState({ products: tempArr });
-
-
+    let response = await HomepageServices.getProducts(requestPath)
+    try {
+      if (response && response.status === 200 && response.data && response.data.products) {
+        let tempArr = []
+        for (let i = 0; i < response.data.products.length; i++) {
+          let obj = {}
+          obj.isAdded = this.isPreAdded(response.data.products[i].productId)
+          obj.availableQuantity = response.data.products[i].availableQuantity
+          obj.categoryId = response.data.products[i].categoryId
+          obj.categoryName = response.data.products[i].categoryName
+          obj.mrp = response.data.products[i].mrp
+          obj.productDescription = response.data.products[i].productDescription
+          obj.productId = response.data.products[i].productId
+          obj.productImage = response.data.products[i].productImage
+          obj.productName = response.data.products[i].productName
+          obj.sellingPrice = response.data.products[i].sellingPrice
+          tempArr.push(obj)
         }
-        else {
-          //failure scenario
-        }
+        this.setState({ products: tempArr });
       }
-      )
-  };
+      else {
+        //failure scenario
+      }
+    }
+    catch (err) {
+      alert(err)
+    }
+
+  }
+
   productDetail = (catName, catId, prodId) => {
     this.context.updateCategoryName(catName);
     this.context.updateCategoryId(catId);
     this.context.updateProductId(prodId);
-
     this.props.history.push(`${this.context.storeCode + "/product/detail/" + prodId}`);
   }
 
@@ -174,11 +160,12 @@ class HomePage extends Component {
     }
 
   }
+
   isPreAdded = (id) => {
     let flag;
     if (this.context.addedProdId.length > 0) {
       for (let i = 0; i < this.context.addedProdId.length; i++) {
-   
+
         if (id == this.context.addedProdId[i]) {
 
           flag = true;
