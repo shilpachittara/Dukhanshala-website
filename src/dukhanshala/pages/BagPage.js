@@ -4,9 +4,6 @@ import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
-import Checkout from 'dukhanshala/components/checkout/Checkout';
-import Axios from 'axios';
-import https from 'https';
 import Validator from 'dukhanshala/util/Validator';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
 import * as BagpageServices from '../../services/BagpageServices'

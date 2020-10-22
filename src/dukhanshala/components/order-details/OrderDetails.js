@@ -5,6 +5,7 @@ import backArror from '../../assets/images/icon_back.svg';
 import { AppContext } from 'Context/AppContext';
 import Axios from 'axios';
 import https from 'https';
+import * as MyorderServices from '../../../services/MyordersServices'
 class OrderDetails extends React.Component {
     static contextType = AppContext;
     constructor() {
@@ -12,34 +13,36 @@ class OrderDetails extends React.Component {
 
         this.state = {
             order: {},
-            redirect:false
+            redirect: false
         }
         this.backPage = this.backPage.bind(this)
     }
     componentDidMount() {
         this.getOrdersByContactNumber();
     }
-    getOrdersByContactNumber = () => {
-        let url = 'http://35.240.173.248:8000/web/order/detail/' + this.context.orderId;
-        const agent = new https.Agent({
-            rejectUnauthorized: false,
-        });
-        Axios.get(url, { httpsAgent: agent })
-            .then(response => {
-                if (response && response.data) {
-                    this.setState({ order: response.data });
-                }
-                else {
-                    //failure scenario
-                }
+    getOrdersByContactNumber = async() => {
+        if(this.context.orderId!==null){
+            localStorage.setItem('orderId',this.context.orderId)
+        }
+
+        let response = await MyorderServices.getOrderDetail(this.context.orderId === null? localStorage.getItem('orderId'):this.context.orderId)
+        try {
+            if (response && response.data) {
+                this.setState({ order: response.data });
             }
-            )
+        
+        }
+        catch (e) {
+            alert(e)
+        }
+
+
     };
     backPage() {
         this.setState({ redirect: true })
     }
     render() {
-   
+
 
         if (this.state.redirect)
             return (<Redirect to={{
@@ -82,7 +85,7 @@ class OrderDetails extends React.Component {
                                             <h6 className="mb-0 text-dark">{product.productName}</h6>
                                             <p className="mt-2"><span className="btn bg-track-qty text-prime-sm">{product.itemQuantity}</span> x ₹{product.itemCost}</p>
                                         </div>
-                                        <div className="col-2 mt-4 px-0"><p className="float-right mt-2">₹{product.itemQuantity*product.itemCost}</p></div>
+                                        <div className="col-2 mt-4 px-0"><p className="float-right mt-2">₹{product.itemQuantity * product.itemCost}</p></div>
                                     </div>
                                 </div>
                                 <hr />

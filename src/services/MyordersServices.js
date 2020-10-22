@@ -9,15 +9,28 @@ const agent = new https.Agent({
 
 
 
-export async function getStoreInfo(data) {
+export async function getOrderList(data) {
     try {
-        let res = await axios.get(BASE_URL.URL+'store/detail'+data, { httpsAgent: agent });
+        let res = await axios.get(BASE_URL.URL+'orders/'+data, { httpsAgent: agent });
 
         return res;
     } catch (e) {
         throw handler(e)
+      
     }
 }
+
+export async function getOrderDetail(data) {
+    try {
+        let res = await axios.get(BASE_URL.URL+'order/detail/'+data, { httpsAgent: agent });
+
+        return res;
+    } catch (e) {
+        throw handler(e)
+      
+    }
+}
+
 
 
 export function handler(err) {

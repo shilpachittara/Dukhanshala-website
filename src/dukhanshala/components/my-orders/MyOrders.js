@@ -1,9 +1,9 @@
 import React from 'react';
 import './MyOrders.css'
 import { AppContext } from 'Context/AppContext';
-import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import https from 'https';
+import * as MyorderServices from '../../../services/MyordersServices'
+
 class MyOrders extends React.Component {
     static contextType = AppContext;
     constructor() {
@@ -12,33 +12,32 @@ class MyOrders extends React.Component {
         this.state = {
             categories: null,
         }
-        this.orderDetail =  this.orderDetail.bind(this);
+        this.orderDetail = this.orderDetail.bind(this);
     }
     componentDidMount() {
         this.getOrdersByContactNumber();
-       
+
     }
-    getOrdersByContactNumber = () => {
-        let mobileNo= window.localStorage.getItem('userMobile')
-        let url = 'http://35.240.173.248:8000/web/orders/' + mobileNo;
-        const agent = new https.Agent({
-            rejectUnauthorized: false,
-        });
-        Axios.get(url, { httpsAgent: agent })
-            .then(response => {
-                if (response && response.data && response.data.orderDetails) {
-                    // this.props.setCategories(response.data.categories);
-                    this.setState({ categories: response.data.orderDetails });
-                }
-                else {
-                    //failure scenario
-                }
+    getOrdersByContactNumber = async() => {
+        let mobileNo = window.localStorage.getItem('userMobile')
+        let response = await MyorderServices.getOrderList(mobileNo)
+        try {
+            if (response && response.data && response.data.orderDetails) {
+                // this.props.setCategories(response.data.categories);
+                this.setState({ categories: response.data.orderDetails });
             }
-            )
+
+        }
+        catch (e) {
+            alert(e)
+        }
+
+
+
     };
     orderDetail(orderId) {
         this.context.updateOrderId(orderId);
-        this.setState({redirect: true})
+        this.setState({ redirect: true })
     }
 
     render() {
@@ -77,7 +76,7 @@ class MyOrders extends React.Component {
                             <p className="mt-3 small-text">
                                 <i className="fas fa-circle pr-1 text-yellow smallest-text"></i>
                                 <span className="pl-0 text-warning" style={{ textTransform: "capitalize" }}>{order.status}</span>
-                                <span className="btn btn-outline-info float-right" style={{ marginTop: "-7px" }} onClick={this.orderDetail.bind(this,order.orderId)}>
+                                <span className="btn btn-outline-info float-right" style={{ marginTop: "-7px" }} onClick={this.orderDetail.bind(this, order.orderId)}>
                                     Detail
                                 </span>
                             </p>

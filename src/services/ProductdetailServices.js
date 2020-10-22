@@ -34,6 +34,6 @@ export function handler(err) {
     if (err.response && err.response.data.hasOwnProperty("message"))
         error = err.response.data;
     else if (!err.hasOwnProperty("message")) error = err.toJSON();
-
-    return new Error(error.response);
+ console.log(error)
+    return error;
 }
