@@ -161,7 +161,7 @@ class Checkout extends React.Component {
                     <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} checked={true}/>
                     <label className="custom-control-label" htmlFor="cod" style={{ paddingLeft: '20px' }}>Cash/UPI on Delivery</label></div>
                     <div className="mb-5 fixed-bottom " style={{marginTop:'20px',paddingBottom:'15px',marginLeft:'10px',marginRight:'10px'}}>
-                    <button href="#ourVision" className="btn  btn-lg btn-block text-white" style={{backgroundColor:'rgb(59, 179, 166)'}} onClick={this.submit}>Place Order</button>
+                    <button href="#ourVision" className="btn  btn-lg btn-block text-white" style={{backgroundColor:'rgb(59, 179, 166)'}} onClick={this.submit}>Placeffff Order</button>
                 </div>
             
             </div>

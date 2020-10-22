@@ -7,15 +7,18 @@ import 'firebase/auth';
 import Axios from 'axios';
 import https from 'https';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
+import * as Auth from '../../../services/AuthService'
+import * as OrderService from '../../../services/BagpageServices'
+
 class VerifyOtp extends React.Component {
   static contextType = AppContext;
   constructor(props) {
     super(props);
 
     this.state = {
-      updateBag : {
-        "products":[]
-    },
+      updateBag: {
+        "products": []
+      },
       otp: null,
       confirmResult: [],
       mobile: null,
@@ -41,9 +44,9 @@ class VerifyOtp extends React.Component {
   componentDidMount() {
     this.setState({ confirmResult: this.context.confirmResult });
 
-    this.setState({ contact: window.localStorage.getItem('userMobile')});
-    this.setState({ mobile: this.context.mobile});
-    this.setState({ storeCode:this.context.storeCode });
+    this.setState({ contact: window.localStorage.getItem('userMobile') });
+    this.setState({ mobile: this.context.mobile });
+    this.setState({ storeCode: this.context.storeCode });
     this.setState({ deliveryCharge: this.context.deliveryCharge });
     this.setState({ grandTotal: this.context.grandTotal });
     this.setState({ totalItem: this.context.bagCount });
@@ -78,38 +81,39 @@ class VerifyOtp extends React.Component {
       this.loginDetail();
     }).catch(function (error) {
       alert(error.message)
-  
+
     });
     if (call) {
       this.loginDetail();
     }
   }
 
-  loginDetail() {
-    const agent = new https.Agent({
-      rejectUnauthorized: false,
-    });
-    Axios.post(`http://35.240.173.248:8000/web/login/${this.context.mobile}`, { httpsAgent: agent })
-      .then(res => {
-        localStorage.setItem('userMobile',this.context.mobile )
+  loginDetail = async () => {
+    let resp = await Auth.login(this.context.mobile)
+    try {
+      localStorage.setItem('userMobile', this.context.mobile)
 
-        //order  api called
-        let request = this.objectCreation.orderObject(this.state);
-      
-        const agent = new https.Agent({
-            rejectUnauthorized: false,
-            
-        });
-        Axios.post('http://35.240.173.248:8000/web/order', request, { httpsAgent: agent })
-            .then(res => {
-               
-                this.setState({ redirect: true });
-                this.context.updateBagCount(0);
-                this.context.updateBag(this.state.updateBag);
-            })
-      })
+      //order  api called
+      let request = this.objectCreation.orderObject(this.state);
 
- 
+
+      let response = await OrderService.orderProduct(request)
+      try {
+        this.setState({ redirect: true });
+        this.context.updateBagCount(0);
+        this.context.updateBag(this.state.updateBag);
+      }
+      catch (e) {
+        alert(e)
+      }
+
+
+    }
+    catch (e) {
+      alert(e)
+    }
+
+
   }
 
   resend() {
@@ -124,7 +128,7 @@ class VerifyOtp extends React.Component {
       })
       .catch(error => {
         alert(error.message)
-      
+
       });
 
   }
