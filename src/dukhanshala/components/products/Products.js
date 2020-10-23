@@ -1,49 +1,52 @@
 import React from 'react';
 import './Products.css'
 import ProductItems from '../product-items/ProductItems';
-import axios from "axios";
 import { AppContext } from 'Context/AppContext';
-import https from 'https';
+import * as HomepageServices from '../../../services/HomepageServices'
 
-class Products extends React.Component{
+class Products extends React.Component {
     static contextType = AppContext;
-    constructor(){
+    constructor() {
         super();
 
-        this.state ={
+        this.state = {
             products: null
         }
     }
     componentDidMount() {
         this.getProductList();
     }
-    getProductList = () => {
-      let url = `http://35.240.173.248:8000/web/category/products${this.context.storeCode}/${this.context.categoryId}`;
-        const agent = new https.Agent({
-            rejectUnauthorized: false,
-        });
-        axios.get(url, { httpsAgent: agent })
-          .then(response => {
-              if(response && response.data && response.data.products){
-                  this.setState({products: response.data.products});
-              }
-              else{
-                  //failure scenario
-              }
-              }
-          )
+    getProductList = async () => {
+
+        let requestPath = {}
+        requestPath.storeCode = this.context.storeCode
+        requestPath.id = this.context.categoryId
+
+        let response = await HomepageServices.getProducts(requestPath)
+        try {
+            if (response && response.data && response.data.products) {
+                this.setState({ products: response.data.products });
+            }
+            else {
+                //failure scenario
+            }
+        }
+        catch (e) {
+            alert(e)
+        }
+
     };
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="container productItems">
                 <div className="row">
-                { this.state.products &&
-                    this.state.products.map(({id, ...otherSectionProps}, index) =>(
-                        <ProductItems key={index} {...otherSectionProps} />
-                    ))
-                }
-                </div>    
+                    {this.state.products &&
+                        this.state.products.map(({ id, ...otherSectionProps }, index) => (
+                            <ProductItems key={index} {...otherSectionProps} />
+                        ))
+                    }
+                </div>
             </div>
         )
     }

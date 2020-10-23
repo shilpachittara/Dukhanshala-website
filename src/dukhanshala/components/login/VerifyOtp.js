@@ -43,7 +43,6 @@ class VerifyOtp extends React.Component {
   }
   componentDidMount() {
     this.setState({ confirmResult: this.context.confirmResult });
-
     this.setState({ contact: window.localStorage.getItem('userMobile') });
     this.setState({ mobile: this.context.mobile });
     this.setState({ storeCode: this.context.storeCode });
@@ -52,8 +51,6 @@ class VerifyOtp extends React.Component {
     this.setState({ totalItem: this.context.bagCount });
     this.setState({ total: this.context.total });
     this.setState({ bag: this.context.bag });
-
-
     this.setState({ name: this.context.name });
     this.setState({ address: this.context.address });
     this.setState({ city: this.context.city });
