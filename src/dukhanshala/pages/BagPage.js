@@ -160,9 +160,10 @@ class BagPage extends Component {
        
         try {
           let response = await BagpageServices.orderProduct(request)
+          var updatedBag = { products: [], address: {} }
           this.setState({ redirect: true });
           this.context.updateBagCount(0);
-          this.context.updateBag(this.state.updateBag);
+          this.context.updateBag(updatedBag);
         }
         catch (err) {
 

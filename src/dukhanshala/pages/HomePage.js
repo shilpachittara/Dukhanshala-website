@@ -19,7 +19,7 @@ class HomePage extends Component {
       active: false
 
     }
-    localStorage.removeItem("userMobile");
+    // localStorage.removeItem("userMobile");
   }
 
 
