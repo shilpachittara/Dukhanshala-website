@@ -57,6 +57,9 @@ class VerifyOtp extends React.Component {
     this.setState({ pincode: this.context.pincode });
     this.setState({ cod: this.context.cod });
     //this.login();
+    
+    //this is the reason why it is breaking after refresh ======
+
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('resend-recaptcha', {
       'size': 'invisible',
       'callback': function (response) {
@@ -64,6 +67,7 @@ class VerifyOtp extends React.Component {
         // this.resend();
       }
     });
+    // =============================
   }
 
   handleChange({ target }) {
