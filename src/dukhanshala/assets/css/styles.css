@@ -21,7 +21,7 @@ body{
 .pos-fixed{
     overflow: hidden;
   position: fixed;
-  z-index: 1020;
+  z-index: 9;
   }
 .heading{
     font-size: 20px;
@@ -42,6 +42,15 @@ body{
 
 .field {
     margin-bottom: 1em;
+}
+.option-search{
+    position: absolute;
+    background: white;
+    min-width: 300px;
+    box-shadow:2px 1px 3px -2px #000;
+}
+.option{
+    text-transform: capitalize;
 }
 .field .mobileInput {
     font-size: 1rem;
