@@ -226,7 +226,7 @@ class HomePage extends Component {
                   </div>
 
                   <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto" >
-                    <h6 onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)} className="mt-1 mt-sm-3 mb-0"  >{" " + productData.productName}</h6>
+                    <h6 onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)} className="mt-1 mt-sm-3 mb-0 prod-name-home"  >{" " + productData.productName}</h6>
 
                     <div className="mt-1">
                       <span>₹</span> <span style={{ fontWeight: "bold" }}>{" " + productData.sellingPrice}</span>
@@ -234,7 +234,8 @@ class HomePage extends Component {
                       {productData.isAdded ?
                         <div className="float-right ">
                           <IncrementButton />
-                        </div> : <div className="btn float-right py-1" style={{ marginRight: '10px', backgroundColor: ' #3BB3A6', color: 'white', zIndex: 9999 }}
+                        </div> : 
+                        <div className="btn float-right py-1 add-button" style={{ marginRight: '10px', backgroundColor: ' #3BB3A6', color: 'white', zIndex: 9999 }}
                           onClick={() => { this.clickAdd(productData.productId, productData.isAdded) }}
                         > ADD</div>
                       }
