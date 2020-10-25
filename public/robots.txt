@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 Sitemap: https://www.dukaanshala.com/sitemap.xml
 User-agent: *
-Disallow:
+Disallow: /*.css
