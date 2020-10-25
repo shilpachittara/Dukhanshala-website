@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
-Sitemap: http://covidsupply.in/sitemap.xml
+Sitemap: https://www.dukaanshala.com/sitemap.xml
 User-agent: *
 Disallow:
