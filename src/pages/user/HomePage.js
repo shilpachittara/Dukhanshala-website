@@ -15,7 +15,7 @@ import Mst2 from "../../assets/image/MST2.jpg"
 import Mst3 from "../../assets/image/MST3.jpg"
 import CaseStudy1 from "../../assets/image/caseStudy1.jpeg"
 import WebGif from "../../assets/image/web_gif.gif"
-
+import PlayStore from "../../assets/image/google-play-badge.png";
 
 
 
@@ -101,7 +101,7 @@ class HomePage extends Component {
              <h1><strong>Digital India ka Digital <span style={{color:"#FF4500"}}>Store Bahi Khata</span> App</strong></h1>
                 <p className="mt-4">Manage Purchases and Supplier’s Credit. Manage Stock Inventory and share it with your customer. Available in English and हिन्दी</p>
               <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp">
-              <button className="p-2 mt-5" style={{backgroundColor:"#FF4500", color:"white", borderRadius:"5px", border:"none"}}>Get Dukaanshala</button>
+              <img src={PlayStore} className="p-2 mt-5" />
               </a>
               </div>
               <div className="col-md-6 col-12 pl-5 pt-3">

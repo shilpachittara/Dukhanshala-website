@@ -9,6 +9,7 @@ import Axios from 'axios';
 import https from 'https';
 import Validator from 'dukhanshala/util/Validator';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
+import { Helmet } from 'react-helmet';
 
 
 class BagPage extends Component {
@@ -190,6 +191,37 @@ class BagPage extends Component {
           }} />)
    
       return(
+        <>
+        <Helmet
+          title="Place online order - Dukaanshala"
+          meta={[
+            { "name": "description", "content": "Place online orders and see the live menu for Home Delivery. Same day delivery | No minimum order" },
+            { "name": "keywords", "content": "Online Store Dukaan" },
+            /* link={[{ href: `${pageUrl}`, rel: "canonical" }]}
+            { "name": "twitter:card", "content": "summary_large_image" },
+            { "name": "twitter:site", "content": "@supplycovid" },
+            { "name": "twitter:creator", "content": "@supplycovid" },
+            { "name": "twitter_title", "content": "Take your store online with Dukaanshala, India ka apna Online store, Bahi Khata, Ledger Account Book & Digital Store App | Dukaanshala" },
+            { "name": "twitter_description", "content": "Take your store online with Dukaanshala, India ka apna Online store, Bahi Khata, Ledger Account Book & Digital Store App | Dukaanshala" },
+            */{ property: "og:type", content: "product" },
+            { property: "og:title", content: "Place online order - Dukaanshala" },
+            { property: "og:description", content: "Take your store online with Dukaanshala, India ka apna Online store, Bahi Khata, Ledger Account Book & Digital Store App | Dukaanshala" },
+            { property: "og:url", content: "https://www.dukaanshala.com" },
+            { property: "og:image", content: "https://www.dukaanshala.com/logo2.png" }
+          ]}
+          script={[
+            {
+              type: "application/ld+json", innerHTML:
+                `{ "@context": "http://schema.org",
+                                   "@type": "Product",
+                                   "name": "Order Online from Dukaanshala",
+                                   "url": "https://www.dukaanshala.com",
+                                   "logo": "https://www.dukaanshala.com/logo2.png",
+                                   "description": "Buy original & quality checked personal protective equipment (PPE kits), N95 masks, Nitrile gloves, Face shields and other essential supplies",
+                                }`
+            }
+          ]} />
+
         <div className="container">
           <Header/>
           <h1 className="heading"><img onClick={()=>this.address()} src={backArror} style={{marginRight:"15px"}} alt="bag"/> Bag {this.context.bagCount}{" items"} </h1>
@@ -293,6 +325,7 @@ class BagPage extends Component {
           </div>
           <Footer/>
         </div>
+        </>
       )
     }
   }

@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
+Sitemap: http://covidsupply.in/sitemap.xml
 User-agent: *
 Disallow:
