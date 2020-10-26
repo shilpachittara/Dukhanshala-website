@@ -122,7 +122,7 @@ class HomePage extends Component {
 
   render() {
 
-    let pagetitle = "Place online orders and see the live menu for Home Delivery. Same day delivery | No minimum order"
+    let pagetitle = "online order - Dukaanshala"
     let pageUrl = "https://www.dukaanshala.com/" + this.state.path
     return (
       <>
