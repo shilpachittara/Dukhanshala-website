@@ -236,7 +236,7 @@ class HomePage extends Component {
                         <div className="float-right ">
                           <IncrementButton />
                         </div> : 
-                        <div className="btn float-right py-1 add-button" style={{ marginRight: '10px', backgroundColor: ' #3BB3A6', color: 'white', zIndex: 9999 }}
+                        <div className="btn float-right py-1 add-button pos-rel" style={{ marginRight: '10px', backgroundColor: ' #3BB3A6', color: 'white',fontWeight:'bold' }}
                           onClick={() => { this.clickAdd(productData.productId, productData.isAdded) }}
                         > ADD</div>
                       }

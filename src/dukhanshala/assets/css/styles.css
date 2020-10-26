@@ -173,8 +173,8 @@ div.scrollmenu {
     text-transform: capitalize !important;
 }
 .add-button{
-    -webkit-box-shadow: 0px 2px 3px 1px #82f3e76b; 
-    box-shadow: 0px 2px 3px 1px #82f3e76b;
+    -webkit-box-shadow: 0px 2px 3px 1px #0111106b; 
+    box-shadow: 0px 2px 3px 1px #0108086b;
     border-radius: 2px;
 
 }
@@ -183,6 +183,8 @@ div.scrollmenu {
     padding-left: 10px !important;
     padding-right: 10px !important;
 }
+.pos-rel{    bottom: 15px;
+    position: relative;}
 /* .product-header{
     -webkit-box-shadow: -1px 5px 8px -5px rgba(0,0,0,0.51);
 -moz-box-shadow: -1px 5px 8px -5px rgba(0,0,0,0.51);

@@ -187,7 +187,7 @@ class ProductDetail extends React.Component {
                             </div>
                             <div className="col">
                                 <Link to={this.context.storeCode + "/bag"}>
-                                    <button className="btn btn-primary w-100 my-3 btn-lg" style={{ backgroundColor: ' #3BB3A6', borderColor: ' #3BB3A6' }}>Go to Bag</button>
+                                    <button className="btn btn-primary w-100 my-3 btn-lg add-button" style={{ backgroundColor: ' #3BB3A6', borderColor: ' #3BB3A6',fontWeight:'bold' }}>Go to Bag</button>
                                 </Link>  </div>
                         </div>
                     </div>
