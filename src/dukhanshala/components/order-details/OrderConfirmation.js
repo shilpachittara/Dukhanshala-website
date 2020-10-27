@@ -17,7 +17,7 @@ class OrderDetails extends React.Component{
 
     render(){
         return(
-    <div className="text-center">
+    <div className="text-center" style={{marginTop:'50px'}}>
             <img src={successImg} style={{marginRight:"15px",width:"80px", height:"80px"}} alt="" />
             <h1 className="heading">Your Order is Confirmed!</h1>
             <p className="small-text text-secondary">You will receive a confirmation message as soon as the order is accepted.</p>

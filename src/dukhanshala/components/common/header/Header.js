@@ -151,7 +151,7 @@ class Header extends React.Component {
             }} />)
 
         return (
-            <div className="sticky-top headerPanel">
+            <div className="sticky-top headerPanel" >
            
                 <div className="container-fluid">
                     <div className="row align-items-center" style={{ minHeight: "90px" }}>
