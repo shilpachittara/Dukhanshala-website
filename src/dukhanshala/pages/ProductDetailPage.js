@@ -62,6 +62,9 @@ class ProductDetailPage extends Component {
 
   componentDidMount() {
     this.getStoreCode()
+    if(this.context.categoryName !=null){
+    localStorage.setItem("categoryName",this.context.categoryName)}
+
   }
 
   getCategoryName = async () => {
@@ -97,7 +100,7 @@ class ProductDetailPage extends Component {
       <div className="container">
         <Header />
         <div className="" >
-          <h1 className="heading" ><img src={backArror} style={{ marginRight: "15px" }} alt="product" onClick={this.backPage} />{this.context.categoryName}</h1>
+          <h1 className="heading" ><img src={backArror} style={{ marginRight: "15px" }} alt="product" onClick={this.backPage} />{this.context.categoryName ===null?localStorage.getItem('categoryName'):this.context.categoryName}</h1>
 
         </div><ProductDetail />
         <Footer />

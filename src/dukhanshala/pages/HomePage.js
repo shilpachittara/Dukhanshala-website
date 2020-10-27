@@ -5,7 +5,7 @@ import Header from 'dukhanshala/components/common/header/Header';
 import IncrementButton from '../components/IncrementButton'
 import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
 import * as HomepageServices from '../../services/HomepageServices'
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
 
 
 class HomePage extends Component {
@@ -215,8 +215,8 @@ class HomePage extends Component {
           <div className="container productItems" style={{ marginTop: '65px' }}>
 
             {this.state.products === [] ? <div>...loading</div> : this.state.products.map((productData, index) => (
-              <Paper elivation={3}>
-                <div className="row" style={{ marginTop: '10px',height:'100px' }}
+             <Card style={{ marginTop: '10px',height:'100px' }}>
+                <div className="row"
 
                 >
                   <div className="col-4 col-sm-12"  >
@@ -243,7 +243,7 @@ class HomePage extends Component {
                     </div>
                   </div>
                 </div>
-                </Paper>
+                </Card>
               
 
             ))}
