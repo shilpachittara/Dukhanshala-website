@@ -215,7 +215,7 @@ class HomePage extends Component {
           <div className="container productItems" style={{ marginTop: '65px' }}>
 
             {this.state.products === [] ? <div>...loading</div> : this.state.products.map((productData, index) => (
-             <Card style={{ marginTop: '10px',height:'100px' }}>
+             <Card style={{ marginTop: '10px',height:'100px' }} key={index}>
                 <div className="row"
 
                 >
