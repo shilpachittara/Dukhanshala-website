@@ -5,7 +5,7 @@ import Header from 'dukhanshala/components/common/header/Header';
 import IncrementButton from '../components/IncrementButton'
 import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
 import * as HomepageServices from '../../services/HomepageServices'
-import Card from '@material-ui/core/Card';
+import { Card, Grid, Typography, Paper } from '@material-ui/core';
 
 
 class HomePage extends Component {
@@ -29,7 +29,7 @@ class HomePage extends Component {
     try {
       if (response && response.status === 200 && response.data && response.data.categories && response.data.categories.length >= 1) {
         this.context.updateCategories(response.data.categories);
-  
+
 
         let tempArr = []
         for (let i = 0; i < response.data.categories.length; i++) {
@@ -193,10 +193,7 @@ class HomePage extends Component {
 
         <Header />
         <section className="container" >
-          {/* <div >
-          <h2 className="heading">Categories
-           <Link to={`${this.context.storeCode}/categories`} className="viewAll">View All</Link></h2>
-           </div> */}
+
           <div className="scrolling-wrapper row pos-fixed">
             <div className="scrollmenu col-sm-12 col-md-12" >
               {this.state.categories && this.state.categories.map((categoryData, index) => (
@@ -206,59 +203,103 @@ class HomePage extends Component {
 
 
             </div>
-            {/* <CategoriesHome /> */}
+       
           </div>
         </section>
-        {/* <ProductList categories={this.context.categories} /> */}
+
 
         <div className="prod-box">
-          <div className="container productItems" style={{ marginTop: '65px' }}>
+          <div className="container productItems" style={{ marginTop: '65px',maxWidth:'550px' }}>
 
             {this.state.products === [] ? <div>...loading</div> : this.state.products.map((productData, index) => (
-             <Card style={{ marginTop: '10px',height:'100px' }} key={index}>
-                <div className="row"
-
+              <Card style={{ marginTop: '10px', height: '100px' }} key={index}>
+        
+                <Grid
+                  container
+                  spacing={1}
+                  style={{ paddingLeft: '10px', }}
                 >
-                  <div className="col-4 col-sm-12"  >
-                    <div onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)} style={{ marginLeft: "10px" }} className="thumbnail-container thumbnail-padding">
-                      <img src={productData.productImage} alt={productData.productName} className="thumbnail rounded-xl img-fluid custome-img" />
-                      <span className="discount-badge">{productData.offer}% off</span>
-                    </div>
-                  </div>
+                  <Grid
+                    item
+                    md={3}
+                    xs={3}
+                    onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)}
+                  >
+                    <img src={productData.productImage} alt={productData.productName} className="img-fluid custome-img" />
+                  </Grid>
 
-                  <div className="col-8 col-sm-12 px-0 px-md-3 pr-3 align-bottom my-auto" >
-                    <h6 onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)} className="mt-1 mt-sm-3 mb-0 prod-name-home"  >{" " + productData.productName}</h6>
+                  <Grid
+                    item
+                    md={4}
+                    xs={4}
+                    onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)}
+                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center',marginTop:'8px'  }}
+                  >
+                    <Typography
+                      variant="h6"
+                      color="textPrimary"
+                      className=" prod-name-home"
+                      style={{ fontSize: '16px' }}
 
-                    <div className="mt-1">
-                      <span>₹</span> <span style={{ fontWeight: "bold" }}>{" " + productData.sellingPrice}</span>
-                      <small className="small-text mr-2 pl-1" ><span style={productData.sellingPrice !== null ? { textDecoration: 'line-through' } : { display: 'none' }}>{" " + productData.mrp !== null ? productData.mrp : ""}</span></small>
-                      {productData.isAdded ?
-                        <div className="float-right ">
-                          <IncrementButton />
-                        </div> : 
-                        <div className="btn float-right py-1 add-button pos-rel" style={{ marginRight: '10px', backgroundColor: ' #3BB3A6', color: 'white',fontWeight:'bold' }}
-                          onClick={() => { this.clickAdd(productData.productId, productData.isAdded) }}
-                        > ADD</div>
-                      }
+
+                    >
+                      {" " + productData.productName}
+
+                    </Typography>
+                    <div style={{ display: 'flex', flexDirection: 'row'}}>
+                      <Typography
+                        variant="subtitle1"
+                        color="textPrimary"
+                        style={{ fontSize: '15px' }}
+
+
+                      >
+                        {"₹" + " " + productData.sellingPrice}
+
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        color="textPrimary"
+
+                        style={productData.sellingPrice !== null ? { textDecoration: 'line-through', fontSize: '13px', margin: '3px', marginLeft: '5px' } : { display: 'none' }}>
+                        {" " + productData.mrp !== null ? productData.mrp : ""}
+
+                      </Typography>
                     </div>
-                  </div>
-                </div>
-                </Card>
-              
+
+                  </Grid>
+                  <Grid
+                    item
+                    md={4}
+                    xs={4}
+                    style={{ display: 'flex', flexDirection: 'row',justifyContent:'flex-end', padding: '0px',margin:'auto' }}
+                  >
+
+                    {productData.isAdded ?
+                      <div >
+                        <IncrementButton />
+                      </div> :
+                    
+                        <button className="add-button btn" onClick={() => { this.clickAdd(productData.productId, productData.isAdded) }} style={{ backgroundColor: ' #3BB3A6', color: 'white', fontWeight: 'bold', height: '36px', width: '80px', paddingBottom: '10px', }}>
+                          Add
+     </button>
+                     
+
+                    }
+
+                  </Grid>
+
+
+                </Grid>
+              </Card>
+
 
             ))}
           </div>
         </div>
 
 
-        {/*<section className="container">
-          <h2 className="heading">New Arrival <Link to="/newarrival" className="viewAll">View All</Link></h2>          
-            <Products/>
-        </section>
-        <section className="container">
-          <h2 className="heading">Grocery <Link to="/grocery" className="viewAll">View All</Link></h2>          
-            <Products/>
-    </section>  */}
+    
         <section>
           <CompanyInfo />
         </section>
