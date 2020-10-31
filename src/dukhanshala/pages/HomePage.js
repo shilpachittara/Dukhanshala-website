@@ -192,7 +192,7 @@ class HomePage extends Component {
       <div>
 
         <Header />
-        <section className="container" >
+        <section className="container-fluid" >
 
           <div className="scrolling-wrapper row pos-fixed">
             <div className="scrollmenu col-sm-12 col-md-12" >

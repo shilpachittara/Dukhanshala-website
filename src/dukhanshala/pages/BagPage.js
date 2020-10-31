@@ -190,137 +190,140 @@ class BagPage extends Component {
       }} />)
 
     return (
-      <div className="container">
-        <Header />
-        <h1 className="heading"><img onClick={() => this.address()} src={backArror} style={{ marginRight: "15px" }} alt="bag" /> Bag {this.context.bagCount}{" items"} </h1>
+      <div className="container-fluid">
+      <Header />
+      <h1 className="heading"><img onClick={() => this.address()} src={backArror} style={{ marginRight: "15px" }} alt="bag" /> Bag {this.context.bagCount}{" items"} </h1>
 
-        <div className="row pr-0 mr-0 my-0">
+      <div className="row pr-0 mr-0 my-0">
 
-          <div className="col-12 col-sm-8 px-0">
-            {this.state.bag.products.map((product, index) => (
-              <div className="container pr-0" key={index}>
-                <div className="row">
-                  <div className="col-3 col-sm-2">
-                    <div className="thumbnail-container thumbnail-padding">
-                      <img src={product.productImage} alt="product" className="thumbnail rounded-xl" />
-                    </div>
+        <div className="col-12 col-sm-7 px-0"  >
+          {this.state.bag.products.map((product, index) => (
+            <div className="container pr-0" key={index}>
+              <div className="row">
+                <div className="col-3 col-sm-2">
+                  <div className="thumbnail-container thumbnail-padding">
+                    <img src={product.productImage} alt="product" className="thumbnail rounded-xl" />
                   </div>
-                  <div className="col-9 col-sm-10 px-0 pr-3 pt-1">
-                    <h6 className="mb-0">{product.productName}</h6>
-                    <div className="mb-0"></div>
-                    {/*<small>1 piece</small>*/}
-                    <div className="mt-1 mb-0">
-                      <div>
-                        ₹ {product.sellingPrice}
-                        <p className="btn-group float-right mb-0">
-                          <span className="btn btn-outline-info" onClick={this.subProduct.bind(this, product.productId)}><svg xmlns="http://www.w3.org/2000/svg" width="12" height="2" viewBox="0 0 12 2"><line x2="10" y1="1" y2="1" fill="none" stroke="#146EB4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.7" transform="translate(1)"></line></svg></span>
-                          <span className="btn btn-outline-secondary">{product.count}</span>
-                          <span className="btn btn-outline-info" onClick={this.addProduct.bind(this, product.productId)}><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><g fill="#146EB4"><path d="M6 0c.385 0 .702.29.745.663L6.75.75v10.5c0 .414-.336.75-.75.75-.385 0-.702-.29-.745-.663l-.005-.087V.75C5.25.336 5.586 0 6 0z"></path><path d="M11.25 5.25c.414 0 .75.336.75.75 0 .385-.29.702-.663.745l-.087.005H.75C.336 6.75 0 6.414 0 6c0-.385.29-.702.663-.745L.75 5.25h10.5z"></path></g></svg></span>
-                        </p>
-                      </div>
+                </div>
+                <div className="col-9 col-sm-10 px-0 pr-3 pt-1">
+                  <h6 className="mb-0">{product.productName}</h6>
+                  <div className="mb-0"></div>
+                  {/*<small>1 piece</small>*/}
+                  <div className="mt-1 mb-0">
+                    <div>
+                      ₹ {product.sellingPrice}
+                      <p className="btn-group float-right mb-0">
+                        <span className="btn btn-outline-info" onClick={this.subProduct.bind(this, product.productId)}><svg xmlns="http://www.w3.org/2000/svg" width="12" height="2" viewBox="0 0 12 2"><line x2="10" y1="1" y2="1" fill="none" stroke="#146EB4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.7" transform="translate(1)"></line></svg></span>
+                        <span className="btn btn-outline-secondary">{product.count}</span>
+                        <span className="btn btn-outline-info" onClick={this.addProduct.bind(this, product.productId)}><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><g fill="#146EB4"><path d="M6 0c.385 0 .702.29.745.663L6.75.75v10.5c0 .414-.336.75-.75.75-.385 0-.702-.29-.745-.663l-.005-.087V.75C5.25.336 5.586 0 6 0z"></path><path d="M11.25 5.25c.414 0 .75.336.75.75 0 .385-.29.702-.663.745l-.087.005H.75C.336 6.75 0 6.414 0 6c0-.385.29-.702.663-.745L.75 5.25h10.5z"></path></g></svg></span>
+                      </p>
                     </div>
                   </div>
                 </div>
-                <hr className="mx-0 mt-3" />
               </div>
-            ))}
-          </div>
-
-
-          <div className="col-12 col-sm-4 pr-0 pt-2">
-            <section>
-              <div className="d-md-block d-lg-block">
-                <div className="p-3 bg-light">
-                  <p className="mb-0">Item Total: <span className="float-right">₹{this.state.totalOrder}</span></p>
-                  <div className="mb-3">Delivery:<span className="float-right text-success">{this.state.delivery}</span></div>
-                  <p><b>Grand Total: <span className="float-right">₹{this.state.grandTotal}</span></b></p>
-                </div>
-              </div>
-              <div className="row col-sm-12">
-                <div className="col-sm-12" style={{ textAlign: "center", marginTop: '20px', marginBottom: '10px', fontWeight: 'bold' }}>
-                  Delivery Address
-                  </div>
-              </div>
-              <div>
-                <div>
-
-
-                  <div id="ourVision" className="row">
-                    <div className="col-12 col-lg-8 mt-3">
-                      <div className="form-group">
-
-                        <TextField
-                          label="Name"
-                          name="name"
-                          id="outlined-size-small"
-                          variant="outlined"
-                          fullWidth
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-lg-8">
-                      <div className="form-group">
-
-                        <TextField
-                          label="Address"
-                          name="address"
-                          id="outlined-size-small"
-                          variant="outlined"
-                          fullWidth
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-4"></div>
-                    <div className="col-6 col-lg-4">
-                      <div className="form-group">
-
-                        <TextField
-                          label="City"
-                          name="city"
-                          id="outlined-size-small"
-                          variant="outlined"
-                          fullWidth
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-6 col-lg-4">
-                      <div className="form-group">
-
-                          <TextField
-                          label="Pincode"
-                          type="number" 
-                           name="pincode"
-                          id="outlined-size-small"
-                          variant="outlined"
-                          fullWidth
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <p className="small-text mt-1  mb-0">PAYMENT METHOD</p>
-                  <div className="custom-control custom-radio custom-control-inline mt-3 mb-3" style={{ paddingBottom: '110px' }}>
-                    <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} checked={true} />
-                    <label className="custom-control-label" htmlFor="cod" style={{ paddingLeft: '20px' }}>Cash/UPI on Delivery</label></div>
-                  <div className="mb-5 fixed-bottom " style={{ marginTop: '20px', paddingBottom: '15px', marginLeft: '10px', marginRight: '10px' }}>
-                    <button href="#ourVision" className="btn  btn-lg btn-block text-white add-button" style={{ backgroundColor: 'rgb(59, 179, 166)', fontWeight: 'bold' }} onClick={this.submit}>Place Order</button>
-                  </div>
-
-                </div>
-              </div>
-              {/* <div className="text-center mt-5 pb-5 mb-5">
-                  <div className="m-0">
-                    <div className="btn btn-primary btn-lg btn-block text-white" onClick={this.address}>Checkout</div>
-                  </div>
-                </div> */}
-            </section>
-          </div>
+              <hr className="mx-0 mt-3" />
+            </div>
+          ))}
         </div>
-        <Footer />
+
+        <div className=" col-sm-1"  >
+          </div>
+        <div className="col-12 col-sm-4 pr-0 pt-2">
+          <section>
+            <div className="d-md-block d-lg-block">
+              <div className="p-3 bg-light">
+                <p className="mb-0">Item Total: <span className="float-right">₹{this.state.totalOrder}</span></p>
+                <div className="mb-3">Delivery:<span className="float-right text-success">{this.state.delivery}</span></div>
+                <p><b>Grand Total: <span className="float-right">₹{this.state.grandTotal}</span></b></p>
+              </div>
+            </div>
+            <div className="row col-sm-12" id="#ourVision">
+              <div className="col-sm-12" style={{ textAlign: "center", marginTop: '20px', marginBottom: '10px', fontWeight: 'bold' }}>
+                Delivery Address
+                </div>
+            </div>
+            <div>
+              <div>
+
+
+                <div id="ourVision" className="row">
+                  <div className="col-12 col-lg-12 mt-3">
+                    <div className="form-group">
+
+                      <TextField
+                        label="Name"
+                        name="name"
+                        id="outlined-size-small"
+                        variant="outlined"
+                        fullWidth
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-12 col-lg-12">
+                    <div className="form-group">
+
+                      <TextField
+                        label="Address"
+                        name="address"
+                        id="outlined-size-small"
+                        variant="outlined"
+                        fullWidth
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                 
+                  <div className="col-6 col-lg-6">
+                    <div className="form-group">
+
+                      <TextField
+                        label="City"
+                        name="city"
+                        id="outlined-size-small"
+                        variant="outlined"
+                        fullWidth
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-6 col-lg-6">
+                    <div className="form-group">
+
+                      <TextField
+                        label="Pincode"
+                        type="number"
+                        name="pincode"
+                        id="outlined-size-small"
+                        variant="outlined"
+                        fullWidth
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+        
+                <p className="small-text mt-1  mb-0">PAYMENT METHOD</p>
+                <div className="custom-control custom-radio custom-control-inline mt-3 mb-3 m-q-padd" style={{ paddingBottom: '10px' }}>
+                  <input type="radio" id="cod" name="cod" className="custom-control-input" onChange={this.handleChange} checked={true} />
+                  <label className="custom-control-label" htmlFor="cod" style={{ paddingLeft: '20px' }}>Cash/UPI on Delivery</label></div>
+                <div className="mb-5 fixed-bottom m-q-button" style={{ marginTop: '20px', paddingBottom: '15px', marginLeft: '10px', marginRight: '10px' }}>
+                  <button href="#ourVision" className="btn  btn-lg btn-block text-white add-button" style={{ backgroundColor: 'rgb(59, 179, 166)', fontWeight: 'bold',maxWidth:'550px' }} onClick={this.submit}>Place Order</button>
+                </div>
+              
+
+              </div>
+            </div>
+            {/* <div className="text-center mt-5 pb-5 mb-5">
+                <div className="m-0">
+                  <div className="btn btn-primary btn-lg btn-block text-white" onClick={this.address}>Checkout</div>
+                </div>
+              </div> */}
+          </section>
+        </div>
       </div>
+      <Footer />
+    </div>
     )
   }
 }

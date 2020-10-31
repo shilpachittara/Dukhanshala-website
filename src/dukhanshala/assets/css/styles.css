@@ -146,6 +146,20 @@ div.scrollmenu {
     .CategoriesPage .item-wrap .category-image, .CategoriesPage .item-wrap .gray-overlay {
         height: 160px;
     }  
+    .m-q-padd{
+        padding-bottom: 110px !important;
+    }
+}
+@media(min-width: 767px){
+   .fixed-bottom{
+       position: sticky !important;
+   
+   }
+   .m-q-button{
+    padding-bottom: 70px !important;
+    margin-left: 0px!important;
+    margin-right: 0px !important;
+   }
 }
 
 @media(min-width: 380px){
