@@ -90,7 +90,7 @@ class Checkout extends React.Component {
           
          
                 let request = this.objectCreation.orderObject(this.state);
-                // console.log('request bag',request)
+        
                 const agent = new https.Agent({
                     rejectUnauthorized: false,
                     

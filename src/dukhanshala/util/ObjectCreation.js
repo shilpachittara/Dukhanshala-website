@@ -14,7 +14,7 @@ class ObjectCreation {
             address: null,
             city: null,
             paymentMode: null,
-            deliveryMode: null,
+            deliveryMode: "COD",
             storeCode: null
         }
         if (input.totalItem) {

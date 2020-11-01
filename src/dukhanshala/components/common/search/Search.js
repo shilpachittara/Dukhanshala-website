@@ -60,7 +60,7 @@ export default class Search extends PureComponent {
 
 
                     this.setState({ options: response.data.products })
-                    console.log(response.data.products)
+                
                 }
             }
             catch (e) { alert(e) }
@@ -71,11 +71,11 @@ export default class Search extends PureComponent {
     }
 
     productDetail = (catName, catId, prodId) => {
-        console.log(catName, catId, prodId, "ccc")
+
         this.context.updateCategoryName(catName);
         this.context.updateCategoryId(catId);
         this.context.updateProductId(prodId);
-        console.log("xx", this.state.storeId, prodId)
+    
         this.props.history.push(`${this.context.storeCode + "/product/detail/" + prodId}`);
     }
 

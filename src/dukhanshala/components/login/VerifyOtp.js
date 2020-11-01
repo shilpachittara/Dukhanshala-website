@@ -95,14 +95,16 @@ class VerifyOtp extends React.Component {
       localStorage.setItem('userMobile', this.context.mobile)
 
       //order  api called
-      let request = this.objectCreation.orderObject(this.state);
+      let request = JSON.parse(localStorage.getItem('requestOrder'))
 
+      request.customerMobile=localStorage.getItem('userMobile')
 
       let response = await OrderService.orderProduct(request)
       try {
         this.setState({ redirect: true });
         this.context.updateBagCount(0);
         this.context.updateBag(this.state.updateBag);
+        localStorage.removeItem("requestOrder");
       }
       catch (e) {
         alert(e)
