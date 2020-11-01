@@ -64,6 +64,7 @@ class BagPage extends Component {
     }
     if(parseInt(localStorage.getItem("bagCountBagPage"))!==null){
       bagCount=parseInt(localStorage.getItem("bagCountBagPage"))
+      this.context.updateBagCount(bagCount)
     }
   
 
@@ -275,7 +276,7 @@ class BagPage extends Component {
     return (
       <div className="container-fluid">
         <Header />
-    <h1 className="heading"><img onClick={() => this.address()} src={backArror} style={{ marginRight: "15px" }} alt="bag" /> Bag {this.context.bagCount !=0 && this.context.bagCount }{" items"} </h1>
+    <h1 className="heading"><img onClick={() => this.address()} src={backArror} style={{ marginRight: "15px" }} alt="bag" /> Bag {this.context.bagCount >=0?this.context.bagCount:0 }{" items"} </h1>
 
         <div className="row pr-0 mr-0 my-0">
 
