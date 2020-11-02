@@ -151,7 +151,7 @@ class HomePage extends Component {
                                    "name": "Order Online from Dukaanshala",
                                    "url": "https://www.dukaanshala.com",
                                    "logo": "https://www.dukaanshala.com/logo2.png",
-                                   "description": "Buy original & quality checked personal protective equipment (PPE kits), N95 masks, Nitrile gloves, Face shields and other essential supplies",
+                                   "description": "Place online orders and see the live menu for Home Delivery. Same day delivery | No minimum order"
                                 }`
             }
           ]} />
