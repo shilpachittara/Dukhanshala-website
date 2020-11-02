@@ -209,7 +209,7 @@ class BagPage extends Component {
             { property: "og:url", content: "https://www.dukaanshala.com" },
             { property: "og:image", content: "https://www.dukaanshala.com/logo2.png" }
           ]}
-          script={[
+          /*script={[
             {
               type: "application/ld+json", innerHTML:
                 `{ "@context": "http://schema.org",
@@ -220,7 +220,7 @@ class BagPage extends Component {
                                    "description": "Place online orders and see the live menu for Home Delivery. Same day delivery | No minimum order"
                                 }`
             }
-          ]} />
+          ]}*/ />
 
         <div className="container">
           <Header/>
