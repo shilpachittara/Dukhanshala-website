@@ -4,7 +4,7 @@ import '../../assets/css/Footer.css'
 import InstaIcon from "../../assets/image/instagram-sketched.png"
 import FbIcon from "../../assets/image/facebook.png"
 import {Link} from 'react-router-dom'
-import HalfLogo from '../../assets/image/white_logo.svg'
+import HalfLogo from '../../assets/image/white_logo.png'
 
 
 class Navbar extends Component {
@@ -29,7 +29,7 @@ class Navbar extends Component {
                     <div style={{flexDirection:'column',color:"white",}}>
                         <div className="row mt-4 pl-4" style={{ width:"90%", margin:"0 auto", fontFamily:"Poppins"}}>
                             <div className="col-md-5 col-12" style={{}}>
-                                <img src={HalfLogo} alt="logo" style={{height:'40px',width:'200px'}}/>
+                                <img src={HalfLogo} alt="logo" style={{height:'30px',width:'150px'}}/>
                                 <p style={{fontSize:"15px",color:"white", fontFamily:"Poppins-Light"}}>
                                     Bharat ka apna Store Bahi Khata App for Businesses and Mom & Pop Stores. Available in English and हिन्दी</p> 
                             </div>

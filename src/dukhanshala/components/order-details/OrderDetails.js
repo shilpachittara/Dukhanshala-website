@@ -3,8 +3,6 @@ import './OrderDetails.css'
 import { Link, Redirect } from 'react-router-dom';
 import backArror from '../../assets/images/icon_back.svg';
 import { AppContext } from 'Context/AppContext';
-import Axios from 'axios';
-import https from 'https';
 import * as MyorderServices from '../../../services/MyordersServices'
 class OrderDetails extends React.Component {
     static contextType = AppContext;

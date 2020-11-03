@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppContext } from 'Context/AppContext';
 import * as HeaderServices from '../../../services/HeaderServices'
+import PlayStore from "../../../assets/image/google-play-badge.png";
 
 class CompanyInfo extends React.Component {
     static contextType = AppContext;
@@ -29,7 +30,7 @@ class CompanyInfo extends React.Component {
 
             if (index !== -1) {
                 let urlLength;
-                if (lastIndexOf == -1) {
+                if (lastIndexOf === -1) {
                     let token = url;
                     this.context.updateAppContext(token)
 
@@ -85,6 +86,9 @@ class CompanyInfo extends React.Component {
 
                             <p className="mb-0 mt-1 mb-2">{this.state.storeAddress} </p>
                             <p className="mb-0 mt-1 mb-2">{this.state.storeAddressName}</p>
+                            <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp">
+                                <img src={PlayStore} className="p-2 mt-5" alt="play store"/>
+                            </a>
                         </div>
                     </div>
                 </div>

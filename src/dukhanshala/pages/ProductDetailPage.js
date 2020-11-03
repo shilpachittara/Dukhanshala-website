@@ -20,13 +20,9 @@ class ProductDetailPage extends Component {
   }
 
   getStoreCode = () => {
-    var path;
-
 
     if (this.context.storeCode != null) {
-      path = this.context.storeCode;
-
-
+      //path = this.context.storeCode;
     }
     else {
       let url = window.location.pathname;

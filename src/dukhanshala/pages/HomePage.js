@@ -5,7 +5,7 @@ import Header from 'dukhanshala/components/common/header/Header';
 import IncrementButton from '../components/IncrementButton'
 import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
 import * as HomepageServices from '../../services/HomepageServices'
-import { Card, Grid, Typography, Paper } from '@material-ui/core';
+import { Card, Grid, Typography } from '@material-ui/core';
 
 
 class HomePage extends Component {
@@ -90,7 +90,7 @@ class HomePage extends Component {
 
     let temp1 = this.state.categories
     for (let i = 0; i < this.state.categories.length; i++) {
-      if (id == this.state.categories[i].categoryId) {
+      if (id === this.state.categories[i].categoryId) {
         temp1[i].isActive = true
       }
       else {
@@ -153,7 +153,7 @@ class HomePage extends Component {
     if (flag === false) {
 
       for (var i in tempArr) {
-        if (id == tempArr[i].productId) {
+        if (id === tempArr[i].productId) {
           tempArr[i].isAdded = true;
         }
       }
@@ -167,7 +167,7 @@ class HomePage extends Component {
     if (this.context.addedProdId.length > 0) {
       for (let i = 0; i < this.context.addedProdId.length; i++) {
 
-        if (id == this.context.addedProdId[i]) {
+        if (id === this.context.addedProdId[i]) {
 
           flag = true;
           break;
@@ -203,17 +203,17 @@ class HomePage extends Component {
 
 
             </div>
-       
+
           </div>
         </section>
 
 
         <div className="prod-box">
-          <div className="container productItems" style={{ marginTop: '65px',maxWidth:'550px' }}>
+          <div className="container productItems" style={{ marginTop: '65px', maxWidth: '550px' }}>
 
             {this.state.products === [] ? <div>...loading</div> : this.state.products.map((productData, index) => (
               <Card style={{ marginTop: '10px', height: '100px' }} key={index}>
-        
+
                 <Grid
                   container
                   spacing={1}
@@ -233,7 +233,7 @@ class HomePage extends Component {
                     md={4}
                     xs={4}
                     onClick={() => this.productDetail(productData.categoryName, productData.categoryId, productData.productId)}
-                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center',marginTop:'8px'  }}
+                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '8px' }}
                   >
                     <Typography
                       variant="h6"
@@ -246,7 +246,7 @@ class HomePage extends Component {
                       {" " + productData.productName}
 
                     </Typography>
-                    <div style={{ display: 'flex', flexDirection: 'row'}}>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
                       <Typography
                         variant="subtitle1"
                         color="textPrimary"
@@ -254,7 +254,7 @@ class HomePage extends Component {
 
 
                       >
-                        {"₹" + " " + productData.sellingPrice}
+                        {"₹ " + productData.sellingPrice}
 
                       </Typography>
                       <Typography
@@ -272,18 +272,18 @@ class HomePage extends Component {
                     item
                     md={4}
                     xs={4}
-                    style={{ display: 'flex', flexDirection: 'row',justifyContent:'flex-end', padding: '0px',margin:'auto' }}
+                    style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', padding: '0px', margin: 'auto' }}
                   >
 
                     {productData.isAdded ?
                       <div >
-                        <IncrementButton />
+                        <IncrementButton key={index} {...productData} />
                       </div> :
-                    
-                        <button className="add-button btn" onClick={() => { this.clickAdd(productData.productId, productData.isAdded) }} style={{ backgroundColor: ' #3BB3A6', color: 'white', fontWeight: 'bold', height: '36px', width: '80px', paddingBottom: '10px', }}>
-                          Add
-     </button>
-                     
+
+                      <button className="add-button btn" onClick={() => { this.clickAdd(productData.productId, productData.isAdded) }} style={{ backgroundColor: ' #3BB3A6', color: 'white', fontWeight: 'bold', height: '36px', width: '80px', paddingBottom: '10px', }}>
+                        Add
+                      </button>
+
 
                     }
 
@@ -297,14 +297,8 @@ class HomePage extends Component {
             ))}
           </div>
         </div>
+        <CompanyInfo />
 
-
-    
-        <section>
-          <CompanyInfo />
-        </section>
-
-        <div ></div>
         <Footer />
       </div>
     )

@@ -1,9 +1,7 @@
 import React from 'react';
 import './Categories.css'
 import CategoriesItems from '../categories-items/CategoriesItems';
-import axios from 'axios';
 import { AppContext } from "../../../Context/AppContext";
-import https from 'https';
 import * as CategoriesServices from '../../../services/CategoriesServices'
 
 class Categories extends React.Component {

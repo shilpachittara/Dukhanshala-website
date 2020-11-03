@@ -1,7 +1,6 @@
-import React ,{ useRef }from 'react';
+import React from 'react';
 import './Checkout.css'
-import { Link, Redirect } from 'react-router-dom';
-import backArror from '../../assets/images/icon_back.svg';
+import {  Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Validator from 'dukhanshala/util/Validator';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';

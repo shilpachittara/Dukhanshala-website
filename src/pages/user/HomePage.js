@@ -78,7 +78,7 @@ class HomePage extends Component {
                     <a className="nav-link"  href="#ourVision">Our Vision</a>
                   </li>
                   <li className="nav-item">
-                  <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp"><button type="button" style={{color:'#FF4500'}} className="btn btn-outline-danger btn-zoom">Get The App</button></a>
+                  <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp"><button type="button" style={{color:'#3BB3A6'}} className="btn btn-outline-info btn-zoom">Get The App</button></a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link"   href="#footer">Contact Us</a>
@@ -96,12 +96,12 @@ class HomePage extends Component {
           {/* 1st section */}
           <div className="row">
               <div className="col-md-6 col-12" style={{fontFamily:"Poppins-Light"}}>
-                <h5 className="mt-4" style={{color:"#FF4500"}}>DUKAANSHALA FOR EVERY BUSINESS</h5>
+                <h5 className="mt-4" style={{color:"#3BB3A6"}}>DUKAANSHALA FOR EVERY BUSINESS</h5>
                 <br></br>
-             <h1><strong>Digital India ka Digital <span style={{color:"#FF4500"}}>Store Bahi Khata</span> App</strong></h1>
+             <h1><strong>Digital India ka Digital <span style={{color:"#3BB3A6"}}>Store Bahi Khata</span> App</strong></h1>
                 <p className="mt-4">Manage Purchases and Supplier’s Credit. Manage Stock Inventory and share it with your customer. Available in English and हिन्दी</p>
               <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp">
-              <button className="p-2 mt-5" style={{backgroundColor:"#FF4500", color:"white", borderRadius:"5px", border:"none"}}>Get Dukaanshala</button>
+              <button className="p-2 mt-5" style={{backgroundColor:"#3BB3A6", color:"white", borderRadius:"5px", border:"none"}}>Get Dukaanshala</button>
               </a>
               </div>
               <div className="col-md-6 col-12 pl-5 pt-3">
@@ -118,12 +118,12 @@ class HomePage extends Component {
                {this.state.featureData.map((data, index) => {
                 return (
                   <div className="button_div mt-3 p-2" key={index} style = { this.state.selectedIndex === data.id ? 
-                  {backgroundColor:'#FF4500', color:"white", border:"1px solid grey", borderRadius:"7px",
+                  {backgroundColor:'#3BB3A6', color:"white", border:"1px solid grey", borderRadius:"7px",
                   textAlign:"center",fontFamily:"Poppins-Medium"}:{backgroundColor:'white', color:"black", border:"1px solid grey", borderRadius:"7px",
                    textAlign:"center", fontFamily:"Poppins-Medium"}} onClick={()=>this.renderThis(data.icon,data.header,data.subHeader,data.id)}>
                     <img src={data.icon} alt="multilanguagesupport" style={{width:'8%', height:'8%'}}></img>
                       <button className="active pl-2" onClick={()=>this.renderThis(data.icon,data.header,data.subHeader,data.id)}
-                      style={ this.state.selectedIndex === data.id ? { color: "white", textAlign:'center', border:"none", borderColor:'#FF4500',background:"none"}: 
+                      style={ this.state.selectedIndex === data.id ? { color: "white", textAlign:'center', border:"none", borderColor:'#3BB3A6',background:"none"}: 
                       { color: "black", textAlign:'center',border:"none", background:"none"}}>
                       {data.buttonName}
                       </button>
@@ -143,7 +143,7 @@ class HomePage extends Component {
                       <div className="card-body">
                         <h5 className="card-title" style={{fontSize:"20px", fontFamily:"Poppins-Medium"}}>{data.header}</h5>
                         <p className="card-text" style={{fontSize:"15px", fontFamily:"Poppins-Light"}}>{data.subHdr}</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp" className="btn" style={{backgroundColor:"#FF4500", color:"white"}}>Learn more...</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp" className="btn" style={{backgroundColor:"#3BB3A6", color:"white"}}>Learn more...</a>
                       </div>
                   </div>
                   )
@@ -156,7 +156,7 @@ class HomePage extends Component {
           
           {/* 3rd section */}
           <div style={{ textAlign: 'center', marginTop: '30px'}}>
-            <h5 style={{color:"#FF4500", fontFamily:"Poppins-Light"}}>
+            <h5 style={{color:"#3BB3A6", fontFamily:"Poppins-Light"}}>
               SERVING VARIOUS BUSINESS TYPES
              </h5>
             <h2 className="title" style={{ fontSize: "40px",  fontFamily:"Poppins-Light" }}><strong>
@@ -171,7 +171,7 @@ class HomePage extends Component {
                       <div className="sub-title" style={{float: 'right', width:"40%", fontSize:"14px", fontWeight:"bold", 
                       padding:"5px", borderRadius:"5px", zIndex:"1000",
                       position:"absolute", marginTop:"-40px", marginLeft:"3px",
-                      backgroundColor:"#FF4500", color:"white", fontFamily:"Poppins-Light"}}>{data.text}</div>
+                      backgroundColor:"#3BB3A6", color:"white", fontFamily:"Poppins-Light"}}>{data.text}</div>
                     </div>
                   )
                 })
@@ -179,7 +179,7 @@ class HomePage extends Component {
           </div>
           {/* 4th section */}
           <div style={{ textAlign: 'center'}}>
-            <h5 style={{color:"#FF4500", fontFamily:"Poppins-Light"}}>BLOGS AND CASE STUDIES</h5>
+            <h5 style={{color:"#3BB3A6", fontFamily:"Poppins-Light"}}>BLOGS AND CASE STUDIES</h5>
             <h2 className="title" style={{ fontSize: "40px",fontFamily:"Poppins-Light" }}><strong>
             Our learning and Knowledge center</strong></h2>
           </div>
@@ -193,7 +193,7 @@ class HomePage extends Component {
                       <img className="card-img-top" style={{padding:"10px 10px 10px 10px"}} src={data.image} alt="Card cap"></img>
                       <div className="card-body">
                         <p className="card-text">{data.para}</p>
-                        <a href="https://medium.com/@info_28655/small-businesses-tales-making-store-operations-efficient-98df98ac7679" className="btn" style={{backgroundColor:"white", color:"#FF4500"}}>Read Story</a>
+                        <a href="https://medium.com/@info_28655/small-businesses-tales-making-store-operations-efficient-98df98ac7679" className="btn" style={{backgroundColor:"white", color:"#3BB3A6"}}>Read Story</a>
                       </div>
                   </div>
                 </div>

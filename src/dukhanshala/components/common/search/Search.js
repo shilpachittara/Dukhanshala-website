@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import TextField from '@material-ui/core/TextField';
-import Divider from '@material-ui/core/Divider';
 import * as SearchServices from '../../../../services/SearchServices'
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -20,7 +19,6 @@ export default class Search extends PureComponent {
         this.getStoreCode()
     }
     getStoreCode = () => {
-        var path;
         let url = window.location.pathname;
 
         let index = url.search("/")

@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ProductDetail.css'
 import { Redirect, Link } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
-import Axios from 'axios';
-import https from 'https';
 import * as ProductdetailServices from '../../../services/ProductdetailServices'
 
 class ProductDetail extends React.Component {
@@ -104,7 +102,7 @@ class ProductDetail extends React.Component {
     }
 
     subProduct = (event) => {
-        if (this.state.count != 0) {
+        if (this.state.count !== 0) {
             var count = this.state.count - 1;
             var prod = this.state.product;
             prod.quantity = count;
@@ -125,7 +123,7 @@ class ProductDetail extends React.Component {
                 }
                 if (products[i].count === 0) {
                     products.splice(i, 1);
-                    if (length == 1) {
+                    if (length === 1) {
                         products = [];
                     }
                 }

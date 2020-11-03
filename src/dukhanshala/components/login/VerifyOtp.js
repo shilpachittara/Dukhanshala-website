@@ -4,8 +4,6 @@ import backArror from '../../assets/images/icon_back.svg';
 import { AppContext } from 'Context/AppContext';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import Axios from 'axios';
-import https from 'https';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
 import * as Auth from '../../../services/AuthService'
 import * as OrderService from '../../../services/BagpageServices'
@@ -90,7 +88,7 @@ class VerifyOtp extends React.Component {
   }
 
   loginDetail = async () => {
-    let resp = await Auth.login(this.context.mobile)
+    await Auth.login(this.context.mobile)
     try {
       localStorage.setItem('userMobile', this.context.mobile)
 
@@ -99,7 +97,7 @@ class VerifyOtp extends React.Component {
 
       request.customerMobile=localStorage.getItem('userMobile')
 
-      let response = await OrderService.orderProduct(request)
+      await OrderService.orderProduct(request)
       try {
         this.setState({ redirect: true });
         this.context.updateBagCount(0);

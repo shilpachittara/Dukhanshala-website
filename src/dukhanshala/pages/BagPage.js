@@ -47,18 +47,19 @@ class BagPage extends Component {
 
   }
   callTwo = async () => {
-    let f1 = await this.demoFunction()
-    let f2 = await this.totalCalculation();
+     await this.demoFunction()
+     await this.totalCalculation();
   }
 
   demoFunction = () => {
     var bagCount = this.context.bagCount;
+    var bag;
     if (this.context.storeCode !== null) {
       localStorage.setItem("storeCodeBagPage", this.context.storeCode)
     }
     var storeCode = localStorage.getItem("storeCodeBagPage");
 
-    if (this.context.bagCount != 0) {
+    if (this.context.bagCount !== 0) {
       localStorage.setItem("bagCountBagPage", this.context.bagCount)
       
     }
@@ -75,13 +76,13 @@ class BagPage extends Component {
 
     if (JSON.parse(localStorage.getItem("bagProductsBagPage")) !== null) {
 
-      var bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
+      bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
       this.context.updateBag(bag)
 
     }
     else {
 
-      var bag = this.context.bag
+      bag = this.context.bag
     }
     this.setState({ contact: window.localStorage.getItem('userMobile') });
     this.setState({ storeCode: storeCode });
@@ -99,10 +100,10 @@ class BagPage extends Component {
     var deliveryChargeUpdated = 0;
 
 
-    if (this.context.minFreeDelivery != 0) {
+    if (this.context.minFreeDelivery !== 0) {
       localStorage.setItem('minFreeDelivery', this.context.minFreeDelivery)
     }
-    if (parseInt(localStorage.getItem('minFreeDelivery')) != null) {
+    if (parseInt(localStorage.getItem('minFreeDelivery')) !== null) {
       minFreeDeliveryUpdated = parseInt(localStorage.getItem('minFreeDelivery'))
 
     }
@@ -122,7 +123,7 @@ class BagPage extends Component {
       grandTotal = totalOrder;
     }
     else {
-      if (this.context.deliveryCharge != 0) {
+      if (this.context.deliveryCharge !== 0) {
         localStorage.setItem('deliveryCharge', this.context.deliveryCharge)
 
       }
@@ -153,7 +154,7 @@ class BagPage extends Component {
 
   addProduct(productId) {
     var addBagCount = 0;
-    if (this.context.bagCount != 0) {
+    if (this.context.bagCount !== 0) {
       localStorage.setItem('addBagcount', this.context.bagCount)
       addBagCount = parseInt(localStorage.getItem('addBagcount'))
     }
@@ -194,7 +195,7 @@ class BagPage extends Component {
           }
           if (products[i].count === 0) {
             products.splice(i, 1);
-            if (length == 1) {
+            if (length === 1) {
               products = [];
             }
           }
@@ -205,7 +206,7 @@ class BagPage extends Component {
     updatedBag.products = products;
     if (selectedCount !== 0) {
       var subBagCount = 0;
-      if (this.context.bagCount != 0) {
+      if (this.context.bagCount !== 0) {
         localStorage.setItem('subBagcount', this.context.bagCount)
         subBagCount = parseInt(localStorage.getItem('subBagcount'))
       }
@@ -234,14 +235,14 @@ class BagPage extends Component {
       this.context.updatePincode(this.state.pincode)
       this.context.updateCod(this.state.cod)
 
-      if (userVerified != null) {
+      if (userVerified !== null) {
 
 
         let request = this.objectCreation.orderObject(this.state);
    
 
         try {
-          let response = await BagpageServices.orderProduct(request)
+          await BagpageServices.orderProduct(request)
           var updatedBag = { products: [], address: {} }
           this.setState({ redirect: true });
           this.context.updateBagCount(0);

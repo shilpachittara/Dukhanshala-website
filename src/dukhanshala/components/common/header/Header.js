@@ -2,20 +2,17 @@ import React from 'react';
 import './Header.css';
 import logo from '../../../assets/images/logo2.png'
 import dukaanshala from '../../../assets/images/dukaanshala.png'
-import Search from '../search/Search';
 import { Link } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import * as HeaderServices from '../../../../services/HeaderServices'
 import TextField from '@material-ui/core/TextField';
 import * as SearchServices from '../../../../services/SearchServices'
-import MenuItem from '@material-ui/core/MenuItem';
 import { Redirect } from "react-router-dom";
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import { Divider } from '@material-ui/core';
 
 
@@ -34,6 +31,7 @@ class Header extends React.Component {
             dukaanshalaLogo: true,
             options: [],
             storeId: "",
+            search: false,
             prodId:null
         }
     }
@@ -51,7 +49,7 @@ class Header extends React.Component {
 
             if (index !== -1) {
                 let urlLength;
-                if (lastIndexOf == -1) {
+                if (lastIndexOf === -1) {
                     let token = url;
                     this.context.updateAppContext(token)
                     this.getStoreDetail(token);
@@ -117,17 +115,16 @@ class Header extends React.Component {
         if (e.target.value.length > 1) {
             try {
                 let response = await SearchServices.getProductListBySearch(data)
-
                 if (response.data.products) {
-
-
                     this.setState({ options: response.data.products })
                 }
+                this.setState({search: true})
             }
             catch (e) { alert(e) }
         }
-
-
+       else{
+            this.setState({search: false})
+        }
 
     }
 
@@ -181,7 +178,7 @@ class Header extends React.Component {
                             style={{ width: '100%' }}
                             onChange={this.searchProduct}
                         />
-                        {this.state.options.length > 0 &&
+                        {this.state.options.length > 0 && this.state.search === true &&
                             <div className="option-search">
                                 {
                                     this.state.options.map((option, index) =>
