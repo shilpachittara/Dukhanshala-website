@@ -257,8 +257,8 @@ class BagPage extends Component {
           this.setState({ redirect: true });
           this.context.updateBagCount(0);
           this.context.updateBag(updatedBag);
-          localStorage.setItem("bagCountBagPage", 0);
-          localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+          localStorage.removeItem("bagCountBagPage");
+          localStorage.removeItem("bagProductsBagPage")
         }
         catch (err) {
 
