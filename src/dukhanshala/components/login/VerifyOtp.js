@@ -55,7 +55,7 @@ class VerifyOtp extends React.Component {
     this.setState({ pincode: this.context.pincode });
     this.setState({ cod: this.context.cod });
     //this.login();
-    
+
     //this is the reason why it is breaking after refresh ======
 
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('resend-recaptcha', {
@@ -92,23 +92,25 @@ class VerifyOtp extends React.Component {
     try {
       localStorage.setItem('userMobile', this.context.mobile)
 
-      //order  api called
       let request = JSON.parse(localStorage.getItem('requestOrder'))
+      if (request !== null) {
+        request.customerMobile = localStorage.getItem('userMobile')
 
-      request.customerMobile=localStorage.getItem('userMobile')
-
-      await OrderService.orderProduct(request)
-      try {
-        this.setState({ redirect: true });
-        this.context.updateBagCount(0);
-        this.context.updateBag(this.state.updateBag);
-        localStorage.removeItem("requestOrder");
+        //order  api called
+        await OrderService.orderProduct(request)
+        try {
+          this.setState({ redirect: true });
+          this.context.updateBagCount(0);
+          this.context.updateBag(this.state.updateBag);
+          localStorage.removeItem("requestOrder");
+        }
+        catch (e) {
+          alert(e)
+        }
       }
-      catch (e) {
-        alert(e)
+      else {
+        this.setState({ orderPage: true });
       }
-
-
     }
     catch (e) {
       alert(e)
@@ -136,10 +138,15 @@ class VerifyOtp extends React.Component {
 
   render() {
     const { redirect } = this.state
+    const { orderPage } = this.state
 
     if (redirect)
       return (<Redirect to={{
         pathname: `${this.context.storeCode}/confirmation`
+      }} />)
+    if (orderPage)
+      return (<Redirect to={{
+        pathname: `${this.context.storeCode}/orders`
       }} />)
     return (
       <div className="container">
