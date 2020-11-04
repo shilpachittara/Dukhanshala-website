@@ -11,6 +11,7 @@ class MyOrders extends React.Component {
 
         this.state = {
             categories: null,
+            textColour: "orange"
         }
         this.orderDetail = this.orderDetail.bind(this);
     }
@@ -18,7 +19,22 @@ class MyOrders extends React.Component {
         this.getOrdersByContactNumber();
 
     }
-    getOrdersByContactNumber = async() => {
+
+    setColor(status){
+       
+        if (status === "DECLINED" || status === "CANCELED") {
+            return "red"
+        }
+        if (status === "DELIVERED") {
+            return "green"
+        }
+        if (status === "PENDING" || status === "SHIPPED") {
+            return "orange"
+        }
+
+    }
+
+    getOrdersByContactNumber = async () => {
         let mobileNo = window.localStorage.getItem('userMobile')
         let response = await MyorderServices.getOrderList(mobileNo)
         try {
@@ -26,15 +42,19 @@ class MyOrders extends React.Component {
                 // this.props.setCategories(response.data.categories);
                 this.setState({ categories: response.data.orderDetails });
             }
-
+            this.setColorStatus(response.data.orderDetails)
         }
         catch (e) {
             alert(e)
         }
-
-
-
     };
+
+    setColorStatus(orderDetails) {
+        for (var i = 0; i < orderDetails.length; i++){
+            orderDetails[i].color = this.setColor(orderDetails[i].status);
+        }
+        this.setState({ categories: orderDetails });
+    }
     orderDetail(orderId) {
         this.context.updateOrderId(orderId);
         this.setState({ redirect: true })
@@ -55,8 +75,7 @@ class MyOrders extends React.Component {
                 <div id="order_list" className="mt-4 pt-2"></div>
                 {this.state.categories &&
                     this.state.categories.map((order, index) => (
-                        <div key={index}>
-
+                        <div key={index} >
                             <div className="row pr-0 pl-3" >
                                 <div className="col-12 px-0 mb-2">
                                     <span>{order.storeName}</span>
@@ -75,7 +94,7 @@ class MyOrders extends React.Component {
                             </div>
                             <p className="mt-3 small-text">
                                 <i className="fas fa-circle pr-1 text-yellow smallest-text"></i>
-                                <span className="pl-0 text-warning" style={{ textTransform: "capitalize" }}>{order.status}</span>
+                                <span className="pl-0" style={{ textTransform: "capitalize", color: order.color }}>{order.status}</span>
                                 <span className="btn btn-outline-info float-right" style={{ marginTop: "-7px" }} onClick={this.orderDetail.bind(this, order.orderId)}>
                                     Detail
                                 </span>

@@ -11,7 +11,17 @@ class OrderDetails extends React.Component {
 
         this.state = {
             order: {},
-            redirect: false
+            redirect: false,
+            pending : "badge badge-secondary mt-3 mr-2",
+            shipped : "badge badge-secondary mt-3 mr-2",
+            delivery : "badge badge-secondary mt-3 mr-2",
+            pendingText : null,
+            shippedText : null,
+            deliveryText : null,
+            pendingTextTransform : null,
+            shippedTextTransform : null,
+            deliveryTextTransform : null,
+            color : "orange"
         }
         this.backPage = this.backPage.bind(this)
     }
@@ -27,6 +37,8 @@ class OrderDetails extends React.Component {
         try {
             if (response && response.data) {
                 this.setState({ order: response.data });
+                this.setColor(response.data);
+                this.setStatusColor(response.data);
             }
         
         }
@@ -36,6 +48,51 @@ class OrderDetails extends React.Component {
 
 
     };
+
+    setColor(order){
+       var status = order.status;
+       console.log(status);
+        if (status === "DECLINED" || status === "CANCELED") {
+            console.log("check");
+            this.setState({color : "red" })
+        }
+        if (status === "DELIVERED") {
+            this.setState({color : "green" })
+        }
+        if (status === "PENDING" || status === "SHIPPED") {
+            this.setState({color : "orange" })
+        }
+
+    }
+    setStatusColor(order) {
+        var text = "text-primary"
+        var digit = "badge badge-primary mr-2"
+        var trans = "capitalize"
+        if (order.status === "DELIVERED") {
+            this.setState({ pendingText: text });
+            this.setState({ shippedText: text });
+            this.setState({ deliveryText: text });
+            this.setState({ pending: digit });
+            this.setState({ shipped: digit });
+            this.setState({ delivery: digit });
+            this.setState({ pendingTextTransform: trans });
+            this.setState({ shippedTextTransform: trans });
+            this.setState({ deliveryTextTransform: trans });
+        }
+        if (order.status  === "PENDING"){
+            this.setState({ pendingText: text});
+            this.setState({ pending: digit });
+            this.setState({ pendingTextTransform: trans });
+        }
+        if( order.status === "SHIPPED") {
+            this.setState({ pendingText: text });
+            this.setState({ shippedText: text });
+            this.setState({ pending: digit });
+            this.setState({ shipped: digit });
+            this.setState({ pendingTextTransform: trans });
+            this.setState({ shippedTextTransform: trans });
+        }
+    }
     backPage() {
         this.setState({ redirect: true })
     }
@@ -50,21 +107,23 @@ class OrderDetails extends React.Component {
             <div className="container mb-5 pb-5">
                 <p className="mt-3 mb-4"><b><img src={backArror} alt="" style={{ marginRight: "15px" }} onClick={this.backPage} />Order Details</b></p>
                 <h6 className="text-body mb-0">Order ID: {this.state.order.orderId}
-                    <span className="float-right"><i className="fas fa-circle pr-1 text-warning smallest-text"></i><span className="small-text pl-0 text-warning" style={{ textTransform: "capitalize" }}>{this.state.order.status}</span></span></h6>
+                    <span className="float-right"><i className="fas fa-circle pr-1 text-warning smallest-text"></i>
+                    <span className="small-text pl-0" style={{ textTransform: "capitalize" , color: `${this.state.color}` }}>{this.state.order.status}</span>
+                    </span></h6>
                 <h6 className="text-body mt-2 mb-3">{this.state.order.createdDate}</h6>
                 <Link to="/">{this.state.order.storeName}</Link>
                 <hr className="mt-13" />
                 <div>
                     <h6 className="text-color-gray">
                         <section className="section">
-                            <span className="badge badge-primary mr-2">1</span>
-                            <span className="text-primary" style={{ textTransform: "capitalize" }}>Order pending</span>
+                            <span className={this.state.pending}>1</span>
+                            <span className={this.state.pendingText} style={{ textTransform: `${this.state.pendingTextTransform}` }}>Order pending</span>
                             <br />
-                            <span className="badge badge-secondary mt-3 mr-2">2</span>
-                            <span>Shipping</span>
+                            <span className={this.state.shipped}>2</span>
+                            <span className={this.state.shippedText} style={{ textTransform: `${this.state.shippedTextTransform}` }}>Shipping</span>
                             <br />
-                            <span className="badge badge-secondary mt-3 mr-2">3</span>
-                            <span>Delivery</span>
+                            <span className={this.state.delivery} >3</span>
+                            <span className={this.state.deliveryText} style={{ textTransform: `${this.state.deliveryTextTransform}` }}>Delivery</span>
                         </section>
                     </h6>
                     <hr />
