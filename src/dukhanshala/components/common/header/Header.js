@@ -12,7 +12,6 @@ import { Redirect } from "react-router-dom";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import { Divider } from '@material-ui/core';
 
 
@@ -32,8 +31,10 @@ class Header extends React.Component {
             options: [],
             storeId: "",
             search: false,
-            prodId:null
+            prodId: null
         }
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+
     }
 
     getStoreCode = () => {
@@ -75,6 +76,18 @@ class Header extends React.Component {
         this.getStoreCode()
     }
 
+    componentWillMount() { document.addEventListener("click", this.handleClickOutside, false); }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside, false);
+    }
+
+    handleClickOutside = (e) => {
+        if (!this.submitPopoverRef.contains(e.target)) {
+            this.setState({ search: false })
+        }
+    }
+
     getStoreDetail = async (val) => {
         let response = await HeaderServices.getStoreInfo(val);
         try {
@@ -104,8 +117,6 @@ class Header extends React.Component {
             alert(err)
         }
 
-
-
     };
 
     searchProduct = async (e) => {
@@ -118,12 +129,12 @@ class Header extends React.Component {
                 if (response.data.products) {
                     this.setState({ options: response.data.products })
                 }
-                this.setState({search: true})
+                this.setState({ search: true })
             }
             catch (e) { alert(e) }
         }
-       else{
-            this.setState({search: false})
+        else {
+            this.setState({ search: false })
         }
 
     }
@@ -132,11 +143,11 @@ class Header extends React.Component {
         this.context.updateCategoryName(catName);
         this.context.updateCategoryId(catId);
         this.context.updateProductId(prodId);
-        this.setState({prodId:prodId})
-        this.setState({redirect:true})
-     
+        this.setState({ prodId: prodId })
+        this.setState({ redirect: true })
+
     }
-  
+
 
 
     render() {
@@ -144,12 +155,12 @@ class Header extends React.Component {
 
         if (redirect)
             return (<Redirect to={{
-                pathname:`${this.context.storeCode + "/product/detail/" + this.state.prodId}`
+                pathname: `${this.context.storeCode + "/product/detail/" + this.state.prodId}`
             }} />)
 
         return (
             <div className="sticky-top headerPanel" >
-           
+
                 <div className="container-fluid">
                     <div className="row align-items-center" style={{ minHeight: "90px" }}>
                         <div className="col-auto">
@@ -169,7 +180,7 @@ class Header extends React.Component {
                     {/* <Search /> */}
 
                     {/* ============ */}
-                    <div>
+                    <div ref={node => this.submitPopoverRef = node}>
                         <TextField
                             label="Search Product"
                             id="outlined-size-small"
@@ -182,22 +193,22 @@ class Header extends React.Component {
                             <div className="option-search">
                                 {
                                     this.state.options.map((option, index) =>
-                                    <div key={index} >
+                                        <div key={index} >
 
-                                    <List>
-                                        <ListItem style={{height:'50px'}}>
-                                            <ListItemAvatar>
+                                            <List>
+                                                <ListItem style={{ height: '50px' }}>
+                                                    {/*<ListItemAvatar>
                                             
                                                    <img src={option.productImage} alt={option.categoryName} style={{width:'40px',height:'40px',borderRadius:'8px'}}/>
   
-                                            </ListItemAvatar>
-                                            <ListItemText onClick={() => { this.productDetail(option.categoryName, option.categoryId, option.productId) }} key={index}  primary={option.productName} secondary={option.sellingPrice} />
-                                        </ListItem>
-                                      
-                                    </List>
-                                    <Divider/>
-                                  
-                                    </div>
+                                            </ListItemAvatar>*/}
+                                                    <ListItemText onClick={() => { this.productDetail(option.categoryName, option.categoryId, option.productId) }} key={index} primary={option.productName} secondary={option.categoryName} />
+                                                </ListItem>
+
+                                            </List>
+                                            <Divider />
+
+                                        </div>
                                         // <MenuItem onClick={() => { this.productDetail(option.categoryName, option.categoryId, option.productId) }} key={index} style={{ zIndex: 10, fontWeight: 'bold' }}>{option.productName}</MenuItem>
 
                                     )

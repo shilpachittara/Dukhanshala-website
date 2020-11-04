@@ -21,13 +21,37 @@ class ProductDetail extends React.Component {
             },
             path: null,
             count: 0,
-            bag: null
+            bag: {
+                products: []
+            }
         }
 
     }
     componentDidMount() {
-        this.setState({ bag: this.context.bag });
-        
+        this.getProductDetail();
+        var bag = null;
+        if (this.context.bag.products[0]) {
+            this.setState({ bag: this.context.bag });
+        }
+        if (!this.context.bag.products[0] && localStorage.getItem("bagProductsBagPage") !== null) {
+            bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
+            this.context.updateBag(bag)
+            this.setState({ bag: bag });
+        }
+        var productId = null;
+        if(localStorage.getItem('prodId') !== null){
+         productId =  parseInt(localStorage.getItem('prodId'));
+        }
+        if(bag){
+            var bagLength = bag.products.length;
+            for (var j = 0; j < bagLength; j++) {
+                if (bag.products[j]) {
+                    if (bag.products[j].productId === productId) {
+                        this.setState({ count: bag.products[j].count })
+                    }
+                }
+            }
+        }
         if (this.context.bag.products[0]) {
             var length = this.context.bag.products.length;
             for (var i = 0; i < length; i++) {
@@ -38,18 +62,18 @@ class ProductDetail extends React.Component {
                 }
             }
         }
-        this.getProductDetail();
+       
     }
 
     getProductDetail = async () => {
-        if(this.context.storeCode !==null && this.context.productId!==null){
-        localStorage.setItem('storeCode',this.context.storeCode)
-        localStorage.setItem('prodId',this.context.productId)
+        if (this.context.storeCode !== null && this.context.productId !== null) {
+            localStorage.setItem('storeCode', this.context.storeCode)
+            localStorage.setItem('prodId', this.context.productId)
         }
         let requestUrl = {}
-        requestUrl.storeCode = this.context.storeCode ===null ? window.localStorage.getItem('storeCode'):this.context.storeCode
-        requestUrl.prodId = this.context.productId ===null ? window.localStorage.getItem('prodId'):this.context.productId 
-    
+        requestUrl.storeCode = this.context.storeCode === null ? window.localStorage.getItem('storeCode') : this.context.storeCode
+        requestUrl.prodId = this.context.productId === null ? window.localStorage.getItem('prodId') : this.context.productId
+
         let response = await ProductdetailServices.getProductDetail(requestUrl)
         try {
             if (response && response.status === 200 && response.data) {
@@ -76,6 +100,7 @@ class ProductDetail extends React.Component {
         this.setState({ product: prod });
         this.setState({ count: count });
         this.context.updateBagCount(this.context.bagCount + 1);
+        localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
         this.addToBag();
     }
 
@@ -99,6 +124,7 @@ class ProductDetail extends React.Component {
         var updatedBag = { products: [], address: {} }
         updatedBag.products = products;
         this.context.updateBag(updatedBag);
+        localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     }
 
     subProduct = (event) => {
@@ -110,6 +136,7 @@ class ProductDetail extends React.Component {
             this.setState({ count: count });
             this.context.updateBagCount(this.context.bagCount - 1);
             this.subFromBag();
+            localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
         }
     }
 
@@ -132,6 +159,7 @@ class ProductDetail extends React.Component {
         var updatedBag = { products: [], address: {} }
         updatedBag.products = products;
         this.context.updateBag(updatedBag);
+        localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     }
 
     back = (event) => {
@@ -185,7 +213,7 @@ class ProductDetail extends React.Component {
                             </div>
                             <div className="col">
                                 <Link to={this.context.storeCode + "/bag"}>
-                                    <button className="btn btn-primary w-100 my-3 btn-lg add-button" style={{ backgroundColor: ' #3BB3A6', borderColor: ' #3BB3A6',fontWeight:'bold' }}>Go to Bag</button>
+                                    <button className="btn btn-primary w-100 my-3 btn-lg add-button" style={{ backgroundColor: ' #3BB3A6', borderColor: ' #3BB3A6', fontWeight: 'bold' }}>Go to Bag</button>
                                 </Link>  </div>
                         </div>
                     </div>

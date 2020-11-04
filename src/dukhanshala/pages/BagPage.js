@@ -46,9 +46,9 @@ class BagPage extends Component {
     this.callTwo()
 
   }
-  callTwo = async () => {
-     await this.demoFunction()
-     await this.totalCalculation();
+  callTwo = () => {
+    this.demoFunction()
+    this.totalCalculation();
   }
 
   demoFunction = () => {
@@ -61,20 +61,24 @@ class BagPage extends Component {
 
     if (this.context.bagCount !== 0) {
       localStorage.setItem("bagCountBagPage", this.context.bagCount)
-      
+
     }
-    if(parseInt(localStorage.getItem("bagCountBagPage"))!==null){
-      bagCount=parseInt(localStorage.getItem("bagCountBagPage"))
+    console.log("bag page count :" + localStorage.getItem("bagCountBagPage"));
+    if (localStorage.getItem("bagCountBagPage") !== null) {
+      bagCount = parseInt(localStorage.getItem("bagCountBagPage"))
       this.context.updateBagCount(bagCount)
     }
-  
+    else {
+      this.context.updateBagCount(0)
+      console.log("else bagCount", this.context.bagCount);
+    }
 
     if (this.context.bag.products.length > 0) {
- 
+
       localStorage.setItem("bagProductsBagPage", JSON.stringify(this.context.bag))
     }
 
-    if (JSON.parse(localStorage.getItem("bagProductsBagPage")) !== null) {
+    if (localStorage.getItem("bagProductsBagPage") !== null) {
 
       bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
       this.context.updateBag(bag)
@@ -115,7 +119,7 @@ class BagPage extends Component {
       if (this.context.bag.products[i]) {
 
         totalOrder += this.context.bag.products[i].count * this.context.bag.products[i].sellingPrice;
-     
+
       }
     }
     if (totalOrder >= delivery) {
@@ -127,9 +131,9 @@ class BagPage extends Component {
         localStorage.setItem('deliveryCharge', this.context.deliveryCharge)
 
       }
-      if(parseInt(localStorage.getItem('deliveryCharge')) !=null){
+      if (parseInt(localStorage.getItem('deliveryCharge')) != null) {
         deliveryChargeUpdated = parseInt(localStorage.getItem('deliveryCharge'))
-    
+
       }
       delivery = deliveryChargeUpdated;
       grandTotal = delivery + totalOrder;
@@ -159,6 +163,7 @@ class BagPage extends Component {
       addBagCount = parseInt(localStorage.getItem('addBagcount'))
     }
     this.context.updateBagCount(addBagCount + 1);
+    localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
 
     var products = this.context.bag.products;
     var found = false;
@@ -179,6 +184,7 @@ class BagPage extends Component {
     var updatedBag = { products: [], address: {} }
     updatedBag.products = products;
     this.context.updateBag(updatedBag);
+    localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     this.totalCalculation();
   }
 
@@ -211,7 +217,11 @@ class BagPage extends Component {
         subBagCount = parseInt(localStorage.getItem('subBagcount'))
       }
       this.context.updateBagCount(subBagCount - 1);
+
+      localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
       this.context.updateBag(updatedBag);
+      localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+
       this.totalCalculation();
     }
   }
@@ -239,7 +249,7 @@ class BagPage extends Component {
 
 
         let request = this.objectCreation.orderObject(this.state);
-   
+
 
         try {
           await BagpageServices.orderProduct(request)
@@ -247,6 +257,8 @@ class BagPage extends Component {
           this.setState({ redirect: true });
           this.context.updateBagCount(0);
           this.context.updateBag(updatedBag);
+          localStorage.setItem("bagCountBagPage", 0);
+          localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
         }
         catch (err) {
 
@@ -257,8 +269,8 @@ class BagPage extends Component {
       else {
         this.setState({ redirectLogin: true })
         let request = this.objectCreation.orderObject(this.state);
-        localStorage.setItem('requestOrder',JSON.stringify(request))
-       
+        localStorage.setItem('requestOrder', JSON.stringify(request))
+
       }
     }
   }
@@ -277,7 +289,7 @@ class BagPage extends Component {
     return (
       <div className="container-fluid">
         <Header />
-    <h1 className="heading"><img onClick={() => this.address()} src={backArror} style={{ marginRight: "15px" }} alt="bag" /> Bag {this.context.bagCount >=0?this.context.bagCount:0 }{" items"} </h1>
+        <h1 className="heading"><img onClick={() => this.address()} src={backArror} style={{ marginRight: "15px" }} alt="bag" /> Bag {this.context.bagCount >= 0 ? this.context.bagCount : 0}{" items"} </h1>
 
         <div className="row pr-0 mr-0 my-0">
 
