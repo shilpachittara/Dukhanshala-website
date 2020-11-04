@@ -93,7 +93,7 @@ class ProductDetailPage extends Component {
       }} />)
     return (
 
-      <div className="container">
+      <div className="container-fluid">
         <Header />
         <div className="" >
           <h1 className="heading" ><img src={backArror} style={{ marginRight: "15px" }} alt="product" onClick={this.backPage} />{this.context.categoryName ===null?localStorage.getItem('categoryName'):this.context.categoryName}</h1>

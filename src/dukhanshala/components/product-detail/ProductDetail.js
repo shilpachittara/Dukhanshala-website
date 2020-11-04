@@ -181,7 +181,7 @@ class ProductDetail extends React.Component {
             }} />)
         return (
 
-            <div className="row " style={{ backgroundColor: '#bff9f347' }}>
+            <div className="row m-q-height " style={{ backgroundColor: '#bff9f347' }}>
 
                 <div className="col-12 col-sm-5">
                     <div><h4 className="prod-detail-name" style={{ marginBottom: '10px', marginTop: '10px' }}>{this.state.product.productName}</h4></div>

@@ -64,7 +64,7 @@ class SendOtp extends React.Component {
         pathname: `${this.context.storeCode}/${this.state.contact}/verify`
       }} />)
     return (
-      <div className="container">
+      <div className="container-fluid m-q-height">
         <h1 className="heading"><Link to={`${this.context.storeCode}/bag`}><img src={backArror} style={{ marginRight: "15px" }} alt="" /></Link> Orders</h1>
         <p className="mt-3 mb-0"><b>Mobile Verification</b></p>
         <p className="small-text">Please enter your 10 digit mobile number.</p>

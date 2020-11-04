@@ -10,8 +10,8 @@ class CategoryPage extends Component {
       return(
         <div>
           <Header />
-          <section className="container CategoriesPage">
-            <h2 className="heading">Categories</h2>          
+          <section className="container CategoriesPage m-q-min-height">
+            <h2 className="heading" style={{fontWeight:"bold"}}>Categories</h2>          
               <Categories/>
           </section>   
           <section>
