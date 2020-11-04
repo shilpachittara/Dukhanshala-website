@@ -253,10 +253,7 @@ class BagPage extends Component {
 
         try {
           await BagpageServices.orderProduct(request)
-          var updatedBag = { products: [], address: {} }
           this.setState({ redirect: true });
-          this.context.updateBagCount(0);
-          this.context.updateBag(updatedBag);
           localStorage.removeItem("bagCountBagPage");
           localStorage.removeItem("bagProductsBagPage")
         }

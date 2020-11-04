@@ -103,6 +103,8 @@ class VerifyOtp extends React.Component {
           this.context.updateBagCount(0);
           this.context.updateBag(this.state.updateBag);
           localStorage.removeItem("requestOrder");
+          localStorage.removeItem("bagCountBagPage");
+          localStorage.removeItem("bagProductsBagPage")
         }
         catch (e) {
           alert(e)
