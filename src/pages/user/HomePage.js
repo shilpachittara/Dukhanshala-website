@@ -95,7 +95,7 @@ class HomePage extends Component {
           backgroundColor:"white", overflowX:"hidden", margin: "0 auto",}}>
           {/* 1st section */}
           <div className="row">
-              <div className="col-md-6 col-12" style={{fontFamily:"Poppins-Light"}}>
+              <div className="col-md-6 col-12" style={{fontFamily:"Montserrat"}}>
                 <h5 className="mt-4" style={{color:"#3BB3A6"}}>DUKAANSHALA FOR EVERY BUSINESS</h5>
                 <br></br>
              <h1><strong>Digital India ka Digital <span style={{color:"#3BB3A6"}}>Store Bahi Khata</span> App</strong></h1>
@@ -111,7 +111,7 @@ class HomePage extends Component {
 
           {/* 2nd section */}
           <div className="mt-5" style={{ textAlign:'center'}} id="ourFeatures">
-            <h2 className="title" style={{fontSize:"45px", fontFamily:"Poppins-Medium"}}>Features</h2>
+            <h2 className="title" style={{fontSize:"45px", fontFamily:'Montserrat',fontWeight:'bold'}}>Features</h2>
           </div>
           <div className="row mt-2">
             <div className="col-md-6 col-12" style={{textAlign:"center"}}>
@@ -119,8 +119,8 @@ class HomePage extends Component {
                 return (
                   <div className="button_div mt-3 p-2" key={index} style = { this.state.selectedIndex === data.id ? 
                   {backgroundColor:'#3BB3A6', color:"white", border:"1px solid grey", borderRadius:"7px",
-                  textAlign:"center",fontFamily:"Poppins-Medium"}:{backgroundColor:'white', color:"black", border:"1px solid grey", borderRadius:"7px",
-                   textAlign:"center", fontFamily:"Poppins-Medium"}} onClick={()=>this.renderThis(data.icon,data.header,data.subHeader,data.id)}>
+                  textAlign:"center",fontFamily:'Montserrat',fontWeight:'bold'}:{backgroundColor:'white', color:"black", border:"1px solid grey", borderRadius:"7px",
+                   textAlign:"center", fontFamily:'Montserrat',fontWeight:'bold'}} onClick={()=>this.renderThis(data.icon,data.header,data.subHeader,data.id)}>
                     <img src={data.icon} alt="multilanguagesupport" style={{width:'8%', height:'8%'}}></img>
                       <button className="active pl-2" onClick={()=>this.renderThis(data.icon,data.header,data.subHeader,data.id)}
                       style={ this.state.selectedIndex === data.id ? { color: "white", textAlign:'center', border:"none", borderColor:'#3BB3A6',background:"none"}: 
@@ -141,8 +141,8 @@ class HomePage extends Component {
                   <img className="card-img-top" src={data.icon} alt="multilanguagesupport" 
                   style={{width:'60px', height:'60px', marginTop:'30px', marginLeft:'30px'}}></img>
                       <div className="card-body">
-                        <h5 className="card-title" style={{fontSize:"20px", fontFamily:"Poppins-Medium"}}>{data.header}</h5>
-                        <p className="card-text" style={{fontSize:"15px", fontFamily:"Poppins-Light"}}>{data.subHdr}</p>
+                        <h5 className="card-title" style={{fontSize:"20px", fontFamily:'Montserrat',fontWeight:'bold'}}>{data.header}</h5>
+                        <p className="card-text" style={{fontSize:"15px", fontFamily:"Montserrat"}}>{data.subHdr}</p>
                         <a href="https://play.google.com/store/apps/details?id=com.dukaanshala.retailapp" className="btn" style={{backgroundColor:"#3BB3A6", color:"white"}}>Learn more...</a>
                       </div>
                   </div>
@@ -156,10 +156,10 @@ class HomePage extends Component {
           
           {/* 3rd section */}
           <div style={{ textAlign: 'center', marginTop: '30px'}}>
-            <h5 style={{color:"#3BB3A6", fontFamily:"Poppins-Light"}}>
+            <h5 style={{color:"#3BB3A6", fontFamily:"Montserrat"}}>
               SERVING VARIOUS BUSINESS TYPES
              </h5>
-            <h2 className="title" style={{ fontSize: "40px",  fontFamily:"Poppins-Light" }}><strong>
+            <h2 className="title" style={{ fontSize: "40px",  fontFamily:"Montserrat" }}><strong>
             An application for wide range of stores/shops</strong></h2>
           </div>
           <div className="row" style={{ marginTop: '50px', textAlign:"center", paddingBottom: '60px'}}>
@@ -171,23 +171,23 @@ class HomePage extends Component {
                       <div className="sub-title" style={{float: 'right', width:"40%", fontSize:"14px", fontWeight:"bold", 
                       padding:"5px", borderRadius:"5px", zIndex:"1000",
                       position:"absolute", marginTop:"-40px", marginLeft:"3px",
-                      backgroundColor:"#3BB3A6", color:"white", fontFamily:"Poppins-Light"}}>{data.text}</div>
+                      backgroundColor:"#3BB3A6", color:"white", fontFamily:"Montserrat"}}>{data.text}</div>
                     </div>
                   )
                 })
             }
           </div>
           {/* 4th section */}
-          <div style={{ textAlign: 'center'}}>
-            <h5 style={{color:"#3BB3A6", fontFamily:"Poppins-Light"}}>BLOGS AND CASE STUDIES</h5>
-            <h2 className="title" style={{ fontSize: "40px",fontFamily:"Poppins-Light" }}><strong>
+          <div style={{ textAlign: 'center',marginBottom:'60px'}}>
+            <h5 style={{color:"#3BB3A6", fontFamily:"Montserrat"}}>BLOGS AND CASE STUDIES</h5>
+            <h2 className="title" style={{ fontSize: "40px",fontFamily:"Montserrat" }}><strong>
             Our learning and Knowledge center</strong></h2>
           </div>
           <div className="row" style={{paddingBottom: '60px' }}>
               {this.state.caseStudyData.map((data, index) => 
               {
                 return(
-                  <div className="col-md-4" key={index} style={{fontFamily:"Poppins-Light"}}>
+                  <div className="col-md-4" key={index} style={{fontFamily:"Montserrat"}}>
                     <div className="card" style={{marginLeft:"20px", marginRight:"20px",
                   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', borderRadius:"0px"}}>
                       <img className="card-img-top" style={{padding:"10px 10px 10px 10px"}} src={data.image} alt="Card cap"></img>
