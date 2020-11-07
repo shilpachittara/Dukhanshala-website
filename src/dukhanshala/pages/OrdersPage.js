@@ -28,7 +28,9 @@ class OrdersPage extends Component {
       return(
         <div className="container">
           <Header />
+          <div className="m-q-min-height">
             <MyOrders/>
+            </div>
             <Footer/>
         </div>
       )

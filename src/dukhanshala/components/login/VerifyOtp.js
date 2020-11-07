@@ -5,6 +5,7 @@ import { AppContext } from 'Context/AppContext';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
+import firebaseConfig from '../../../configs/FirebaseConfig.js';
 import * as Auth from '../../../services/AuthService'
 import * as OrderService from '../../../services/BagpageServices'
 
@@ -40,7 +41,15 @@ class VerifyOtp extends React.Component {
     this.objectCreation = new ObjectCreation();
   }
   componentDidMount() {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    if(this.context.confirmResult === null){
+      this.setState({otpPage: true})
+    }
+    else{
     this.setState({ confirmResult: this.context.confirmResult });
+    }
     this.setState({ contact: window.localStorage.getItem('userMobile') });
     this.setState({ mobile: this.context.mobile });
     this.setState({ storeCode: this.context.storeCode });
@@ -141,6 +150,7 @@ class VerifyOtp extends React.Component {
   render() {
     const { redirect } = this.state
     const { orderPage } = this.state
+    const { otpPage } = this.state
 
     if (redirect)
       return (<Redirect to={{
@@ -149,6 +159,10 @@ class VerifyOtp extends React.Component {
     if (orderPage)
       return (<Redirect to={{
         pathname: `${this.context.storeCode}/orders`
+      }} />)
+    if (otpPage)
+      return (<Redirect to={{
+        pathname: `${this.context.storeCode}/otp`
       }} />)
     return (
       <div className="container-fluid m-q-height">

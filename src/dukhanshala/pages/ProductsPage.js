@@ -12,7 +12,7 @@ class ProductsPage extends Component {
       return(
         <div>
           <Header />
-          <section className="container CategoriesPage">
+          <section className="container CategoriesPage m-q-min-height">
           <h3 className="heading">{this.context.categoryName}</h3> 
             <h2 className="heading">Products</h2>          
               <Products/>

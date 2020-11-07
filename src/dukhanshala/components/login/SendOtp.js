@@ -12,7 +12,8 @@ class SendOtp extends React.Component {
     super();
     this.state = {
       contact: null,
-      confirmResult: null
+      confirmResult: null,
+      countryCode: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.submitOtp = this.submitOtp.bind(this);
@@ -29,6 +30,11 @@ class SendOtp extends React.Component {
         this.submitOtp();
       }
     });
+    this.getCountry();
+  }
+
+  getCountry(){
+
   }
   handleChange({ target }) {
     this.setState({

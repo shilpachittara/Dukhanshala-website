@@ -9,7 +9,9 @@ class OrderConfirmPage extends Component {
       return(
         <div className="container">
           <Header />
+          <div className="m-q-min-height">
             <OrderConfirmation/>
+            </div>
             <Footer />
         </div>
       )
