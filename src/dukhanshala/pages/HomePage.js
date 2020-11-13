@@ -275,7 +275,8 @@ class HomePage extends Component {
                     style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', padding: '0px', margin: 'auto' }}
                   >
 
-                     <div >
+                    {productData.isAdded ?
+                      <div >
                         <IncrementButton key={index} {...productData} />
                       </div> :
 
@@ -283,6 +284,8 @@ class HomePage extends Component {
                         Add
                       </button>
 
+
+                    }
 
                   </Grid>
 

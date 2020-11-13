@@ -7,7 +7,7 @@ class IncrementButton extends React.Component {
   constructor() {
     super();
     this.state = {
-      count: 1,
+      count: 0,
       bag: null,
       bagCount: null,
       product: {
@@ -51,7 +51,7 @@ class IncrementButton extends React.Component {
     catch (err) {
 
     }
-    if(localStorage.getItem("bagCountBagPage")!== null ){
+    if(localStorage.getItem("bagCountBagPage")!== null && this.context.bag === null){
       var bagCount=parseInt(localStorage.getItem("bagCountBagPage"))
       this.context.updateBagCount(bagCount)
     }
@@ -74,7 +74,8 @@ class IncrementButton extends React.Component {
         }
       }
     }
-    if (this.state.count <= 1) {
+    if (this.state.count <= 0) {
+      this.setState({count: 1});
       this.context.updateBagCount(this.context.bagCount + 1);
       localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
       this.addToBag();

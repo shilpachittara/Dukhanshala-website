@@ -51,9 +51,7 @@ class OrderDetails extends React.Component {
 
     setColor(order){
        var status = order.status;
-       console.log(status);
         if (status === "DECLINED" || status === "CANCELED") {
-            console.log("check");
             this.setState({color : "red" })
         }
         if (status === "DELIVERED") {

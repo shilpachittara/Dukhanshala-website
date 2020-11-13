@@ -63,14 +63,12 @@ class BagPage extends Component {
       localStorage.setItem("bagCountBagPage", this.context.bagCount)
 
     }
-    console.log("bag page count :" + localStorage.getItem("bagCountBagPage"));
     if (localStorage.getItem("bagCountBagPage") !== null) {
       bagCount = parseInt(localStorage.getItem("bagCountBagPage"))
       this.context.updateBagCount(bagCount)
     }
     else {
       this.context.updateBagCount(0)
-      console.log("else bagCount", this.context.bagCount);
     }
 
     if (this.context.bag.products.length > 0) {
