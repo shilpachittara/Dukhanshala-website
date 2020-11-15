@@ -26,6 +26,25 @@ class OrdersPage extends Component {
               pathname: `${this.context.storeCode}/otp`
           }} />)
       return(
+        <>
+        <Helmet
+          title="All Orders - Dukaanshala"
+          meta={[
+            { "name": "description", "content": "Place online orders and see the live menu for Home Delivery. Same day delivery | No minimum order" },
+            { "name": "keywords", "content": "Online Store Dukaan" },
+            /* link={[{ href: `${pageUrl}`, rel: "canonical" }]}
+            { "name": "twitter:card", "content": "summary_large_image" },
+            { "name": "twitter:site", "content": "@supplycovid" },
+            { "name": "twitter:creator", "content": "@supplycovid" },
+            { "name": "twitter_title", "content": "Take your store online with Dukaanshala, India ka apna Online store, Bahi Khata, Ledger Account Book & Digital Store App | Dukaanshala" },
+            { "name": "twitter_description", "content": "Take your store online with Dukaanshala, India ka apna Online store, Bahi Khata, Ledger Account Book & Digital Store App | Dukaanshala" },
+            */{ property: "og:type", content: "product" },
+            { property: "og:title", content: "All Orders - Dukaanshala" },
+            { property: "og:description", content: "Take your store online with Dukaanshala, India ka apna Online store, Bahi Khata, Ledger Account Book & Digital Store App | Dukaanshala" },
+            { property: "og:url", content: "https://www.dukaanshala.com" },
+            { property: "og:image", content: "https://www.dukaanshala.com/logo2.png" }
+          ]}
+          />
         <div className="container">
           <Header />
           <div className="m-q-min-height">
@@ -33,6 +52,7 @@ class OrdersPage extends Component {
             </div>
             <Footer/>
         </div>
+        </>
       )
     }
   }

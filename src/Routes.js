@@ -137,11 +137,9 @@ class Routes extends Component {
             <Switch>
               <Route exact path="/:store" component={HomePage}/>
 
-              <Route exact path="/:store:store/categories" component={CategoryPage}/>
+              <Route exact path="/:store/categories" component={CategoryPage}/>
               <Route exact path="/:store/products/:category" component={ProductsPage}/>
-              <Route exact path="/:store/grocery" component={ProductsPage}/>
               <Route  path="/:store/product/detail/:product" component={ProductDetailPage}/>
-
               <Route exact path="/:store/bag" component={BagPage}/>
               <Route exact path="/:store/otp" component={SendOtpPage}/>
               <Route exact path="/:store/:otp/verify" component={VerifyOtpPage}/>
