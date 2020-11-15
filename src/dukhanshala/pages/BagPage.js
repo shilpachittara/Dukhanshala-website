@@ -39,7 +39,7 @@ class BagPage extends Component {
   }
 
   componentDidMount() {
-    // this.setState({ contact: window.localStorage.getItem('userMobile') });
+    // this.setState({ contact: localStorage.getItem('userMobile') });
     // this.setState({ storeCode: this.context.storeCode });
     // this.setState({ bag: this.context.bag });
     // this.setState({ totalItem: this.context.bagCount });
@@ -87,7 +87,7 @@ class BagPage extends Component {
 
       bag = this.context.bag
     }
-    this.setState({ contact: window.localStorage.getItem('userMobile') });
+    this.setState({ contact: localStorage.getItem('userMobile') });
     this.setState({ storeCode: storeCode });
     this.setState({ bag: bag });
     this.setState({ totalItem: bagCount });
@@ -233,7 +233,7 @@ class BagPage extends Component {
 
 
   submit = async () => {
-    const userVerified = window.localStorage.getItem('userMobile')
+    const userVerified = localStorage.getItem('userMobile')
 
 
     if (this.validator.validateAddress(this.state)) {

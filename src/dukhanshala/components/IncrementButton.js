@@ -34,7 +34,7 @@ class IncrementButton extends React.Component {
       localStorage.setItem('storeCode', this.context.storeCode)
     }
     let requestUrl = {}
-    requestUrl.storeCode = this.context.storeCode === null ? window.localStorage.getItem('storeCode') : this.context.storeCode
+    requestUrl.storeCode = this.context.storeCode === null ? localStorage.getItem('storeCode') : this.context.storeCode
     requestUrl.prodId = this.props.productId
 
     let response = await ProductdetailServices.getProductDetail(requestUrl)

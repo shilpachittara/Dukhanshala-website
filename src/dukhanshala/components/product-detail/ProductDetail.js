@@ -71,8 +71,8 @@ class ProductDetail extends React.Component {
             localStorage.setItem('prodId', this.context.productId)
         }
         let requestUrl = {}
-        requestUrl.storeCode = this.context.storeCode === null ? window.localStorage.getItem('storeCode') : this.context.storeCode
-        requestUrl.prodId = this.context.productId === null ? window.localStorage.getItem('prodId') : this.context.productId
+        requestUrl.storeCode = this.context.storeCode === null ? localStorage.getItem('storeCode') : this.context.storeCode
+        requestUrl.prodId = this.context.productId === null ? localStorage.getItem('prodId') : this.context.productId
 
         let response = await ProductdetailServices.getProductDetail(requestUrl)
         try {

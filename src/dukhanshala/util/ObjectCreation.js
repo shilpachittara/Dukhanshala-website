@@ -9,7 +9,7 @@ class ObjectCreation {
             deliveryFee: null,
             grandTotal: null,
             customerName: null,
-            customerMobile: window.localStorage.getItem('userMobile'),
+            customerMobile: localStorage.getItem('userMobile'),
             pincode: null,
             address: null,
             city: null,
