@@ -94,7 +94,7 @@ class Checkout extends React.Component {
                     rejectUnauthorized: false,
                     
                 });
-                Axios.post('http://35.240.173.248:8000/web/order', request, { httpsAgent: agent })
+                Axios.post('https://api.dukaanshala.com/web/order', request, { httpsAgent: agent })
                     .then(res => {
                        
                         this.setState({ redirect: true });

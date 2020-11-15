@@ -8,6 +8,7 @@ import Validator from 'dukhanshala/util/Validator';
 import ObjectCreation from 'dukhanshala/util/ObjectCreation';
 import * as BagpageServices from '../../services/BagpageServices'
 import TextField from '@material-ui/core/TextField';
+import { Helmet } from 'react-helmet';
 
 
 class BagPage extends Component {

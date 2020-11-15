@@ -6,6 +6,7 @@ import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
 import * as ProductServices from "../../services/ProductServices"
+import { Helmet } from 'react-helmet';
 
 class ProductDetailPage extends Component {
 

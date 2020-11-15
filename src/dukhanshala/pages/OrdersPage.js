@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
+import { Helmet } from 'react-helmet';
 
 
 class OrdersPage extends Component {

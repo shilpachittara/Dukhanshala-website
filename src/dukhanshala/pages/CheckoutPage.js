@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Checkout from 'dukhanshala/components/checkout/Checkout';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
+import { Helmet } from 'react-helmet';
 
 
 class OrdersPage extends Component {

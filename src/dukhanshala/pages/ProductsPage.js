@@ -4,6 +4,7 @@ import Products from '../components/products/Products';
 import { AppContext } from 'Context/AppContext';
 import Footer from 'dukhanshala/components/common/footer/Footer';
 import Header from 'dukhanshala/components/common/header/Header';
+import { Helmet } from 'react-helmet';
 
 
 class ProductsPage extends Component {

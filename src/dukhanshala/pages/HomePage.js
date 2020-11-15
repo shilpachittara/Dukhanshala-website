@@ -6,6 +6,7 @@ import IncrementButton from '../components/IncrementButton'
 import CompanyInfo from 'dukhanshala/components/companyInfo/CompanyInfo';
 import * as HomepageServices from '../../services/HomepageServices'
 import { Card, Grid, Typography } from '@material-ui/core';
+import { Helmet } from 'react-helmet';
 
 
 class HomePage extends Component {
