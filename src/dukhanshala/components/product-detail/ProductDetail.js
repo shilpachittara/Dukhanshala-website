@@ -33,14 +33,14 @@ class ProductDetail extends React.Component {
         if (this.context.bag.products[0]) {
             this.setState({ bag: this.context.bag });
         }
-        if (!this.context.bag.products[0] && localStorage.getItem("bagProductsBagPage") !== null) {
-            bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
+        if (!this.context.bag.products[0] && window.localStorage.getItem("bagProductsBagPage") !== null) {
+            bag = JSON.parse(window.localStorage.getItem("bagProductsBagPage"));
             this.context.updateBag(bag)
             this.setState({ bag: bag });
         }
         var productId = null;
-        if(localStorage.getItem('prodId') !== null){
-         productId =  parseInt(localStorage.getItem('prodId'));
+        if(window.localStorage.getItem('prodId') !== null){
+         productId =  parseInt(window.localStorage.getItem('prodId'));
         }
         if(bag){
             var bagLength = bag.products.length;
@@ -67,12 +67,12 @@ class ProductDetail extends React.Component {
 
     getProductDetail = async () => {
         if (this.context.storeCode !== null && this.context.productId !== null) {
-            localStorage.setItem('storeCode', this.context.storeCode)
-            localStorage.setItem('prodId', this.context.productId)
+            window.localStorage.setItem('storeCode', this.context.storeCode)
+            window.localStorage.setItem('prodId', this.context.productId)
         }
         let requestUrl = {}
-        requestUrl.storeCode = this.context.storeCode === null ? localStorage.getItem('storeCode') : this.context.storeCode
-        requestUrl.prodId = this.context.productId === null ? localStorage.getItem('prodId') : this.context.productId
+        requestUrl.storeCode = this.context.storeCode === null ? window.localStorage.getItem('storeCode') : this.context.storeCode
+        requestUrl.prodId = this.context.productId === null ? window.localStorage.getItem('prodId') : this.context.productId
 
         let response = await ProductdetailServices.getProductDetail(requestUrl)
         try {
@@ -100,7 +100,7 @@ class ProductDetail extends React.Component {
         this.setState({ product: prod });
         this.setState({ count: count });
         this.context.updateBagCount(this.context.bagCount + 1);
-        localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
+        window.localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
         this.addToBag();
     }
 
@@ -124,7 +124,7 @@ class ProductDetail extends React.Component {
         var updatedBag = { products: [], address: {} }
         updatedBag.products = products;
         this.context.updateBag(updatedBag);
-        localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+        window.localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     }
 
     subProduct = (event) => {
@@ -136,7 +136,7 @@ class ProductDetail extends React.Component {
             this.setState({ count: count });
             this.context.updateBagCount(this.context.bagCount - 1);
             this.subFromBag();
-            localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
+            window.localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
         }
     }
 
@@ -159,7 +159,7 @@ class ProductDetail extends React.Component {
         var updatedBag = { products: [], address: {} }
         updatedBag.products = products;
         this.context.updateBag(updatedBag);
-        localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+        window.localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     }
 
     back = (event) => {

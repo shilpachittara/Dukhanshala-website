@@ -22,6 +22,10 @@ class NewRoutes extends Component {
               <Route exact path="/TermsCondition" component={TermsCondition}/>
               <Route exact path="/userguideen" component={UserGuide}/>
               <Route exact path="/userguidehi" component={UserGuideHindi}/>
+              <Route exact path="/user/privacyPolicy" component={PrivacyPolicy}/>
+              <Route exact path="/user/TermsCondition" component={TermsCondition}/>
+              <Route exact path="/user/guideen" component={UserGuide}/>
+              <Route exact path="/user/guidehi" component={UserGuideHindi}/>
             </Switch>
           </div>
         </Router>

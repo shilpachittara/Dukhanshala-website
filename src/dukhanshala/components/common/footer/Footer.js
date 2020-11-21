@@ -109,8 +109,8 @@ class Footer extends React.Component {
 
             }
 
-            if(localStorage.getItem("bagCountBagPage") !== null && this.context.bagCount === 0){
-                var bagCount=parseInt(localStorage.getItem("bagCountBagPage"))
+            if(window.localStorage.getItem("bagCountBagPage") !== null && this.context.bagCount === 0){
+                var bagCount=parseInt(window.localStorage.getItem("bagCountBagPage"))
                 this.context.updateBagCount(bagCount)
               }
         }

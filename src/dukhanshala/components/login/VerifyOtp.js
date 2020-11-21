@@ -50,7 +50,7 @@ class VerifyOtp extends React.Component {
     else{
     this.setState({ confirmResult: this.context.confirmResult });
     }
-    this.setState({ contact: localStorage.getItem('userMobile') });
+    this.setState({ contact: window.localStorage.getItem('userMobile') });
     this.setState({ mobile: this.context.mobile });
     this.setState({ storeCode: this.context.storeCode });
     this.setState({ deliveryCharge: this.context.deliveryCharge });
@@ -99,11 +99,11 @@ class VerifyOtp extends React.Component {
   loginDetail = async () => {
     await Auth.login(this.context.mobile)
     try {
-      localStorage.setItem('userMobile', this.context.mobile)
+      window.localStorage.setItem('userMobile', this.context.mobile)
 
-      let request = JSON.parse(localStorage.getItem('requestOrder'))
+      let request = JSON.parse(window.localStorage.getItem('requestOrder'))
       if (request !== null) {
-        request.customerMobile = localStorage.getItem('userMobile')
+        request.customerMobile = window.localStorage.getItem('userMobile')
 
         //order  api called
         await OrderService.orderProduct(request)
@@ -111,9 +111,9 @@ class VerifyOtp extends React.Component {
           this.setState({ redirect: true });
           this.context.updateBagCount(0);
           this.context.updateBag(this.state.updateBag);
-          localStorage.removeItem("requestOrder");
-          localStorage.removeItem("bagCountBagPage");
-          localStorage.removeItem("bagProductsBagPage")
+          window.localStorage.removeItem("requestOrder");
+          window.localStorage.removeItem("bagCountBagPage");
+          window.localStorage.removeItem("bagProductsBagPage")
         }
         catch (e) {
           alert(e)

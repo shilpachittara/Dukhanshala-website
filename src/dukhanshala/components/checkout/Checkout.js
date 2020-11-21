@@ -36,7 +36,7 @@ class Checkout extends React.Component {
         this.objectCreation = new ObjectCreation();
     }
     componentDidMount() {
-        this.setState({ contact: localStorage.getItem('userMobile')});
+        this.setState({ contact: window.localStorage.getItem('userMobile')});
         this.setState({ storeCode:this.context.storeCode });
         this.setState({ deliveryCharge: this.context.deliveryCharge });
         this.setState({ totalItem: this.context.bagCount });
@@ -74,7 +74,7 @@ class Checkout extends React.Component {
 
     
     submit() {
-        const userVerified = localStorage.getItem('userMobile')
+        const userVerified = window.localStorage.getItem('userMobile')
 
 
         if (this.validator.validateAddress(this.state)) {

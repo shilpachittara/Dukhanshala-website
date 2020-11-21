@@ -31,10 +31,10 @@ class IncrementButton extends React.Component {
 
   getProductDetail = async () => {
     if (this.context.storeCode !== null && this.context.productId !== null) {
-      localStorage.setItem('storeCode', this.context.storeCode)
+      window.localStorage.setItem('storeCode', this.context.storeCode)
     }
     let requestUrl = {}
-    requestUrl.storeCode = this.context.storeCode === null ? localStorage.getItem('storeCode') : this.context.storeCode
+    requestUrl.storeCode = this.context.storeCode === null ? window.localStorage.getItem('storeCode') : this.context.storeCode
     requestUrl.prodId = this.props.productId
 
     let response = await ProductdetailServices.getProductDetail(requestUrl)
@@ -51,14 +51,14 @@ class IncrementButton extends React.Component {
     catch (err) {
 
     }
-    if(localStorage.getItem("bagCountBagPage")!== null && this.context.bag === null){
-      var bagCount=parseInt(localStorage.getItem("bagCountBagPage"))
+    if(window.localStorage.getItem("bagCountBagPage")!== null && this.context.bag === null){
+      var bagCount=parseInt(window.localStorage.getItem("bagCountBagPage"))
       this.context.updateBagCount(bagCount)
     }
     
-    if (localStorage.getItem("bagProductsBagPage") !== null) {
+    if (window.localStorage.getItem("bagProductsBagPage") !== null) {
 
-      var bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
+      var bag = JSON.parse(window.localStorage.getItem("bagProductsBagPage"));
       this.context.updateBag(bag)
 
     }
@@ -77,7 +77,7 @@ class IncrementButton extends React.Component {
     if (this.state.count <= 0) {
       this.setState({count: 1});
       this.context.updateBagCount(this.context.bagCount + 1);
-      localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
+      window.localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
       this.addToBag();
     }
 
@@ -92,7 +92,7 @@ class IncrementButton extends React.Component {
     this.setState({ product: prod });
     this.setState({ count: count });
     this.context.updateBagCount(this.context.bagCount + 1);
-    localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
+    window.localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
     this.addToBag();
   }
 
@@ -116,7 +116,7 @@ class IncrementButton extends React.Component {
     var updatedBag = { products: [], address: {} }
     updatedBag.products = products;
     this.context.updateBag(updatedBag);
-    localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+    window.localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     //this.setCookie();
     
   }
@@ -129,7 +129,7 @@ class IncrementButton extends React.Component {
       this.setState({ product: prod });
       this.setState({ count: count });
       this.context.updateBagCount(this.context.bagCount - 1);
-      localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
+      window.localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
       this.subFromBag();
     }
   }
@@ -153,12 +153,12 @@ class IncrementButton extends React.Component {
     var updatedBag = { products: [], address: {} }
     updatedBag.products = products;
     this.context.updateBag(updatedBag);
-    localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+    window.localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
   }
 
   setCookie = () => {
-    localStorage.setItem("bagCountBagPage", this.context.bagCount)
-    localStorage.setItem("bagProductsBagPage", JSON.stringify(this.context.bag))
+    window.localStorage.setItem("bagCountBagPage", this.context.bagCount)
+    window.localStorage.setItem("bagProductsBagPage", JSON.stringify(this.context.bag))
   }
 
   render() {

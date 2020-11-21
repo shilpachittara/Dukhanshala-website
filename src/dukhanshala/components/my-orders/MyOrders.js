@@ -35,7 +35,7 @@ class MyOrders extends React.Component {
     }
 
     getOrdersByContactNumber = async () => {
-        let mobileNo = localStorage.getItem('userMobile')
+        let mobileNo = window.localStorage.getItem('userMobile')
         let response = await MyorderServices.getOrderList(mobileNo)
         try {
             if (response && response.data && response.data.orderDetails) {

@@ -30,10 +30,10 @@ class OrderDetails extends React.Component {
     }
     getOrdersByContactNumber = async() => {
         if(this.context.orderId!==null){
-            localStorage.setItem('orderId',this.context.orderId)
+            window.localStorage.setItem('orderId',this.context.orderId)
         }
 
-        let response = await MyorderServices.getOrderDetail(this.context.orderId === null? localStorage.getItem('orderId'):this.context.orderId)
+        let response = await MyorderServices.getOrderDetail(this.context.orderId === null? window.localStorage.getItem('orderId'):this.context.orderId)
         try {
             if (response && response.data) {
                 this.setState({ order: response.data });

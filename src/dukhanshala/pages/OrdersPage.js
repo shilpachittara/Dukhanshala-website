@@ -15,7 +15,7 @@ class OrdersPage extends Component {
     }
     
     componentDidMount(){
-      if(localStorage.getItem('userMobile') === null){
+      if(window.localStorage.getItem('userMobile') === null){
         this.setState({redirect: true})
       }
     }

@@ -39,7 +39,7 @@ class BagPage extends Component {
   }
 
   componentDidMount() {
-    // this.setState({ contact: localStorage.getItem('userMobile') });
+    // this.setState({ contact: window.localStorage.getItem('userMobile') });
     // this.setState({ storeCode: this.context.storeCode });
     // this.setState({ bag: this.context.bag });
     // this.setState({ totalItem: this.context.bagCount });
@@ -54,42 +54,26 @@ class BagPage extends Component {
 
   demoFunction = () => {
     var bagCount = this.context.bagCount;
-    var bag;
     if (this.context.storeCode !== null) {
-      localStorage.setItem("storeCodeBagPage", this.context.storeCode)
+      window.localStorage.setItem("storeCodeBagPage", this.context.storeCode)
     }
-    var storeCode = localStorage.getItem("storeCodeBagPage");
+    var storeCode = window.localStorage.getItem("storeCodeBagPage");
 
     if (this.context.bagCount !== 0) {
-      localStorage.setItem("bagCountBagPage", this.context.bagCount)
+      window.localStorage.setItem("bagCountBagPage", this.context.bagCount)
 
     }
-    if (localStorage.getItem("bagCountBagPage") !== null) {
-      bagCount = parseInt(localStorage.getItem("bagCountBagPage"))
+    if (window.localStorage.getItem("bagCountBagPage") !== null) {
+      bagCount = parseInt(window.localStorage.getItem("bagCountBagPage"))
       this.context.updateBagCount(bagCount)
     }
     else {
       this.context.updateBagCount(0)
     }
 
-    if (this.context.bag.products.length > 0) {
-
-      localStorage.setItem("bagProductsBagPage", JSON.stringify(this.context.bag))
-    }
-
-    if (localStorage.getItem("bagProductsBagPage") !== null) {
-
-      bag = JSON.parse(localStorage.getItem("bagProductsBagPage"));
-      this.context.updateBag(bag)
-
-    }
-    else {
-
-      bag = this.context.bag
-    }
-    this.setState({ contact: localStorage.getItem('userMobile') });
+   
+    this.setState({ contact: window.localStorage.getItem('userMobile') });
     this.setState({ storeCode: storeCode });
-    this.setState({ bag: bag });
     this.setState({ totalItem: bagCount });
   }
 
@@ -101,23 +85,41 @@ class BagPage extends Component {
     //temp var
     var minFreeDeliveryUpdated = 0;
     var deliveryChargeUpdated = 0;
+    var bag;
 
+
+    if (this.context.bag.products.length > 0) {
+
+      window.localStorage.setItem("bagProductsBagPage", JSON.stringify(this.context.bag))
+    }
+
+    if (window.localStorage.getItem("bagProductsBagPage") !== null) {
+
+      bag = JSON.parse(window.localStorage.getItem("bagProductsBagPage"));
+      this.context.updateBag(bag)
+
+    }
+    else {
+
+      bag = this.context.bag
+    }
+    this.setState({ bag: bag });
 
     if (this.context.minFreeDelivery !== 0) {
-      localStorage.setItem('minFreeDelivery', this.context.minFreeDelivery)
+      window.localStorage.setItem('minFreeDelivery', this.context.minFreeDelivery)
     }
-    if (parseInt(localStorage.getItem('minFreeDelivery')) !== null) {
-      minFreeDeliveryUpdated = parseInt(localStorage.getItem('minFreeDelivery'))
+    if (parseInt(window.localStorage.getItem('minFreeDelivery')) !== null) {
+      minFreeDeliveryUpdated = parseInt(window.localStorage.getItem('minFreeDelivery'))
 
     }
 
     var delivery = minFreeDeliveryUpdated;
-    var length = this.context.bag.products.length;
+    var length = bag.products.length;
 
     for (var i = 0; i < length; i++) {
-      if (this.context.bag.products[i]) {
+      if (bag.products[i]) {
 
-        totalOrder += this.context.bag.products[i].count * this.context.bag.products[i].sellingPrice;
+        totalOrder += bag.products[i].count * bag.products[i].sellingPrice;
 
       }
     }
@@ -127,11 +129,11 @@ class BagPage extends Component {
     }
     else {
       if (this.context.deliveryCharge !== 0) {
-        localStorage.setItem('deliveryCharge', this.context.deliveryCharge)
+        window.localStorage.setItem('deliveryCharge', this.context.deliveryCharge)
 
       }
-      if (parseInt(localStorage.getItem('deliveryCharge')) != null) {
-        deliveryChargeUpdated = parseInt(localStorage.getItem('deliveryCharge'))
+      if (parseInt(window.localStorage.getItem('deliveryCharge')) != null) {
+        deliveryChargeUpdated = parseInt(window.localStorage.getItem('deliveryCharge'))
 
       }
       delivery = deliveryChargeUpdated;
@@ -158,11 +160,11 @@ class BagPage extends Component {
   addProduct(productId) {
     var addBagCount = 0;
     if (this.context.bagCount !== 0) {
-      localStorage.setItem('addBagcount', this.context.bagCount)
-      addBagCount = parseInt(localStorage.getItem('addBagcount'))
+      window.localStorage.setItem('addBagcount', this.context.bagCount)
+      addBagCount = parseInt(window.localStorage.getItem('addBagcount'))
     }
     this.context.updateBagCount(addBagCount + 1);
-    localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
+    window.localStorage.setItem("bagCountBagPage", this.context.bagCount + 1);
 
     var products = this.context.bag.products;
     var found = false;
@@ -183,7 +185,7 @@ class BagPage extends Component {
     var updatedBag = { products: [], address: {} }
     updatedBag.products = products;
     this.context.updateBag(updatedBag);
-    localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+    window.localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
     this.totalCalculation();
   }
 
@@ -212,14 +214,14 @@ class BagPage extends Component {
     if (selectedCount !== 0) {
       var subBagCount = 0;
       if (this.context.bagCount !== 0) {
-        localStorage.setItem('subBagcount', this.context.bagCount)
-        subBagCount = parseInt(localStorage.getItem('subBagcount'))
+        window.localStorage.setItem('subBagcount', this.context.bagCount)
+        subBagCount = parseInt(window.localStorage.getItem('subBagcount'))
       }
       this.context.updateBagCount(subBagCount - 1);
 
-      localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
+      window.localStorage.setItem("bagCountBagPage", this.context.bagCount - 1);
       this.context.updateBag(updatedBag);
-      localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
+      window.localStorage.setItem("bagProductsBagPage", JSON.stringify(updatedBag))
 
       this.totalCalculation();
     }
@@ -233,7 +235,7 @@ class BagPage extends Component {
 
 
   submit = async () => {
-    const userVerified = localStorage.getItem('userMobile')
+    const userVerified = window.localStorage.getItem('userMobile')
 
 
     if (this.validator.validateAddress(this.state)) {
@@ -256,8 +258,8 @@ class BagPage extends Component {
           this.setState({ redirect: true });
           this.context.updateBagCount(0);
           this.context.updateBag(updatedBag);
-          localStorage.removeItem("bagCountBagPage");
-          localStorage.removeItem("bagProductsBagPage")
+          window.localStorage.removeItem("bagCountBagPage");
+          window.localStorage.removeItem("bagProductsBagPage")
         }
         catch (err) {
 
