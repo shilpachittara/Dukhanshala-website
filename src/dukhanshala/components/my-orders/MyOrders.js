@@ -64,13 +64,13 @@ class MyOrders extends React.Component {
                                 </div>
                                 <div className="col-2 col-sm-1 px-0">
                                     <div className="thumbnail-container thumbnail-padding">
-                                        <img src={"https://dukaan-api.1kg.me/static/images/category-def.jpg"} alt="" className="thumbnail rounded-xl" />
+                                        <img src={"https://storage.googleapis.com/dukhaanshala_image/Category/Catalog%20image.png"} alt="" className="thumbnail rounded-xl" />
                                     </div>
                                 </div>
                                 <div className="col-10 col-sm-11 vertical-parent">
                                     <div className="w-100">
                                         <p className="mb-1" style={{ fontSize: "14px", lineHeight: "20px" }}>Order #{order.orderId} <span className="float-right" style={{ fontSize: "15px", lineHeight: "22px" }}>₹{order.total}</span></p>
-                                        <p className="mt-2 mb-0" style={{ fontSize: "12px", lineHeight: "12px" }}><span className="small-text">{order.quantity} item</span><span className="small-text float-right">{order.createdDate}</span></p>
+                                        <p className="mt-2 mb-0" style={{ fontSize: "12px", lineHeight: "12px" }}><span className="small-text">{order.orderQuantity} item</span><span className="small-text float-right">{order.createdDate}</span></p>
                                     </div>
                                 </div>
                             </div>
