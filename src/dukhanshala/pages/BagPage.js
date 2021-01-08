@@ -93,7 +93,7 @@ class BagPage extends Component {
       window.localStorage.setItem("bagProductsBagPage", JSON.stringify(this.context.bag))
     }
 
-    if (window.localStorage.getItem("bagProductsBagPage") !== null) {
+    if (window.localStorage.getItem("bagProductsBagPage")) {
 
       bag = JSON.parse(window.localStorage.getItem("bagProductsBagPage"));
       this.context.updateBag(bag)
@@ -108,7 +108,7 @@ class BagPage extends Component {
     if (this.context.minFreeDelivery !== 0) {
       window.localStorage.setItem('minFreeDelivery', this.context.minFreeDelivery)
     }
-    if (parseInt(window.localStorage.getItem('minFreeDelivery')) !== null) {
+    if (parseInt(window.localStorage.getItem('minFreeDelivery'))) {
       minFreeDeliveryUpdated = parseInt(window.localStorage.getItem('minFreeDelivery'))
 
     }
@@ -132,7 +132,7 @@ class BagPage extends Component {
         window.localStorage.setItem('deliveryCharge', this.context.deliveryCharge)
 
       }
-      if (parseInt(window.localStorage.getItem('deliveryCharge')) != null) {
+      if (parseInt(window.localStorage.getItem('deliveryCharge'))) {
         deliveryChargeUpdated = parseInt(window.localStorage.getItem('deliveryCharge'))
 
       }
